@@ -218,32 +218,9 @@ export default {
 
 <style scoped="scoped" lang="scss">
   .tem-rule-main {
-
     .tem-rule-tree {
       .el-input {
         margin-bottom: 10px;
-      }
-    }
-    .tem-rule-filter {
-      height: 40px;
-      margin-bottom: 20px;
-      &:after {
-        content: "";
-        font-size: 0;
-        display: block;
-        height: 0;
-        clear: both;
-        visibility: hidden;
-      }
-      .el-form {
-        float: left;
-        width: 400px;
-        .el-form-item {
-          margin-bottom: 0;
-        }
-      }
-      .tem-button {
-        float: right;
       }
     }
   }
