@@ -75,7 +75,7 @@
           label="操作"
           width="300"
         >
-          <template slot-scope="scope">
+          <template>
             <el-button>修改</el-button>
             <el-button>启用</el-button>
             <el-button>预览</el-button>
