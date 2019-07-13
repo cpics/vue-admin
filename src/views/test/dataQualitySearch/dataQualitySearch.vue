@@ -1,22 +1,24 @@
 <template>
   <div class="g-container">
-    <div class="tem-rule-main">
-      <div class="tem-rule-tree">
-        <el-input
-          v-model="filterText"
-          placeholder="数据目录"
-        />
-        <el-tree
-          ref="tree"
-          class="filter-tree"
-          :data="data"
-          :props="defaultProps"
-          default-expand-all
-          :filter-node-method="filterNode"
-        />
+    <div class="double-columns">
+      <div class="column-left">
+        <div class="border-box tem-rule-tree">
+          <el-input
+            v-model="filterText"
+            placeholder="数据目录"
+          />
+          <el-tree
+            ref="tree"
+            class="filter-tree"
+            :data="data"
+            :props="defaultProps"
+            default-expand-all
+            :filter-node-method="filterNode"
+          />
+        </div>
       </div>
-      <div class="tem-rule-content">
-        <div>
+      <div class="column-right">
+        <div class="border-box">
           <div class="tem-rule-filter">
             <el-form :model="form">
               <el-form-item label="规则模板" :label-width="formLabelWidth">
@@ -67,9 +69,11 @@
             </el-table-column>
           </el-table>
         </div>
-        <div class="tem-rule-chart">
+        <div class="border-box tem-rule-chart">
           <div class="tem-rule-tit">数据中心整体质量情况</div>
-          <div class="tem-chart" />
+          <div class="tem-chart">
+            <div ref="temChart" style="width:90%;height:90%" />
+          </div>
         </div>
       </div>
     </div>
@@ -98,6 +102,8 @@
 </template>
 
 <script>
+import echarts from 'echarts'
+require('echarts/theme/macarons') // echarts theme
 export default {
 
   data() {
@@ -105,6 +111,44 @@ export default {
       filterText: '',
       form: {
         template: ''
+      },
+      temChart: null,
+      temOptions: {
+        color: ['#3398DB'],
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: { // 坐标轴指示器，坐标轴触发有效
+            type: 'shadow' // 默认为直线，可选为：'line' | 'shadow'
+          }
+        },
+        grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '3%',
+          containLabel: true
+        },
+        xAxis: [
+          {
+            type: 'category',
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            axisTick: {
+              alignWithLabel: true
+            }
+          }
+        ],
+        yAxis: [
+          {
+            type: 'value'
+          }
+        ],
+        series: [
+          {
+            name: '直接访问',
+            type: 'bar',
+            barWidth: '60%',
+            data: [10, 52, 200, 334, 390, 330, 220]
+          }
+        ]
       },
       formLabelWidth: '120px',
       tableSearchData: [{
@@ -192,45 +236,34 @@ export default {
       this.$refs.tree.filter(val)
     }
   },
+  mounted() {
+    this.initTemChart()
+  },
 
   methods: {
     filterNode(value, data) {
       if (!value) return true
       return data.label.indexOf(value) !== -1
+    },
+    initTemChart() {
+      this.temChart = echarts.init(this.$refs.temChart)
+      this.temChart.setOption(this.temOptions)
     }
   }
 }
 </script>
 
 <style scoped="scoped" lang="scss">
-  .tem-rule-main{
-    &:after{
-      content: "";
-      font-size: 0;
-      display: block;
-      height: 0;
-      clear: both;
-      visibility: hidden;
-    }
-    .tem-rule-tree{
-      width: 300px;
-      float: left;
-      padding: 20px;
-      min-height: 380px;
-      border: 1px solid #dcdfe6;
-      border-radius: 5px;
-      .el-input{
+  .tem-rule-main {
+    .tem-rule-tree {
+      .el-input {
         margin-bottom: 10px;
       }
     }
-    .tem-rule-content{
-      margin-left: 340px;
-      padding: 20px 0;
-    }
-    .tem-rule-filter{
+    .tem-rule-filter {
       height: 40px;
       margin-bottom: 20px;
-      &:after{
+      &:after {
         content: "";
         font-size: 0;
         display: block;
@@ -238,27 +271,29 @@ export default {
         clear: both;
         visibility: hidden;
       }
-      .el-form{
+      .el-form {
         float: left;
         width: 400px;
-        .el-form-item{
+        .el-form-item {
           margin-bottom: 0;
         }
       }
-      .tem-button{
+      .tem-button {
         float: right;
       }
     }
   }
-  .tem-rule-chart{
+
+  .tem-rule-chart {
     padding-top: 20px;
     font-size: 14px;
     text-align: center;
-    .tem-rule-tit{
+    .tem-rule-tit {
       padding-bottom: 10px;
     }
   }
-  .tem-chart{
+
+  .tem-chart {
     width: 80%;
     height: 300px;
     margin: 0 auto;

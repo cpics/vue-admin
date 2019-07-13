@@ -1,71 +1,75 @@
 <template>
   <div class="g-container">
-    <div class="tem-rule-main">
-      <div class="tem-rule-tree">
-        <el-input
-          v-model="filterText"
-          placeholder="数据目录"
-        />
-        <el-tree
-          ref="tree"
-          class="filter-tree"
-          :data="data"
-          :props="defaultProps"
-          default-expand-all
-          :filter-node-method="filterNode"
-        />
-      </div>
-      <div class="tem-rule-content">
-        <div class="tem-rule-filter">
-          <el-form :model="form">
-            <el-form-item label="规则模板" :label-width="formLabelWidth">
-              <el-select v-model="form.template" placeholder="请选择">
-                <el-option label="不符合身份证号规则" value="shanghai" />
-                <el-option label="不唯一" value="beijing" />
-              </el-select>
-            </el-form-item>
-          </el-form>
-          <div class="tem-button">
-            <el-button type="primary">查询</el-button>
-            <el-button type="success">添加</el-button>
-            <el-button type="danger">删除</el-button>
-          </div>
+    <div class="double-columns tem-rule-main">
+      <div class="column-left">
+        <div class="border-box tem-rule-tree">
+          <el-input
+            v-model="filterText"
+            placeholder="数据目录"
+          />
+          <el-tree
+            ref="tree"
+            class="filter-tree"
+            :data="data"
+            :props="defaultProps"
+            default-expand-all
+            :filter-node-method="filterNode"
+          />
         </div>
-        <el-table
-          ref="multipleTable"
-          :data="tableData"
-          tooltip-effect="dark"
-          style="width: 100%"
-          @selection-change="handleSelectionChange"
-        >
-          <el-table-column
-            type="selection"
-            width="55"
-          />
-          <el-table-column
-            prop="object"
-            label="检测对象"
-          />
-          <el-table-column
-            prop="field"
-            label="检测字段"
-          />
-          <el-table-column
-            prop="rule"
-            label="检测规则"
-          />
-          <el-table-column
-            fixed="right"
-            label="操作"
-            width="200"
+      </div>
+      <div class="column-right">
+        <div class="border-box">
+          <div class="tem-rule-filter">
+            <el-form :model="form">
+              <el-form-item label="规则模板" :label-width="formLabelWidth">
+                <el-select v-model="form.template" placeholder="请选择">
+                  <el-option label="不符合身份证号规则" value="shanghai" />
+                  <el-option label="不唯一" value="beijing" />
+                </el-select>
+              </el-form-item>
+            </el-form>
+            <div class="tem-button">
+              <el-button type="primary">查询</el-button>
+              <el-button type="success">添加</el-button>
+              <el-button type="danger">删除</el-button>
+            </div>
+          </div>
+          <el-table
+            ref="multipleTable"
+            :data="tableData"
+            tooltip-effect="dark"
+            style="width: 100%"
+            @selection-change="handleSelectionChange"
           >
-            <template>
-              <el-button type="text" size="small" @click="dialogFormVisible = true">修改</el-button>
-              <el-button type="text" size="small">调试</el-button>
-              <el-button type="text" size="small">显示设置</el-button>
-            </template>
-          </el-table-column>
-        </el-table>
+            <el-table-column
+              type="selection"
+              width="55"
+            />
+            <el-table-column
+              prop="object"
+              label="检测对象"
+            />
+            <el-table-column
+              prop="field"
+              label="检测字段"
+            />
+            <el-table-column
+              prop="rule"
+              label="检测规则"
+            />
+            <el-table-column
+              fixed="right"
+              label="操作"
+              width="200"
+            >
+              <template>
+                <el-button type="text" size="small" @click="dialogFormVisible = true">修改</el-button>
+                <el-button type="text" size="small">调试</el-button>
+                <el-button type="text" size="small">显示设置</el-button>
+              </template>
+            </el-table-column>
+          </el-table>
+        </div>
       </div>
     </div>
     <el-dialog title="编辑T_JZG检测规则" :visible.sync="dialogFormVisible">
@@ -213,54 +217,34 @@ export default {
 </script>
 
 <style scoped="scoped" lang="scss">
-.tem-rule-main{
-  &:after{
-    content: "";
-    font-size: 0;
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-  }
-  .tem-rule-tree{
-    width: 300px;
-    float: left;
-    padding: 20px;
-    min-height: 380px;
-    border: 1px solid #dcdfe6;
-    border-radius: 5px;
-    .el-input{
-      margin-bottom: 10px;
-    }
-  }
-  .tem-rule-content{
-    margin-left: 340px;
-    padding: 20px;
-    min-height: 380px;
-    border: 1px solid #dcdfe6;
-    border-radius: 5px;
-  }
-  .tem-rule-filter{
-    height: 40px;
-    margin-bottom: 20px;
-    &:after{
-      content: "";
-      font-size: 0;
-      display: block;
-      height: 0;
-      clear: both;
-      visibility: hidden;
-    }
-    .el-form{
-      float: left;
-      width: 400px;
-      .el-form-item{
-        margin-bottom: 0;
+  .tem-rule-main {
+
+    .tem-rule-tree {
+      .el-input {
+        margin-bottom: 10px;
       }
     }
-    .tem-button{
-      float: right;
+    .tem-rule-filter {
+      height: 40px;
+      margin-bottom: 20px;
+      &:after {
+        content: "";
+        font-size: 0;
+        display: block;
+        height: 0;
+        clear: both;
+        visibility: hidden;
+      }
+      .el-form {
+        float: left;
+        width: 400px;
+        .el-form-item {
+          margin-bottom: 0;
+        }
+      }
+      .tem-button {
+        float: right;
+      }
     }
   }
-}
 </style>
