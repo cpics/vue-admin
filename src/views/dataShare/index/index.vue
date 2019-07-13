@@ -5,13 +5,13 @@
       <el-col :span="12">
         <div class="grid-content bg-purple">
           <div class="sjfu-tj">
-            <div>数据服务统计</div>
+            <div class="common-title">数据服务统计</div>
             <div class="sjfu-chart e-e-chart">
               <div ref="fwChart" style="height:90%;width:90%;" />
             </div>
           </div>
           <div class="sjdy-tj">
-            <div>数据调用统计</div>
+            <div class="common-title">数据调用统计</div>
             <div class="sjdy-chart e-e-chart">
               <div ref="dyChart" style="height:90%;width:90%;" />
             </div>
@@ -21,7 +21,7 @@
       <el-col :span="12">
         <div class="grid-content bg-purple-light">
           <div class="fw-list">
-            <div>服务使用提醒</div>
+            <div class="common-title">服务使用提醒</div>
             <div class="table-list">
               <el-table
                 border
@@ -40,7 +40,7 @@
             </div>
           </div>
           <div class="aq-list">
-            <div>服务使用提醒</div>
+            <div class="common-title">服务使用提醒</div>
             <div class="aq-table">
               <el-table
                 border
@@ -191,4 +191,10 @@ export default {
 .e-e-chart {
     height: 300px;
 }
+  .common-h1-tit{
+    padding-bottom: 25px;
+  }
+  .table-list{
+    margin-bottom: 35px;
+  }
 </style>

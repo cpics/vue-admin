@@ -11,7 +11,7 @@ export default {
 </script>
 <style lang="scss">
   .g-container{
-    padding: 30px;
+    padding: 20px;
   }
   .el-dialog {
     .el-form {
@@ -40,6 +40,27 @@ export default {
         height: 0;
       }
     }
+    .double-columns {
+      .column-left {
+        width: 240px;
+      }
+      .column-right{
+        margin-left: 260px;
+        .el-textarea{
+          &.min-h140{
+            .el-textarea__inner{
+              min-height: 140px !important;
+            }
+          }
+        }
+      }
+      .form-item__label{
+        float: none;
+      }
+      .el-form{
+        padding-right: 0;
+      }
+    }
   }
   .double-columns {
     &:after {
@@ -61,7 +82,7 @@ export default {
       }
     }
     .column-right {
-      margin-left: 340px;
+      margin-left: 320px;
     }
     .more-button {
       margin-bottom: 20px;
@@ -83,9 +104,19 @@ export default {
       text-align: center;
     }
   }
+  .txt-c{
+    text-align: center;
+    padding-top: 20px;
+  }
   .common-title{
     font-size: 16px;
     padding-bottom: 20px;
+    .el-icon-plus,
+    .el-icon-minus{
+      color: #67c23a;
+      margin: 0 5px;
+      cursor: pointer;
+    }
   }
   .border-box{
     padding: 20px;
@@ -100,4 +131,30 @@ export default {
     margin: 0;
     padding: 10px 0;
   }
+  .el-pagination{
+    padding: 20px 0;
+  }
+  .tem-rule-filter {
+    height: 40px;
+    margin-bottom: 20px;
+    &:after {
+      content: "";
+      font-size: 0;
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+    .el-form {
+      float: left;
+      width: 400px;
+      .el-form-item {
+        margin-bottom: 0;
+      }
+    }
+    .tem-button {
+      float: right;
+    }
+  }
+
 </style>
