@@ -132,18 +132,25 @@ export default {
     padding: 10px 0;
 }
 .dashboard-data {
-    font-size: 0;
     padding: 20px 0;
     margin-left: -20px;
-    max-width: 1000px;
+    &:after{
+      content: "";
+      font-size: 0;
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
     .dashboard-col {
-        width: 300px;
+        width: 30%;
+        min-width: 280px;
         height: 160px;
         color: #fff;
         font-size: 18px;
         text-align: center;
         line-height: 160px;
-        display: inline-block;
+        float: left;
         margin: 0 0 20px 20px;
         word-break: keep-all;
         white-space: nowrap;
@@ -178,7 +185,8 @@ export default {
     padding: 20px 0;
     margin-left: -20px;
     .statistics-col {
-        width: 450px;
+        width: 46%;
+        min-width: 450px;
         color: #333;
         font-size: 16px;
         display: inline-block;
@@ -187,7 +195,7 @@ export default {
             padding: 0 0 10px;
         }
         .statistics-chart {
-            width: 450px;
+            width: 100%;
             height: 280px;
             margin-bottom: 15px;
         }
