@@ -1,45 +1,46 @@
 <template>
   <div class="g-container">
     <div>
-      <el-col :span="4">
-        <div class="grid-content">
-          <el-select
-            v-model="value"
-            placeholder="请选择"
-          >
-            <el-option
-              v-for="item in options"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            />
-          </el-select>
-        </div>
-      </el-col>
-      <el-col :span="12">
-        <div class="grid-content">
+      <el-row>
+        <el-col :span="4">
+          <div class="grid-content">
+            <el-select
+              v-model="value"
+              placeholder="请选择"
+            >
+              <el-option
+                v-for="item in options"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
+            </el-select>
+          </div>
+        </el-col>
+        <el-col :span="12">
+          <div class="grid-content">
 
-          <el-input v-model="input" placeholder="请输入内容" style="width:80%" />
-          <el-button>索引</el-button>
-        </div>
+            <el-input v-model="input" placeholder="请输入内容" style="width:80%" />
+            <el-button>索引</el-button>
+          </div>
 
-      </el-col>
-      <el-col :span="4">
-        <div class="grid-content">
-          <el-select
-            v-model="value2"
-            placeholder="操作"
-          >
-            <el-option
-              v-for="item in options2"
-              :key="item.value"
-              :label="item.label"
-              :value="item.value"
-            />
-          </el-select>
-        </div>
+        </el-col>
+        <el-col :span="4">
+          <div class="grid-content">
+            <el-select
+              v-model="value2"
+              placeholder="操作"
+            >
+              <el-option
+                v-for="item in options2"
+                :key="item.value"
+                :label="item.label"
+                :value="item.value"
+              />
+            </el-select>
+          </div>
 
-      </el-col>
+        </el-col>
       </el-row>
     </div>
     <div class="data-list">
