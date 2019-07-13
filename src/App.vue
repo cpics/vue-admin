@@ -41,4 +41,27 @@ export default {
       }
     }
   }
+  .remind-left{
+    .el-form-item__label{
+      float: none;
+    }
+    .el-form-item__content{
+      margin-left: 0 !important;
+    }
+  }
+  .el-form-item{
+    &.txt-c{
+      text-align: center;
+    }
+  }
+  .common-title{
+    font-size: 16px;
+    padding-bottom: 20px;
+  }
+  .common-box{
+    padding: 20px;
+    border-radius:5px;
+    border: 1px solid #dcdfe6;
+    margin-bottom: 20px;
+  }
 </style>
