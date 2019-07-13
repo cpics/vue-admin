@@ -164,8 +164,7 @@ export const constantRoutes = [
       },
       {
         path: 'dataQualitySearch',
-        component: () =>
-          import('@/views/test/dataQualitySearch/dataQualitySearch.vue'),
+        component: () => import('@/views/test/dataQualitySearch/dataQualitySearch.vue'),
         name: 'testDataQualitySearch',
         meta: {
           title: '数据质量查询'
@@ -174,8 +173,7 @@ export const constantRoutes = [
       },
       {
         path: 'dataQualityRemind',
-        component: () =>
-          import('@/views/test/dataQualityRemind/dataQualityRemind.vue'),
+        component: () => import('@/views/test/dataQualityRemind/dataQualityRemind.vue'),
         name: 'testDataQualityRemind',
         meta: {
           title: '数据质量提醒'
@@ -184,8 +182,7 @@ export const constantRoutes = [
       },
       {
         path: 'dataQualityFeedBack',
-        component: () =>
-          import('@/views/test/dataQualityFeedBack/dataQualityFeedBack.vue'),
+        component: () => import('@/views/test/dataQualityFeedBack/dataQualityFeedBack.vue'),
         name: 'testDataQualityFeedBack',
         meta: {
           title: '数据质量反馈'
@@ -194,36 +191,34 @@ export const constantRoutes = [
       },
       {
         path: 'dataQualityTask',
-        component: () =>
-          import('@/views/test/dataQualityTask/dataQualityTask.vue'),
+        component: () => import('@/views/test/dataQualityTask/dataQualityTask.vue'),
         name: 'dataQualityTask',
-        redirect: '/test/dataQualityTask/timing',
         meta: {
           title: '任务调度'
-        },
-        alwaysShow: true,
-        children: [
-          {
-            path: 'timing',
-            component: () =>
-              import('@/views/test/dataQualityTask/children/timing/timing.vue'),
-            name: 'timing',
+        }
+        // alwaysShow: true,
+        // children: [
+        //   {
+        //     path: 'timing',
+        //     component: () =>
+        //       import('@/views/test/dataQualityTask/children/timing/timing.vue'),
+        //     name: 'timing',
 
-            meta: {
-              title: '定时配置'
-            }
-          },
-          {
-            path: 'list',
-            component: () =>
-              import('@/views/test/dataQualityTask/children/list/list.vue'),
-            name: 'list',
+        //     meta: {
+        //       title: '定时配置'
+        //     }
+        //   },
+        //   {
+        //     path: 'list',
+        //     component: () =>
+        //       import('@/views/test/dataQualityTask/children/list/list.vue'),
+        //     name: 'list',
 
-            meta: {
-              title: '任务日志'
-            }
-          }
-        ]
+        //     meta: {
+        //       title: '任务日志'
+        //     }
+        //   }
+        // ]
       }
     ]
   },
