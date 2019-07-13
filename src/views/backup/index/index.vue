@@ -76,7 +76,6 @@
         </el-form>
 
         <el-table :data="tableData" fit highlight-current-row style="width: 100%">
-
           <el-table-column prop="tableName" label="数据表名" />
           <el-table-column prop="source" label="数据来源" />
           <el-table-column prop="date" label="备份日期" />

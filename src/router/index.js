@@ -108,42 +108,11 @@ export const constantRoutes = [
       },
       {
         path: 'journal',
-        alwaysShow: true,
         component: () => import('@/views/backup/journal/journal.vue'),
-        redirect: '/backup/journal/visit',
         name: 'backupJournal',
         meta: {
           title: '系统日志'
-        },
-        children: [
-          {
-            path: 'visit',
-            component: () =>
-              import('@/views/backup/journal/children/visit/visit.vue'),
-            name: 'backupJournalVistit',
-            meta: {
-              title: '模块访问统计'
-            }
-          },
-          {
-            path: 'pingtai',
-            component: () =>
-              import('@/views/backup/journal/children/pingtai/pingtai.vue'),
-            name: 'backupJournalPingtai',
-            meta: {
-              title: '平台访问日志'
-            }
-          },
-          {
-            path: 'ptcaozuo',
-            component: () =>
-              import('@/views/backup/journal/children/ptcaozuo/ptcaozuo.vue'),
-            name: 'backupJournalPtcaozuo',
-            meta: {
-              title: '平台操作日志'
-            }
-          }
-        ]
+        }
       },
       {
         path: 'search',
