@@ -1,9 +1,7 @@
 <template>
   <div>
-    <!-- <div>系统日志</div> -->
-    <router-view />
+    模块访问统计
   </div>
-
 </template>
 
 <script>

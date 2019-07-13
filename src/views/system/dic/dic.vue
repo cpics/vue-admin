@@ -1,9 +1,7 @@
 <template>
   <div>
-    <!-- <div>系统日志</div> -->
-    <router-view />
+    字典项配置管理
   </div>
-
 </template>
 
 <script>

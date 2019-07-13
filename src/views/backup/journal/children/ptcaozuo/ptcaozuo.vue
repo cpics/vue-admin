@@ -1,9 +1,7 @@
 <template>
   <div>
-    <!-- <div>系统日志</div> -->
-    <router-view />
+    平台操作管理
   </div>
-
 </template>
 
 <script>

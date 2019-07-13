@@ -7,10 +7,10 @@ Vue.use(Router)
 import Layout from '@/layout'
 
 /* Router Modules */
-import componentsRouter from './modules/components'
-import chartsRouter from './modules/charts'
-import tableRouter from './modules/table'
-import nestedRouter from './modules/nested'
+// import componentsRouter from './modules/components'
+// import chartsRouter from './modules/charts'
+// import tableRouter from './modules/table'
+// import nestedRouter from './modules/nested'
 
 /**
  * Note: sub-menu only appear when route children.length >= 1
@@ -61,16 +61,6 @@ export const constantRoutes = [
     hidden: true
   },
   {
-    path: '/404',
-    component: () => import('@/views/error-page/404'),
-    hidden: true
-  },
-  {
-    path: '/401',
-    component: () => import('@/views/error-page/401'),
-    hidden: true
-  },
-  {
     path: '/',
     component: Layout,
     redirect: '/dashboard',
@@ -118,12 +108,42 @@ export const constantRoutes = [
       },
       {
         path: 'journal',
+        alwaysShow: true,
         component: () => import('@/views/backup/journal/journal.vue'),
+        redirect: '/backup/journal/visit',
         name: 'backupJournal',
         meta: {
           title: '系统日志'
-          // if do not set roles, means: this page does not require permission
-        }
+        },
+        children: [
+          {
+            path: 'visit',
+            component: () =>
+              import('@/views/backup/journal/children/visit/visit.vue'),
+            name: 'backupJournalVistit',
+            meta: {
+              title: '模块访问统计'
+            }
+          },
+          {
+            path: 'pingtai',
+            component: () =>
+              import('@/views/backup/journal/children/pingtai/pingtai.vue'),
+            name: 'backupJournalPingtai',
+            meta: {
+              title: '平台访问日志'
+            }
+          },
+          {
+            path: 'ptcaozuo',
+            component: () =>
+              import('@/views/backup/journal/children/ptcaozuo/ptcaozuo.vue'),
+            name: 'backupJournalPtcaozuo',
+            meta: {
+              title: '平台操作日志'
+            }
+          }
+        ]
       },
       {
         path: 'search',
@@ -202,6 +222,39 @@ export const constantRoutes = [
           title: '数据质量反馈'
           // if do not set roles, means: this page does not require permission
         }
+      },
+      {
+        path: 'dataQualityTask',
+        component: () =>
+          import('@/views/test/dataQualityTask/dataQualityTask.vue'),
+        name: 'dataQualityTask',
+        redirect: '/test/dataQualityTask/timing',
+        meta: {
+          title: '任务调度'
+        },
+        alwaysShow: true,
+        children: [
+          {
+            path: 'timing',
+            component: () =>
+              import('@/views/test/dataQualityTask/children/timing/timing.vue'),
+            name: 'timing',
+
+            meta: {
+              title: '定时配置'
+            }
+          },
+          {
+            path: 'list',
+            component: () =>
+              import('@/views/test/dataQualityTask/children/list/list.vue'),
+            name: 'list',
+
+            meta: {
+              title: '任务日志'
+            }
+          }
+        ]
       }
     ]
   },
@@ -344,6 +397,51 @@ export const constantRoutes = [
         meta: {
           title: '数据对象管理'
           // if do not set roles, means: this page does not require permission
+        }
+      }
+    ]
+  },
+  {
+    path: '/system',
+    component: Layout,
+    redirect: '/system/index',
+    alwaysShow: true, // will always show the root menu
+    name: 'system',
+    meta: {
+      title: '系统管理',
+      icon: 'lock'
+    },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/system/index'),
+        name: 'systemIndex',
+        meta: {
+          title: '角色管理'
+        }
+      },
+      {
+        path: 'menu',
+        component: () => import('@/views/system/menu/menu.vue'),
+        name: 'codeMenu',
+        meta: {
+          title: '菜单管理'
+        }
+      },
+      {
+        path: 'jur',
+        component: () => import('@/views/system/jur/jur.vue'),
+        name: 'codeJur',
+        meta: {
+          title: '权限管理'
+        }
+      },
+      {
+        path: 'dic',
+        component: () => import('@/views/system/dic/dic.vue'),
+        name: 'codeDic',
+        meta: {
+          title: '字典项配置管理'
         }
       }
     ]

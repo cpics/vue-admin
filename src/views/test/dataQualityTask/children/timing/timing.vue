@@ -1,9 +1,5 @@
 <template>
-  <div>
-    <!-- <div>系统日志</div> -->
-    <router-view />
-  </div>
-
+  <div>定时配置</div>
 </template>
 
 <script>
