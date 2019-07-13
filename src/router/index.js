@@ -79,32 +79,7 @@ export const constantRoutes = [
         path: 'dashboard',
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
-        meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
-      }
-    ]
-  },
-  {
-    path: '/documentation',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/documentation/index'),
-        name: 'Documentation',
-        meta: { title: 'Documentation', icon: 'documentation', affix: true }
-      }
-    ]
-  },
-  {
-    path: '/guide',
-    component: Layout,
-    redirect: '/guide/index',
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/guide/index'),
-        name: 'Guide',
-        meta: { title: 'Guide', icon: 'guide', noCache: true }
+        meta: { title: '首页', icon: 'dashboard', affix: true }
       }
     ]
   },
@@ -119,6 +94,197 @@ export const constantRoutes = [
         component: () => import('@/views/profile/index'),
         name: 'Profile',
         meta: { title: 'Profile', icon: 'user', noCache: true }
+      }
+    ]
+  },
+  {
+    path: '/backup',
+    component: Layout,
+    redirect: '/backup/index',
+    alwaysShow: true, // will always show the root menu
+    name: 'backup',
+    meta: {
+      title: '数据备份处理',
+      icon: 'lock'
+    },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/backup/index'),
+        name: 'backupIndex',
+        meta: {
+          title: '数据备份'
+        }
+      },
+      {
+        path: 'journal',
+        component: () => import('@/views/backup/journal/journal.vue'),
+        name: 'backupJournal',
+        meta: {
+          title: '系统日志'
+          // if do not set roles, means: this page does not require permission
+        }
+      },
+      {
+        path: 'search',
+        component: () => import('@/views/backup/search/search.vue'),
+        name: 'backupSearch',
+        meta: {
+          title: '数据库查询'
+          // if do not set roles, means: this page does not require permission
+        }
+      }
+    ]
+  },
+  {
+    path: '/test',
+    component: Layout,
+    redirect: '/test/index',
+    alwaysShow: true, // will always show the root menu
+    name: 'test',
+    meta: {
+      title: '质量检测管理',
+      icon: 'lock'
+    },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/test/index'),
+        name: 'testIndex',
+        meta: {
+          title: '质量检测'
+        }
+      },
+      {
+        path: 'temList',
+        component: () => import('@/views/test/temList/temList.vue'),
+        name: 'testTemList',
+        meta: {
+          title: '质量检测模板'
+          // if do not set roles, means: this page does not require permission
+        }
+      },
+      {
+        path: 'temRule',
+        component: () => import('@/views/test/temRule/temRule.vue'),
+        name: 'testTemRule',
+        meta: {
+          title: '质量规则配置'
+          // if do not set roles, means: this page does not require permission
+        }
+      },
+      {
+        path: 'dataQualitySearch',
+        component: () =>
+          import('@/views/test/dataQualitySearch/dataQualitySearch.vue'),
+        name: 'testDataQualitySearch',
+        meta: {
+          title: '数据质量查询'
+          // if do not set roles, means: this page does not require permission
+        }
+      },
+      {
+        path: 'dataQualityRemind',
+        component: () =>
+          import('@/views/test/dataQualityRemind/dataQualityRemind.vue'),
+        name: 'testDataQualityRemind',
+        meta: {
+          title: '数据质量提醒'
+          // if do not set roles, means: this page does not require permission
+        }
+      },
+      {
+        path: 'dataQualityFeedBack',
+        component: () =>
+          import('@/views/test/dataQualityFeedBack/dataQualityFeedBack.vue'),
+        name: 'testDataQualityFeedBack',
+        meta: {
+          title: '数据质量反馈'
+          // if do not set roles, means: this page does not require permission
+        }
+      }
+    ]
+  },
+  {
+    path: '/dataShare',
+    component: Layout,
+    redirect: '/dataShare/index',
+    alwaysShow: true, // will always show the root menu
+    name: 'dataShare',
+    meta: {
+      title: '数据共享接口',
+      icon: 'lock'
+    },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/dataShare/index'),
+        name: 'dataShareIndex',
+        meta: {
+          title: '数据共享服务'
+        }
+      },
+      {
+        path: 'service',
+        component: () => import('@/views/dataShare/service/service.vue'),
+        name: 'dataShareService',
+        meta: {
+          title: '数据服务管理'
+        }
+      },
+      {
+        path: 'func',
+        component: () => import('@/views/dataShare/func/func.vue'),
+        name: 'dataSharefunc',
+        meta: {
+          title: '数据服务运行'
+        }
+      },
+      {
+        path: 'monitor',
+        component: () => import('@/views/dataShare/monitor/monitor.vue'),
+        name: 'dataShareMonitor',
+        meta: {
+          title: '服务运行监控'
+        }
+      },
+      {
+        path: 'call',
+        component: () => import('@/views/dataShare/call/call.vue'),
+        name: 'dataShareCall',
+        meta: {
+          title: '服务调用统计'
+        }
+      }
+    ]
+  },
+  {
+    path: '/mainData',
+    component: Layout,
+    redirect: '/mainData/index',
+    alwaysShow: true, // will always show the root menu
+    name: 'mainData',
+    meta: {
+      title: '主数据管理',
+      icon: 'lock'
+    },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/mainData/index'),
+        name: 'mainDataIndex',
+        meta: {
+          title: '主数据概要'
+        }
+      },
+      {
+        path: 'manage',
+        component: () => import('@/views/mainData/manage/manage.vue'),
+        name: 'mainDataManage',
+        meta: {
+          title: '主数据管理'
+          // if do not set roles, means: this page does not require permission
+        }
       }
     ]
   }
@@ -210,7 +376,11 @@ export const asyncRoutes = [
         path: 'edit/:id(\\d+)',
         component: () => import('@/views/example/edit'),
         name: 'EditArticle',
-        meta: { title: 'Edit Article', noCache: true, activeMenu: '/example/list' },
+        meta: {
+          title: 'Edit Article',
+          noCache: true,
+          activeMenu: '/example/list'
+        },
         hidden: true
       },
       {
@@ -387,11 +557,12 @@ export const asyncRoutes = [
   { path: '*', redirect: '/404', hidden: true }
 ]
 
-const createRouter = () => new Router({
-  // mode: 'history', // require service support
-  scrollBehavior: () => ({ y: 0 }),
-  routes: constantRoutes
-})
+const createRouter = () =>
+  new Router({
+    // mode: 'history', // require service support
+    scrollBehavior: () => ({ y: 0 }),
+    routes: constantRoutes
+  })
 
 const router = createRouter()
 
