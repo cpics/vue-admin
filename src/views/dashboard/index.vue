@@ -22,15 +22,22 @@
         </div>
         <div class="statistics-col">
           <div class="statistics-tit">代码数据量统计</div>
-          <div ref="liangChart" class="statistics-chart" style="height:90%;width:90%;" />
+          <div class="statistics-chart">
+            <div ref="liangChart" style="height:90%;width:90%;" />
+          </div>
         </div>
         <div class="statistics-col">
           <div class="statistics-tit">主数据标准统计</div>
-          <div ref="lChart" class="statistics-chart" style="height:90%;width:90%;" />
+          <div class="statistics-chart">
+            <div ref="lChart" style="height:90%;width:90%;" />
+          </div>
         </div>
         <div class="statistics-col">
           <div class="statistics-tit">主数据字段统计</div>
-          <div ref="zhuChart" class="statistics-chart" style="height:90%;width:90%;" />
+          <div class="statistics-chart">
+            <div ref="zhuChart" style="height:90%;width:90%;" />
+          </div>
+
         </div>
       </div>
     </div>
