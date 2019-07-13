@@ -41,7 +41,36 @@ export default {
       }
     }
   }
-  .remind-left{
+  .double-columns {
+    &:after {
+      content: "";
+      font-size: 0;
+      display: block;
+      height: 0;
+      clear: both;
+      visibility: hidden;
+    }
+    .column-left {
+      width: 300px;
+      float: left;
+      .el-form-item__label {
+        float: none;
+      }
+      .el-form-item__content {
+        margin-left: 0 !important;
+      }
+    }
+    .column-right {
+      margin-left: 340px;
+    }
+    .more-button {
+      margin-bottom: 20px;
+      &.txt-c{
+        text-align: center;
+      }
+    }
+  }
+  .column-left{
     .el-form-item__label{
       float: none;
     }
@@ -58,10 +87,17 @@ export default {
     font-size: 16px;
     padding-bottom: 20px;
   }
-  .common-box{
+  .border-box{
     padding: 20px;
     border-radius:5px;
     border: 1px solid #dcdfe6;
     margin-bottom: 20px;
+  }
+  .common-h1-tit{
+    color: #333;
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0;
+    padding: 10px 0;
   }
 </style>
