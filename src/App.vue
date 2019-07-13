@@ -104,6 +104,10 @@ export default {
       text-align: center;
     }
   }
+  .txt-c{
+    text-align: center;
+    padding-top: 20px;
+  }
   .common-title{
     font-size: 16px;
     padding-bottom: 20px;

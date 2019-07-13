@@ -47,9 +47,7 @@
       <el-table
         ref="multipleTable"
         :data="tableData"
-        tooltip-effect="dark"
         style="width: 100%"
-        @selection-change="handleSelectionChange"
       >
         <el-table-column
           type="selection"
@@ -138,7 +136,6 @@
               :data="data"
               :props="defaultProps"
               default-expand-all
-              :filter-node-method="filterNode"
             />
           </div>
         </div>
@@ -152,7 +149,7 @@
                 <el-input v-model="form.desc" type="textarea" />
               </el-form-item>
               <el-form-item class="txt-c">
-                <el-button type="primary" @click="onSubmit">确定</el-button>
+                <el-button type="primary">确定</el-button>
                 <el-button>取消</el-button>
               </el-form-item>
             </el-form>
@@ -187,7 +184,6 @@
                 :data="tableData"
                 style="width: 100%"
                 height="200"
-                @selection-change="handleSelectionChange"
               >
                 <el-table-column
                   type="selection"
@@ -218,7 +214,6 @@
                 :data="tableData"
                 style="width: 100%"
                 height="200"
-                @selection-change="handleSelectionChange"
               >
                 <el-table-column
                   type="selection"
@@ -238,9 +233,9 @@
                 />
               </el-table>
             </div>
-            <el-form-item class="txt-c">
-              <el-button type="primary" @click="onSubmit">完成</el-button>
-            </el-form-item>
+            <div class="txt-c">
+              <el-button type="primary">完成</el-button>
+            </div>
           </div>
         </div>
       </div>
@@ -349,13 +344,13 @@ export default {
         filterText(val) {
           this.$refs.tree.filter(val)
         }
-      },
-      methods: {
-        filterNode(value, data) {
-          if (!value) return true
-          return data.label.indexOf(value) !== -1
-        }
       }
+      //      methods: {
+      //        filterNode(value, data) {
+      //          if (!value) return true
+      //          return data.label.indexOf(value) !== -1
+      //        }
+      //      }
     }
   }
 }
