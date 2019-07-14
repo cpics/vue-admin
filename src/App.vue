@@ -149,6 +149,10 @@ export default {
       cursor: pointer;
     }
   }
+  .common-title-small{
+    font-size: 14px;
+    padding-bottom: 10px;
+  }
   .border-box{
     padding: 20px;
     border-radius:5px;
@@ -213,9 +217,21 @@ export default {
         min-width:50px;
       }
     }
+    .mr-20{
+      margin-right: 10px;
+    }
+    .mr-5{
+      margin-right: 5px;
+    }
+    .el-range-separator{
+      min-width: 20px;
+    }
   }
   .m-buttons-row{
     padding-bottom: 20px;
+    &.pl-60{
+      padding-left:50px;
+    }
   }
   .mr-20{
     margin-right: 20px;
@@ -232,6 +248,13 @@ export default {
    &.mini-btn{
      padding: 4px;
    }
+  }
+  .explain-row{
+    margin-bottom: 20px;
+    .explain-box{
+      border: 1px solid #e4e4e4;
+      padding: 20px;
+    }
   }
 
 </style>

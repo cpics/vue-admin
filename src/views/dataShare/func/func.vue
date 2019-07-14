@@ -1,36 +1,29 @@
 <template>
   <div class="g-container">
-    <div>
-      <el-row>
-        <el-col :span="4">
-          <div class="grid-content">
-            <el-select
-              v-model="value"
-              placeholder="请选择"
-            >
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </div>
-        </el-col>
-        <el-col :span="16">
-          <div class="grid-content">
-
-            <el-input v-model="input" placeholder="请输入内容" style="width:80%" />
-            <el-button>索引</el-button>
-          </div>
-
-        </el-col>
-      </el-row>
-    </div>
+    <el-row class="m-filter-row">
+      <el-col class="mr-20" :span="4" align justify>
+        <el-select
+          v-model="value"
+          placeholder="请选择"
+        >
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value"
+          />
+        </el-select>
+      </el-col>
+      <el-col class="mr-20" :span="6" align justify>
+        <el-input v-model="input" placeholder="请输入内容" />
+      </el-col>
+      <el-col :span="4" align justify>
+        <el-button icon="el-icon-search" type="primary">查询</el-button>
+      </el-col>
+    </el-row>
     <el-row>
       <el-table
         ref="multipleTable"
-        border
         :data="tableData"
         tooltip-effect="dark"
         style="width: 100%"
@@ -48,12 +41,13 @@
           label="服务描述"
         />
         <el-table-column
+          fixed="right"
           label="操作"
-          width="300"
+          width="150"
         >
           <template>
-            <el-button>授权</el-button>
-            <el-button>服务说明</el-button>
+            <el-button type="text" @click="dialogImpowerVisible = true">授权</el-button>
+            <el-button type="text" @click="dialogServiceVisible = true">服务说明</el-button>
           </template>
         </el-table-column>
 
@@ -66,6 +60,99 @@
         :total="1000"
       />
     </el-row>
+    <el-dialog title="server1服务授权" :visible.sync="dialogImpowerVisible">
+      <el-row class="m-filter-row">
+        <el-col class="mr-20" :span="6" align justify>
+          <el-select v-model="region" placeholder="业务区域选择">
+            <el-option label="人事" value="1" />
+            <el-option label="科研" value="2" />
+            <el-option label="学工" value="3" />
+            <el-option label="教务" value="4" />
+            <el-option label="财务" value="5" />
+            <el-option label="一卡通" value="6" />
+            <el-option label="图书" value="7" />
+            <el-option label="OA" value="8" />
+            <el-option label="后勤" value="9" />
+            <el-option label="外事" value="10" />
+          </el-select>
+        </el-col>
+        <el-col :span="15" align justify>
+          <el-button icon="el-icon-plus" type="success">添加</el-button>
+          <el-button icon="el-icon-minus" type="danger">删除</el-button>
+          <el-button icon="el-icon-document" type="primary">保存</el-button>
+        </el-col>
+      </el-row>
+      <el-table
+        ref="multipleTable"
+        :data="tableData"
+        tooltip-effect="dark"
+        style="width: 100%"
+        @selection-change="handleSelectionChange"
+      >
+        <el-table-column
+          type="selection"
+          width="55"
+        />
+        <el-table-column
+          prop="id"
+          label="申请ID"
+          width="100"
+        >
+          <template slot-scope="scope">{{ scope.row.date }}</template>
+        </el-table-column>
+        <el-table-column
+          prop="token"
+          label="申请TOKEN"
+        />
+        <el-table-column
+          prop="ip"
+          label="白名单IP"
+        />
+      </el-table>
+    </el-dialog>
+    <el-dialog title="服务说明" :visible.sync="dialogServiceVisible">
+      <div class="explain-row">
+        <div class="common-title-small">server1服务API</div>
+        <div class="explain-box">
+          服务编号(int_num)：364565761af094f7fa15ab91e68fdde59  (applyId、accessToken见授权)<br>
+          服务名称：server1<br>
+          服务描述：教职工基础信息共享服务<br>
+          服务URL(SOAP)：http://IP:Port/mdc/ws/data?wsdl<br>
+          服务URL(REST)：http://IP:Port/mdc/rest/getDataInfo<br>
+          文本数据接口地址：http://IP:Port/mdc/file/down
+        </div>
+      </div>
+      <div class="explain-row">
+        <div class="common-title-small">服务参数：</div>
+        <div class="explain-box">
+          {
+          "paramString":{
+          "ZGH":"xxx"
+          },
+          "pagesize":10,
+          "page":1
+          }
+        </div>
+      </div>
+      <div class="explain-row">
+        <div class="common-title-small">返回格式：</div>
+        <div class="explain-box">
+          {
+          "msg":"successful",
+          "total":100,
+          "data":[
+          {
+          "XM":"... ...",
+          "ZGH":"... ..."
+          }
+          ],
+          "pagesize":10,
+          "page":1,
+          "status":"200"
+          }
+        </div>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -73,6 +160,8 @@
 export default {
   data() {
     return {
+      dialogImpowerVisible: false,
+      dialogServiceVisible: false,
       input: '',
       options: [{
         value: '1',
@@ -86,22 +175,34 @@ export default {
         state: '111',
         source: '222',
         name: '222',
-        miaoshu: '333'
+        miaoshu: '333',
+        id: '1',
+        token: '85222222222225',
+        ip: '192.165.21.33/32'
       }, {
         state: '111',
         source: '222',
         name: '222',
-        miaoshu: '333'
+        miaoshu: '333',
+        id: '1',
+        token: '85222222222225',
+        ip: '192.165.21.33/32'
       }, {
         state: '111',
         source: '222',
         name: '222',
-        miaoshu: '333'
+        miaoshu: '333',
+        id: '1',
+        token: '85222222222225',
+        ip: '192.165.21.33/32'
       }, {
         state: '111',
         source: '222',
         name: '222',
-        miaoshu: '333'
+        miaoshu: '333',
+        id: '1',
+        token: '85222222222225',
+        ip: '192.165.21.33/32'
       }]
     }
   }

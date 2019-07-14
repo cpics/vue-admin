@@ -2,9 +2,9 @@
   <div class="app-container">
     <el-form ref="formInline" v-model="formInline" :inline="true">
       <el-form-item>
-        <el-button type="primary">表格</el-button>
-        <el-button type="primary" icon="el-icon-search" @click="handleGo">执行</el-button>
-        <el-button type="primary" @click="handleSave">保存</el-button>
+        <el-button type="warning">表格</el-button>
+        <el-button type="success" @click="handleGo">执行</el-button>
+        <el-button type="primary" icon="el-icon-document" @click="handleSave">保存</el-button>
       </el-form-item>
     </el-form>
     <el-form ref="form" v-model="form">

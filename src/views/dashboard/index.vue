@@ -3,12 +3,42 @@
     <div class="dashboard-box">
       <h1 class="dashboard-tit">数据概览</h1>
       <div class="dashboard-data">
-        <div class="dashboard-col">业务系统数量：50</div>
-        <div class="dashboard-col">代码标准数量：300</div>
-        <div class="dashboard-col">数据标准数量：200</div>
-        <div class="dashboard-col">数据建设数量：80</div>
-        <div class="dashboard-col">今日访客数量：300</div>
-        <div class="dashboard-col">历史访问数量：100000</div>
+        <div class="dashboard-col">
+          <section>
+            <h1>500</h1>
+            <p>业务系统数量</p>
+          </section>
+        </div>
+        <div class="dashboard-col">
+          <section>
+            <h1>300</h1>
+            <p>代码标准数量</p>
+          </section>
+        </div>
+        <div class="dashboard-col">
+          <section>
+            <h1>200</h1>
+            <p>数据标准数量</p>
+          </section>
+        </div>
+        <div class="dashboard-col">
+          <section>
+            <h1>80</h1>
+            <p>数据建设数量</p>
+          </section>
+        </div>
+        <div class="dashboard-col">
+          <section>
+            <h1>800</h1>
+            <p>今日访客数量</p>
+          </section>
+        </div>
+        <div class="dashboard-col">
+          <section>
+            <h1>100000</h1>
+            <p>历史访问数量</p>
+          </section>
+        </div>
       </div>
     </div>
     <div class="dashboard-box">
@@ -143,41 +173,56 @@ export default {
       visibility: hidden;
     }
     .dashboard-col {
-        width: 30%;
-        min-width: 280px;
-        height: 160px;
-        color: #fff;
-        font-size: 18px;
-        text-align: center;
-        line-height: 160px;
-        float: left;
-        margin: 0 0 20px 20px;
-        word-break: keep-all;
-        white-space: nowrap;
-        overflow: hidden;
-        border-radius: 5px;
-        background-color: #5d95ff;
-        background: linear-gradient(to right, #6bb5ff, #5d95ff);
-        &:nth-child(2) {
-            background-color: #f08d36;
-            background: linear-gradient(to right, #fab83b, #f08d36);
-        }
-        &:nth-child(3) {
-            background-color: #2f9fc9;
-            background: linear-gradient(to right, #48c5bf, #2f9fc9);
-        }
-        &:nth-child(4) {
-            background-color: #8f60f2;
-            background: linear-gradient(to right, #ad71e9, #8f60f2);
-        }
-        &:nth-child(5) {
-            background-color: #019b65;
-            background: linear-gradient(to right, #0edd94, #019b65);
-        }
-        &:nth-child(6) {
-            background-color: #e44c3e;
-            background: linear-gradient(to right, #ec6955, #e44c3e);
-        }
+      position: relative;
+      width: 30%;
+      min-width: 280px;
+      height: 160px;
+      color: #fff;
+      font-size: 18px;
+      text-align: center;
+      float: left;
+      margin: 0 0 20px 20px;
+      display: table;
+      word-break: keep-all;
+      white-space: nowrap;
+      overflow: hidden;
+      border-radius: 5px;
+      background-color: #5d95ff;
+      background: linear-gradient(to right, #6bb5ff, #5d95ff);
+      section{
+        display: table-cell;
+        vertical-align: middle;
+      }
+      &:nth-child(2) {
+          background-color: #f08d36;
+          background: linear-gradient(to right, #fab83b, #f08d36);
+      }
+      &:nth-child(3) {
+          background-color: #2f9fc9;
+          background: linear-gradient(to right, #48c5bf, #2f9fc9);
+      }
+      &:nth-child(4) {
+          background-color: #8f60f2;
+          background: linear-gradient(to right, #ad71e9, #8f60f2);
+      }
+      &:nth-child(5) {
+          background-color: #019b65;
+          background: linear-gradient(to right, #0edd94, #019b65);
+      }
+      &:nth-child(6) {
+          background-color: #e44c3e;
+          background: linear-gradient(to right, #ec6955, #e44c3e);
+      }
+      h1{
+        font-size: 48px;
+        line-height: 1.3;
+        margin: 0;
+        font-weight: normal;
+      }
+      p{
+        font-size: 16px;
+        margin: 0;
+      }
     }
 }
 .data-statistics {
