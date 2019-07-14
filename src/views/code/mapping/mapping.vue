@@ -12,10 +12,10 @@
           <div class="tem-rule-filter">
             <div class="tem-button">
               <el-button type="success" @click="dialogFormVisible = true">增加映射</el-button>
-              <el-button type="danger">删除映射</el-button>
+              <el-button type="danger" @click="deleteItem">删除映射</el-button>
             </div>
           </div>
-          <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%" @selection-change="handleSelectionChange">
+          <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%">
             <el-table-column type="selection" width="55" />
             <el-table-column prop="businessTable" label="业务表" />
             <el-table-column prop="businessField" label="业务表字段" />
@@ -33,23 +33,23 @@
       </div>
     </div>
     <el-dialog title="增加映射" :visible.sync="dialogFormVisible">
-      <el-form :model="form">
-        <el-form-item label="业务表:" :label-width="formLabelWidth">
+      <el-form ref="form" v-model="form">
+        <el-form-item label="业务表:" prop="form.businessTable" :label-width="formLabelWidth">
           <el-input v-model="form.businessTable" />
         </el-form-item>
-        <el-form-item label="业务表字段:" :label-width="formLabelWidth">
+        <el-form-item label="业务表字段:" prop="form.businessField" :label-width="formLabelWidth">
           <el-input v-model="form.businessField" />
         </el-form-item>
-        <el-form-item label="标准代码表:" :label-width="formLabelWidth">
+        <el-form-item label="标准代码表:" prop="form.codeTable" :label-width="formLabelWidth">
           <el-input v-model="form.codeTable" />
         </el-form-item>
-        <el-form-item label="代码字段名称:" :label-width="formLabelWidth">
+        <el-form-item label="代码字段名称:" prop="form.codeFieldName" :label-width="formLabelWidth">
           <el-input v-model="form.codeFieldName" />
         </el-form-item>
-        <el-form-item label="显示字段名称:" :label-width="formLabelWidth">
+        <el-form-item label="显示字段名称:" prop="form.showFieldName" :label-width="formLabelWidth">
           <el-input v-model="form.showFieldName" />
         </el-form-item>
-        <el-form-item label="数据流向:" prop="form.dataFlow" :label-width="formLabelWidth">
+        <el-form-item label="数据流向:" prop="form.source" :label-width="formLabelWidth">
           <el-select v-model="form.source" placeholder="请选择" clearable>
             <el-option label="主数据库到业务库" value="0" />
             <el-option label="业务库到主数据库" value="1" />
@@ -172,6 +172,12 @@ export default {
     filterNode(value, data) {
       if (!value) return true
       return data.label.indexOf(value) !== -1
+    },
+    deleteItem() {
+      this.$message({
+        message: '删除成功',
+        type: 'success'
+      })
     }
   }
 }
