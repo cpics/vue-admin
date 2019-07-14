@@ -30,8 +30,7 @@
             </el-form>
             <div class="tem-button">
               <el-button type="primary">查询</el-button>
-              <el-button type="success">添加</el-button>
-              <el-button type="danger">删除</el-button>
+              <el-button type="success">导出</el-button>
             </div>
           </div>
           <el-table
@@ -93,7 +92,7 @@
           label="姓名"
         />
         <el-table-column
-          prop="id"
+          prop="card"
           label="身份证件号"
         />
       </el-table>
@@ -152,12 +151,14 @@ export default {
       },
       formLabelWidth: '120px',
       tableSearchData: [{
+        id: 0,
         obj: 'T_JZG[教职工基本信息]',
         field: 'ZGH[职工号]',
         rule: '不唯一',
         count: '999',
         violation: '123'
       }, {
+        id: 1,
         obj: 'T_JZG[教职工基本信息]',
         field: 'ZGH[职工号]',
         rule: '不唯一',
@@ -165,29 +166,35 @@ export default {
         violation: '123'
       }],
       tableData: [{
+        id: 0,
         no: '001',
         name: '张三',
-        id: '111111111111111111111111111'
+        card: '111111111111111111111111111'
       }, {
+        id: 0,
         no: '001',
         name: '张三',
-        id: '111111111111111111111111111'
+        card: '111111111111111111111111111'
       }, {
+        id: 0,
         no: '001',
         name: '张三',
-        id: '111111111111111111111111111'
+        card: '111111111111111111111111111'
       }, {
+        id: 0,
         no: '001',
         name: '张三',
-        id: '111111111111111111111111111'
+        card: '111111111111111111111111111'
       }, {
+        id: 0,
         no: '001',
         name: '张三',
-        id: '111111111111111111111111111'
+        card: '111111111111111111111111111'
       }, {
+        id: 0,
         no: '001',
         name: '张三',
-        id: '111111111111111111111111111'
+        card: '111111111111111111111111111'
       }],
       dialogTableVisible: false,
       data: [{

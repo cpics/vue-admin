@@ -81,7 +81,26 @@ export default {
       guChart2: null,
       guChart3: null,
       guChart4: null,
-      guOptions: {
+      guOptions1: {
+        tooltip: {
+          formatter: '{a} <br/>{b} : {c}%'
+        },
+        toolbox: {
+          feature: {
+            restore: {},
+            saveAsImage: {}
+          }
+        },
+        series: [
+          {
+            name: '业务指标',
+            type: 'gauge',
+            detail: { formatter: '{value}%' },
+            data: [{ value: 40, name: '完成率' }]
+          }
+        ]
+      },
+      guOptions2: {
         tooltip: {
           formatter: '{a} <br/>{b} : {c}%'
         },
@@ -97,6 +116,44 @@ export default {
             type: 'gauge',
             detail: { formatter: '{value}%' },
             data: [{ value: 50, name: '完成率' }]
+          }
+        ]
+      },
+      guOptions3: {
+        tooltip: {
+          formatter: '{a} <br/>{b} : {c}%'
+        },
+        toolbox: {
+          feature: {
+            restore: {},
+            saveAsImage: {}
+          }
+        },
+        series: [
+          {
+            name: '业务指标',
+            type: 'gauge',
+            detail: { formatter: '{value}%' },
+            data: [{ value: 60, name: '完成率' }]
+          }
+        ]
+      },
+      guOptions4: {
+        tooltip: {
+          formatter: '{a} <br/>{b} : {c}%'
+        },
+        toolbox: {
+          feature: {
+            restore: {},
+            saveAsImage: {}
+          }
+        },
+        series: [
+          {
+            name: '业务指标',
+            type: 'gauge',
+            detail: { formatter: '{value}%' },
+            data: [{ value: 70, name: '完成率' }]
           }
         ]
       },
@@ -153,16 +210,16 @@ export default {
     },
     initguChart() {
       this.guChart = echarts.init(this.$refs.guChart)
-      this.guChart.setOption(this.guOptions)
+      this.guChart.setOption(this.guOptions1)
 
       this.guChart2 = echarts.init(this.$refs.guChart2)
-      this.guChart2.setOption(this.guOptions)
+      this.guChart2.setOption(this.guOptions2)
 
       this.guChart3 = echarts.init(this.$refs.guChart3)
-      this.guChart3.setOption(this.guOptions)
+      this.guChart3.setOption(this.guOptions3)
 
       this.guChart4 = echarts.init(this.$refs.guChart4)
-      this.guChart4.setOption(this.guOptions)
+      this.guChart4.setOption(this.guOptions4)
     }
   }
 }

@@ -51,30 +51,6 @@
         </el-form>
       </el-tab-pane>
       <el-tab-pane label="任务日志" name="second">
-        <el-form ref="formInline" v-model="formInline" :inline="true">
-          <el-form-item label="备份日期:" prop="formInline.date">
-            <el-date-picker v-model="formInline.date" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期" />
-          </el-form-item>
-          <el-form-item label="状态:" prop="formInline.status">
-            <el-select v-model="formInline.status" clearable placeholder="请选择" style="width:160px;">
-              <el-option label="暂停" value="0" />
-              <el-option label="开始" value="1" />
-            </el-select>
-          </el-form-item>
-          <el-form-item label="数据来源:" prop="formInline.source">
-            <el-select v-model="formInline.source" placeholder="请选择" clearable>
-              <el-option label="来源1" value="0" />
-              <el-option label="来源2" value="1" />
-            </el-select>
-          </el-form-item>
-          <el-form-item label="数据表名称(拼音)：" prop="formInline.tableName">
-            <el-input v-model="formInline.tableName" placeholder="搜索..." />
-          </el-form-item>
-          <el-form-item>
-            <el-button type="primary" icon="el-icon-search" @click="handleSearch">搜索</el-button>
-          </el-form-item>
-        </el-form>
-
         <el-table :data="tableData" fit highlight-current-row style="width: 100%">
           <el-table-column prop="tableName" label="数据表名" />
           <el-table-column prop="source" label="数据来源" />
