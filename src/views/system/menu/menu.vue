@@ -17,10 +17,10 @@
       <div class="column-right">
         <div class="border-box">
           <div class="m-buttons-row">
-            <el-button icon="el-icon-plus" type="primary">添加</el-button>
-            <el-button icon="el-icon-plus" type="waring">添加子类型</el-button>
-            <el-button icon="el-icon-edit" type="success">编辑</el-button>
-            <el-button icon="el-icon-delete" type="danger">删除</el-button>
+            <el-button icon="el-icon-plus" type="primary" @click="showDialog(1)">添加</el-button>
+            <!-- <el-button icon="el-icon-plus" type="waring">添加子类型</el-button> -->
+            <el-button icon="el-icon-edit" type="success" @click="showDialog(2)">编辑</el-button>
+            <el-button icon="el-icon-delete" type="danger" @click="del">删除</el-button>
           </div>
           <el-table
             ref="multipleTable"
@@ -57,6 +57,29 @@
         </div>
       </div>
     </div>
+    <el-dialog :title="`${type == 1?'添加':'修改'}角色`" :visible.sync="dialogFormVisible">
+      <el-form :model="form">
+        <el-form-item label="菜单代码" :label-width="formLabelWidth">
+          <el-input v-model="form.code" autocomplete="off" />
+        </el-form-item>
+        <el-form-item label="菜单名称" :label-width="formLabelWidth">
+          <el-input v-model="form.name" autocomplete="off" />
+        </el-form-item>
+        <el-form-item label="菜单显示名称" :label-width="formLabelWidth">
+          <el-input v-model="form.disc" autocomplete="off" />
+        </el-form-item>
+        <el-form-item label="是否子菜单" :label-width="formLabelWidth">
+          <el-input v-model="form.isnext" autocomplete="off" />
+        </el-form-item>
+        <el-form-item label="菜单层次" :label-width="formLabelWidth">
+          <el-input v-model="form.level" autocomplete="off" />
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="showDialog">取 消</el-button>
+        <el-button type="primary" @click="save">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -64,6 +87,17 @@
 export default {
   data() {
     return {
+      multipleSelection: [],
+      dialogFormVisible: false,
+      formLabelWidth: '120px',
+      form: {
+        cddm: '',
+        cdname: '',
+        cddisc: '',
+        isnext: '',
+        level: ''
+      },
+      type: 1, // 1添加，2修改
       data: [
         {
           id: 1,
@@ -103,8 +137,13 @@ export default {
           }]
         }
       ],
+      defaultProps: {
+        children: 'children',
+        label: 'label'
+      },
       tableData: [
         {
+          id: 0,
           caidan: 'system_menu',
           name: '系统菜单',
           show: '系统菜单',
@@ -112,6 +151,7 @@ export default {
           level: '1'
         },
         {
+          id: 2,
           caidan: 'system_menu',
           name: '系统菜单',
           show: '系统菜单',
@@ -119,6 +159,7 @@ export default {
           level: '1'
         },
         {
+          id: 3,
           caidan: 'system_menu',
           name: '系统菜单',
           show: '系统菜单',
@@ -126,6 +167,56 @@ export default {
           level: '1'
         }
       ]
+    }
+  },
+  methods: {
+    handleSelectionChange(val) {
+      this.multipleSelection = val
+    },
+    del() {
+      if (this.multipleSelection.length == 0) {
+        this.$message({
+          message: '请勾选你需要删除的数据',
+          type: 'warning'
+        })
+      } else {
+        console.log(1)
+        this.multipleSelection.forEach(item => {
+          this.tableData.forEach((d, i) => {
+            if (item.id == d.id) {
+              this.tableData.splice(i, 1)
+            }
+          })
+        })
+      }
+    },
+    save() {
+      if (this.type == 1) {
+        this.tableData.push({
+          id: this.tableData.length,
+          caidan: 'system_menu',
+          name: '系统菜单',
+          show: '系统菜单',
+          is: '否',
+          level: '1'
+        })
+      } else if (this.type == 2) {
+        this.$message({
+          message: '修改成功',
+          type: 'success'
+        })
+      }
+      this.showDialog()
+    },
+    showDialog(type) {
+      if (type) {
+        this.type = type
+      }
+      this.dialogFormVisible = !this.dialogFormVisible
+    },
+    filterNode(value, data) {
+      if (!value) return true
+      return data.label.indexOf(value) !== -1
     }
   }
 }

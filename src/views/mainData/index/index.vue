@@ -3,9 +3,24 @@
     <div class="dashboard-box">
       <h2 class="dashboard-tit">概况</h2>
       <div class="dashboard-data">
-        <div class="dashboard-col">总数据数：450</div>
-        <div class="dashboard-col">集成数据：300</div>
-        <div class="dashboard-col">数据资产：600万+</div>
+        <div class="dashboard-col">
+          <section>
+            <h1>489</h1>
+            <p>总数据数</p>
+          </section>
+        </div>
+        <div class="dashboard-col">
+          <section>
+            <h1>300</h1>
+            <p>集成数据</p>
+          </section>
+        </div>
+        <div class="dashboard-col">
+          <section>
+            <h1>600w+</h1>
+            <p>数据资产</p>
+          </section>
+        </div>
       </div>
     </div>
     <div class="dashboard-box">
@@ -92,21 +107,26 @@ export default {
     visibility: hidden;
   }
   .dashboard-col {
+    position: relative;
     width: 30%;
     min-width: 280px;
     height: 160px;
     color: #fff;
     font-size: 18px;
     text-align: center;
-    line-height: 160px;
     float: left;
     margin: 0 0 20px 20px;
+    display: table;
     word-break: keep-all;
     white-space: nowrap;
     overflow: hidden;
     border-radius: 5px;
     background-color: #5d95ff;
     background: linear-gradient(to right, #6bb5ff, #5d95ff);
+    section{
+      display: table-cell;
+      vertical-align: middle;
+    }
     &:nth-child(2) {
       background-color: #f08d36;
       background: linear-gradient(to right, #fab83b, #f08d36);
@@ -126,6 +146,16 @@ export default {
     &:nth-child(6) {
       background-color: #e44c3e;
       background: linear-gradient(to right, #ec6955, #e44c3e);
+    }
+    h1{
+      font-size: 48px;
+      line-height: 1.3;
+      margin: 0;
+      font-weight: normal;
+    }
+    p{
+      font-size: 16px;
+      margin: 0;
     }
   }
 }

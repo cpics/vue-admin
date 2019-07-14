@@ -13,10 +13,15 @@ export default {
   .g-container{
     padding: 20px;
   }
+  .dialog-big{
+    .el-dialog{
+      min-width: 720px;
+    }
+  }
   .el-dialog {
     .el-form {
       padding-right: 40px;
-      max-height: 500px;
+      max-height: 450px;
       overflow-y: auto;
       .el-input {
         &.w-200 {
@@ -52,6 +57,9 @@ export default {
           &.w-200{
             width: 200px;
           }
+          &.w-60{
+            width: 60px;
+          }
         }
       }
       .form-item__label{
@@ -61,6 +69,24 @@ export default {
         padding-right: 0;
       }
 
+    }
+    .dialog-txt{
+      line-height: 1.6;
+      font-size: 14px;
+    }
+    .script-txt{
+      .el-textarea__inner{
+        min-height: 400px !important;
+      }
+    }
+    .log-box{
+      line-height: 1.5;
+      width: 100%;
+      padding-top: 9px;
+      min-height: 80px;
+      img{
+        max-width: 100%;
+      }
     }
   }
   .double-columns {
@@ -136,6 +162,14 @@ export default {
     margin: 0;
     padding: 10px 0;
   }
+  .common-h4-tit{
+    color: #333;
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0;
+    padding: 20px 0;
+    text-align: center;
+  }
   .el-pagination{
     padding: 20px 0;
   }
@@ -163,13 +197,20 @@ export default {
   }
 
   .m-filter-row{
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+    .el-col{
+      margin-bottom: 10px;
+    }
     .filter-label{
       min-width: 80px;
       font-size: 14px;
       line-height: 36px;
       &.w-140{
         width: 140px;
+      }
+      &.w-60{
+        width: 50px;
+        min-width:50px;
       }
     }
   }

@@ -38,7 +38,7 @@
     <el-dialog title="配置" :visible.sync="dialogSetVisible">
       <el-row class="m-filter-row">
         <el-col class="mr-20" :span="4" align justify>
-          <el-button icon="el-icon-document" type="primary">保存</el-button>
+          <el-button icon="el-icon-document" type="primary" @click="save">保存</el-button>
         </el-col>
         <el-col class="filter-label" :span="2" align justify>查询条件：</el-col>
         <el-col class="mr-20" :span="6" align justify>
@@ -64,6 +64,8 @@
 export default {
   data() {
     return {
+      input1: '',
+      input2: '',
       dialogSetVisible: false,
 
       tableData: [{
@@ -124,6 +126,15 @@ export default {
         children: 'children',
         label: 'label'
       }
+    }
+  },
+  methods: {
+    save() {
+      this.$message({
+        message: '保存成功',
+        type: 'success'
+      })
+      this.dialogSetVisible = false
     }
   }
 }

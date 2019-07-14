@@ -14,8 +14,8 @@
       </el-col>
     </el-row>
     <div class="m-buttons-row">
-      <el-button icon="el-icon-circle-plus-outline" type="primary" @click="dialogFormVisible = true">注册</el-button>
-      <el-button icon="el-icon-delete" type="danger">删除</el-button>
+      <el-button icon="el-icon-circle-plus-outline" type="primary" @click="showDialog(1)">注册</el-button>
+      <el-button icon="el-icon-delete" type="danger" @click="del">删除</el-button>
     </div>
     <div>
       <el-table
@@ -23,6 +23,7 @@
         :data="tableData"
         tooltip-effect="dark"
         style="width: 100%"
+        @selection-change="handleSelectionChange"
       >
         <el-table-column
           type="selection"
@@ -56,9 +57,9 @@
         <el-table-column
           label="是否启用"
         >
-          <template>
+          <template slot-scope="scope">
             <el-switch
-              v-model="isUse"
+              v-model="scope.row.isUse"
               active-color="#13ce66"
               inactive-color="#ff4949"
             >
@@ -73,7 +74,7 @@
         >
           <template>
             <el-button class="mini-btn" type="success" icon="el-icon-time" circle title="测试" />
-            <el-button class="mini-btn" type="primary" icon="el-icon-edit" circle title="编辑" @click="dialogFormVisible = true" />
+            <el-button class="mini-btn" type="primary" icon="el-icon-edit" circle title="编辑" @click="showDialog(2)" />
           </template>
         </el-table-column>
       </el-table>
@@ -117,8 +118,8 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+        <el-button @click="showDialog">取 消</el-button>
+        <el-button type="primary" @click="save">确 定</el-button>
       </div>
     </el-dialog>
   </div>
@@ -128,6 +129,8 @@
 export default {
   data() {
     return {
+      multipleSelection: [],
+      type: 1, // 1添加，2修改
       input1: '',
       input2: '',
       isUse: true,
@@ -148,6 +151,7 @@ export default {
       formLabelWidth: '140px',
       tableData: [
         {
+          id: 0,
           index: 1,
           xtName: '主数据系统',
           type: 'ORacle',
@@ -157,6 +161,7 @@ export default {
           isUse: true
         },
         {
+          id: 1,
           index: 1,
           xtName: '主数据系统',
           type: 'ORacle',
@@ -166,6 +171,7 @@ export default {
           isUse: true
         },
         {
+          id: 2,
           index: 1,
           xtName: '主数据系统',
           type: 'ORacle',
@@ -175,6 +181,54 @@ export default {
           isUse: true
         }
       ]
+    }
+  },
+  methods: {
+    handleSelectionChange(val) {
+      this.multipleSelection = val
+    },
+    showDialog(type) {
+      if (type) {
+        this.type = type
+      }
+      this.dialogFormVisible = !this.dialogFormVisible
+    },
+    save() {
+      if (this.type == 1) {
+        this.tableData.push({
+          id: this.tableData.length,
+          index: 1,
+          xtName: '主数据系统',
+          type: 'ORacle',
+          xtString: 'jdbc:oracle:thin:@192.168.XXX.XXX:XXXX:zsjpt',
+          sqlName: 'usr_zsj',
+          lastEditTime: '2018-04-02 11:00:05',
+          isUse: true
+        })
+      } else if (this.type == 2) {
+        this.$message({
+          message: '修改成功',
+          type: 'success'
+        })
+      }
+      this.showDialog()
+    },
+    del() {
+      if (this.multipleSelection.length == 0) {
+        this.$message({
+          message: '请勾选你需要删除的数据',
+          type: 'warning'
+        })
+      } else {
+        console.log(1)
+        this.multipleSelection.forEach(item => {
+          this.tableData.forEach((d, i) => {
+            if (item.id == d.id) {
+              this.tableData.splice(i, 1)
+            }
+          })
+        })
+      }
     }
   }
 }
