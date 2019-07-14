@@ -57,7 +57,7 @@
             <el-table-column
               label="是否启用"
             >
-              <template slot-scope="sope">
+              <template>
                 <el-switch
                   v-model="sope.row.isUse"
                   active-color="#13ce66"

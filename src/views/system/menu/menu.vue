@@ -16,12 +16,11 @@
       </div>
       <div class="column-right">
         <div class="border-box">
-          <div class="tem-rule-filter">
-            <div class="tem-button">
-              <el-button type="primary">增加</el-button>
-              <el-button type="success">编辑</el-button>
-              <el-button type="danger">删除</el-button>
-            </div>
+          <div class="m-buttons-row">
+            <el-button icon="el-icon-plus" type="primary">添加</el-button>
+            <el-button icon="el-icon-plus" type="waring">添加子类型</el-button>
+            <el-button icon="el-icon-edit" type="success">编辑</el-button>
+            <el-button icon="el-icon-delete" type="danger">删除</el-button>
           </div>
           <el-table
             ref="multipleTable"
@@ -68,10 +67,10 @@ export default {
       data: [
         {
           id: 1,
-          label: '一级 1',
+          label: '应用菜单树',
           children: [{
             id: 4,
-            label: '二级 1-1',
+            label: '个人中心',
             children: [{
               id: 9,
               label: '三级 1-1-1'
@@ -83,7 +82,7 @@ export default {
         },
         {
           id: 2,
-          label: '一级 2',
+          label: '服务中心',
           children: [{
             id: 5,
             label: '二级 2-1'
@@ -94,7 +93,7 @@ export default {
         },
         {
           id: 3,
-          label: '一级 3',
+          label: '系统菜单',
           children: [{
             id: 7,
             label: '二级 3-1'

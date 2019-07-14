@@ -1,51 +1,21 @@
 <template>
   <div class="g-container">
-    <el-row>
-      <el-col
-        :span="4"
-        align
-        justify
-      >
-        注册系统名：
+    <el-row class="m-filter-row">
+      <el-col class="filter-label" :span="2" align justify>角色代码：</el-col>
+      <el-col class="mr-20" :span="6" align justify>
+        <el-input v-model="input1" placeholder="请输入内容" />
       </el-col>
-      <el-col
-        :span="6"
-        align
-        justify
-      >
-        <el-input
-          v-model="input1"
-          placeholder="请输入内容"
-        />
+      <el-col class="filter-label w-140" :span="4" align justify>数据库连接用户名：</el-col>
+      <el-col class="mr-20" :span="6" align justify>
+        <el-input v-model="input2" placeholder="请输入内容" />
       </el-col>
-      <el-col
-        :span="4"
-        align
-        justify
-      >
-        数据库连接用户名：
-      </el-col>
-      <el-col
-        :span="6"
-        align
-        justify
-      >
-        <el-input
-          v-model="input2"
-          placeholder="请输入内容"
-        />
-      </el-col>
-      <el-col
-        :span="4"
-        align
-        justify
-      >
-        <el-button>查询</el-button>
+      <el-col :span="4" align justify>
+        <el-button icon="el-icon-search" type="primary">查询</el-button>
       </el-col>
     </el-row>
-    <div>
-      <el-button>注册</el-button>
-      <el-button>删除</el-button>
+    <div class="m-buttons-row">
+      <el-button icon="el-icon-circle-plus-outline" type="primary">注册</el-button>
+      <el-button icon="el-icon-delete" type="danger">删除</el-button>
     </div>
     <div>
       <el-table
@@ -86,20 +56,24 @@
         <el-table-column
           label="是否启用"
         >
-          <template slot-scope="sope">
+          <template>
             <el-switch
-              v-model="sope.row.isUse"
+              v-model="isUse"
               active-color="#13ce66"
               inactive-color="#ff4949"
-            />
+            >
+              />
+            </el-switch>
           </template>
         </el-table-column>
         <el-table-column
+          fixed="right"
           label="操作"
+          width="120"
         >
           <template>
-            <el-button>测试</el-button>
-            <el-button>编辑</el-button>
+            <el-button class="mini-btn" icon="el-icon-odometer" circle title="测试" />
+            <el-button class="mini-btn" type="primary" icon="el-icon-edit" circle title="编辑" />
           </template>
         </el-table-column>
       </el-table>

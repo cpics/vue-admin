@@ -41,6 +41,7 @@ export default {
       }
     }
     .double-columns {
+      min-width: 800px;
       .column-left {
         width: 240px;
       }
@@ -63,6 +64,8 @@ export default {
     }
   }
   .double-columns {
+    min-width: 920px;
+    overflow-x: auto;
     &:after {
       content: "";
       font-size: 0;
@@ -72,7 +75,7 @@ export default {
       visibility: hidden;
     }
     .column-left {
-      width: 300px;
+      width: 20%;
       float: left;
       .el-form-item__label {
         float: none;
@@ -82,7 +85,9 @@ export default {
       }
     }
     .column-right {
-      margin-left: 320px;
+      width: 77%;
+      float: left;
+      margin-left: 20px;
     }
     .more-button {
       margin-bottom: 20px;
@@ -155,6 +160,37 @@ export default {
     .tem-button {
       float: right;
     }
+  }
+
+  .m-filter-row{
+    padding-bottom: 20px;
+    .filter-label{
+      min-width: 80px;
+      font-size: 14px;
+      line-height: 36px;
+      &.w-140{
+        width: 140px;
+      }
+    }
+  }
+  .m-buttons-row{
+    padding-bottom: 20px;
+  }
+  .mr-20{
+    margin-right: 20px;
+  }
+  .u-handle-icon{
+    font-size: 18px;
+    cursor: pointer;
+    color: #1890ff;
+    &:hover{
+      color: #46a6ff;
+    }
+  }
+  .el-button--medium.is-circle{
+   &.mini-btn{
+     padding: 4px;
+   }
   }
 
 </style>
