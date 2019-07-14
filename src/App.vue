@@ -57,6 +57,9 @@ export default {
           &.w-200{
             width: 200px;
           }
+          &.w-60{
+            width: 60px;
+          }
         }
       }
       .form-item__label{
@@ -159,6 +162,14 @@ export default {
     margin: 0;
     padding: 10px 0;
   }
+  .common-h4-tit{
+    color: #333;
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0;
+    padding: 20px 0;
+    text-align: center;
+  }
   .el-pagination{
     padding: 20px 0;
   }
@@ -186,13 +197,20 @@ export default {
   }
 
   .m-filter-row{
-    padding-bottom: 20px;
+    padding-bottom: 10px;
+    .el-col{
+      margin-bottom: 10px;
+    }
     .filter-label{
       min-width: 80px;
       font-size: 14px;
       line-height: 36px;
       &.w-140{
         width: 140px;
+      }
+      &.w-60{
+        width: 50px;
+        min-width:50px;
       }
     }
   }
