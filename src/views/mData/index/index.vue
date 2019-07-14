@@ -23,7 +23,6 @@
         :data="tableData"
         tooltip-effect="dark"
         style="width: 100%"
-        @selection-change="handleSelectionChange"
       >
         <el-table-column
           type="selection"
@@ -72,7 +71,7 @@
           width="120"
         >
           <template>
-            <el-button class="mini-btn" icon="el-icon-odometer" circle title="测试" />
+            <el-button class="mini-btn" type="success" icon="el-icon-time" circle title="测试" />
             <el-button class="mini-btn" type="primary" icon="el-icon-edit" circle title="编辑" />
           </template>
         </el-table-column>
@@ -85,6 +84,9 @@
 export default {
   data() {
     return {
+      input1: '',
+      input2: '',
+      isUse: true,
       tableData: [
         {
           index: 1,

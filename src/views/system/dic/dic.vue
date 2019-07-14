@@ -14,7 +14,7 @@
       </el-col>
     </el-row>
     <div class="m-buttons-row">
-      <el-button icon="el-icon-plus" type="primary">添加</el-button>
+      <el-button icon="el-icon-plus" type="primary" @click="dialogFormVisible = true">添加</el-button>
       <el-button icon="el-icon-edit" type="success">编辑</el-button>
       <el-button icon="el-icon-delete" type="danger">删除</el-button>
       <el-button icon="el-icon-upload">导出</el-button>
@@ -38,6 +38,20 @@
         label="类型名称"
       />
     </el-table>
+    <el-dialog title="添加业务字典项" :visible.sync="dialogFormVisible">
+      <el-form :model="form">
+        <el-form-item label="类型代码" :label-width="formLabelWidth">
+          <el-input v-model="form.code" autocomplete="off" />
+        </el-form-item>
+        <el-form-item label="类型名称" :label-width="formLabelWidth">
+          <el-input v-model="form.name" autocomplete="off" />
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">取 消</el-button>
+        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -45,6 +59,12 @@
 export default {
   data() {
     return {
+      dialogFormVisible: false,
+      formLabelWidth: '120px',
+      form: {
+        name: '',
+        code: ''
+      },
       tableData: [{
         code: 'ABVVSVVSDD',
         name: '休学类型'
