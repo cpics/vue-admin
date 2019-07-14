@@ -3,18 +3,8 @@
     <div class="double-columns">
       <div class="column-left">
         <div class="border-box">
-          <el-input
-            v-model="filterText"
-            placeholder="按表名查询"
-          />
-          <el-tree
-            ref="tree"
-            class="filter-tree"
-            :data="data"
-            :props="defaultProps"
-            default-expand-all
-            :filter-node-method="filterNode"
-          />
+          <el-input v-model="filterText" placeholder="按表名查询" />
+          <el-tree ref="tree" class="filter-tree" :data="data" :props="defaultProps" default-expand-all :filter-node-method="filterNode" />
         </div>
       </div>
       <div class="column-right">
@@ -37,62 +27,27 @@
             </el-col>
           </el-row>
           <div class="m-buttons-row">
-            <el-button icon="el-icon-plus" type="primary" @click="dialogAddVisible = true">新增数据对象</el-button>
+            <el-button icon="el-icon-plus" type="primary" @click="toggleVisible('add')">新增数据对象</el-button>
             <el-button icon="el-icon-delete" type="danger">删除</el-button>
             <el-button icon="el-icon-refresh" type="warning" @click="dialogSetVisible = true">变更数据分类</el-button>
             <el-button icon="el-icon-upload" type="success" @click="dialogImportVisible = true">导入</el-button>
             <el-button icon="el-icon-download" type="info">导出</el-button>
             <el-button icon="el-icon-check" @click="outerVisible = true">数据表实体检查</el-button>
           </div>
-          <el-table
-            ref="multipleTable"
-            :data="tableData"
-            tooltip-effect="dark"
-            style="width: 100%"
-          >
-            <el-table-column
-              type="selection"
-              width="55"
-            />
-            <el-table-column
-              prop="user"
-              label="数据对象名"
-              width="130"
-            />
-            <el-table-column
-              prop="name"
-              label="数据对象中文名"
-            />
-            <el-table-column
-              prop="category"
-              label="数据对象分类"
-            />
-            <el-table-column
-              prop="lastEditTime"
-              label="最后修改时间"
-            />
-            <el-table-column
-              label="是否启用"
-              width="150"
-            >
+          <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%">
+            <el-table-column type="selection" width="55" />
+            <el-table-column prop="user" label="数据对象名" width="130" />
+            <el-table-column prop="name" label="数据对象中文名" />
+            <el-table-column prop="category" label="数据对象分类" />
+            <el-table-column prop="lastEditTime" label="最后修改时间" />
+            <el-table-column label="是否启用" width="150">
               <template>
-                <el-switch
-                  v-model="isUse"
-                  style="display: block"
-                  active-color="#13ce66"
-                  inactive-color="#ff4949"
-                  active-text="YES"
-                  inactive-text="NO"
-                />
+                <el-switch v-model="isUse" style="display: block" active-color="#13ce66" inactive-color="#ff4949" active-text="YES" inactive-text="NO" />
               </template>
             </el-table-column>
-            <el-table-column
-              fixed="right"
-              label="操作"
-              width="130"
-            >
+            <el-table-column fixed="right" label="操作" width="130">
               <template>
-                <el-button class="mini-btn" type="primary" icon="el-icon-edit" circle title="编辑" @click="dialogFormVisible = true" />
+                <el-button class="mini-btn" type="primary" icon="el-icon-edit" circle title="编辑" @click="toggleVisible('edit')" />
                 <el-button class="mini-btn" type="success" icon="el-icon-view" circle title="预览" />
                 <el-button class="mini-btn" type="warning" icon="el-icon-success" circle title="生成" @click="dialogCreateVisible = true" />
               </template>
@@ -102,16 +57,9 @@
       </div>
     </div>
     <el-dialog title="变更数据分类" :visible.sync="dialogSetVisible">
-      <el-tree
-        :data="data"
-        show-checkbox
-        node-key="id"
-        :default-expanded-keys="[2, 3]"
-        :default-checked-keys="[5]"
-        :props="defaultProps"
-      />
+      <el-tree :data="data" show-checkbox node-key="id" :default-expanded-keys="[2, 3]" :default-checked-keys="[5]" :props="defaultProps" />
     </el-dialog>
-    <el-dialog title="新增数据对象" :visible.sync="dialogAddVisible">
+    <el-dialog :visible.sync="dialogVisible" :title="optionType === 'add' ? '新增数据对象' : '修改数据对象'">
       <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
         <el-tab-pane label="对象基本信息" name="first">
           <div>
@@ -147,7 +95,7 @@
             <div slot="footer" class="dialog-footer el-dialog__footer">
               <el-button type="primary" @click="onSubmit">确定</el-button>
               <el-button type="warning">应用</el-button>
-              <el-button>取消</el-button>
+              <el-button @click="toggleVisible">取消</el-button>
             </div>
           </div>
         </el-tab-pane>
@@ -157,70 +105,22 @@
               <el-button icon="el-icon-plus" type="primary">新建</el-button>
               <el-button icon="el-icon-delete" type="danger">删除</el-button>
             </div>
-            <el-table
-              ref="multipleTable"
-              :data="tableData"
-              tooltip-effect="dark"
-              style="width: 100%"
-              @selection-change="handleSelectionChange"
-            >
-              <el-table-column
-                type="selection"
-                width="55"
-              />
-              <el-table-column
-                prop="num"
-                label="索引"
-                width="80"
-              />
-              <el-table-column
-                prop="name"
-                label="字段名"
-              />
-              <el-table-column
-                prop="english"
-                label="中文简称"
-              />
-              <el-table-column
-                prop="type"
-                label="字段类型"
-              />
-              <el-table-column
-                prop="idefault"
-                label="默认值"
-              />
-              <el-table-column
-                prop="name"
-                label="是否主键"
-              />
-              <el-table-column
-                prop="isNull"
-                label="是否允许空"
-              />
-              <el-table-column
-                prop="isSole"
-                label="是否唯一"
-              />
-              <el-table-column
-                label="是否启用"
-                width="150"
-              >
+            <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%" @selection-change="handleSelectionChange">
+              <el-table-column type="selection" width="55" />
+              <el-table-column prop="num" label="索引" width="80" />
+              <el-table-column prop="name" label="字段名" />
+              <el-table-column prop="english" label="中文简称" />
+              <el-table-column prop="type" label="字段类型" />
+              <el-table-column prop="idefault" label="默认值" />
+              <el-table-column prop="name" label="是否主键" />
+              <el-table-column prop="isNull" label="是否允许空" />
+              <el-table-column prop="isSole" label="是否唯一" />
+              <el-table-column label="是否启用" width="150">
                 <template>
-                  <el-switch
-                    v-model="isUse"
-                    style="display: block"
-                    active-color="#13ce66"
-                    inactive-color="#ff4949"
-                    active-text="YES"
-                    inactive-text="NO"
-                  />
+                  <el-switch v-model="isUse" style="display: block" active-color="#13ce66" inactive-color="#ff4949" active-text="YES" inactive-text="NO" />
                 </template>
               </el-table-column>
-              <el-table-column
-                fixed="right"
-                label="操作"
-                width="140"
-              >
+              <el-table-column fixed="right" label="操作" width="140">
                 <template>
                   <el-button class="mini-btn" circle title="编辑" icon="el-icon-edit" type="primary" />
                   <el-button class="mini-btn" circle title="添加" icon="el-icon-plus" type="success" />
@@ -241,46 +141,15 @@
             <div class="m-buttons-row">
               <el-button icon="el-icon-delete" type="danger">删除</el-button>
             </div>
-            <el-table
-              ref="multipleTable"
-              :data="tableData"
-              tooltip-effect="dark"
-              style="width: 100%"
-              @selection-change="handleSelectionChange"
-            >
-              <el-table-column
-                type="selection"
-                width="55"
-              />
-              <el-table-column
-                prop="name"
-                label="字段名"
-              />
-              <el-table-column
-                prop="chinese"
-                label="字段中文简称"
-              />
-              <el-table-column
-                prop="obj"
-                label="引用对象"
-              />
-              <el-table-column
-                prop="name"
-                label="引用对象中文名"
-              />
-              <el-table-column
-                prop="name"
-                label="引用代码表字段"
-              />
-              <el-table-column
-                prop="name"
-                label="引用代码表显示字段"
-              />
-              <el-table-column
-                fixed="right"
-                label="操作"
-                width="100"
-              >
+            <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%" @selection-change="handleSelectionChange">
+              <el-table-column type="selection" width="55" />
+              <el-table-column prop="name" label="字段名" />
+              <el-table-column prop="chinese" label="字段中文简称" />
+              <el-table-column prop="obj" label="引用对象" />
+              <el-table-column prop="name" label="引用对象中文名" />
+              <el-table-column prop="name" label="引用代码表字段" />
+              <el-table-column prop="name" label="引用代码表显示字段" />
+              <el-table-column fixed="right" label="操作" width="100">
                 <template>
                   <el-button class="mini-btn" circle title="导出" icon="el-icon-download" type="info" />
                 </template>
@@ -300,34 +169,12 @@
       <div class="dialog-txt">
         即将要对主数据库和代码标准库的全部数据对象进行检查，可能需要较长时间，需要您耐心等待。您确定要进行检查吗?
       </div>
-      <el-dialog
-        width="80%"
-        title="数据库实体检查"
-        :visible.sync="innerVisible"
-        append-to-body
-      >
-        <el-table
-          :data="tableData"
-          stripe
-          style="width: 100%"
-        >
-          <el-table-column
-            prop="type"
-            label="类别"
-            width="180"
-          />
-          <el-table-column
-            prop="name"
-            label="desc"
-          />
-          <el-table-column
-            prop="handle"
-            label="操作"
-          />
-          <el-table-column
-            prop="lastEditTime"
-            label="检测时间"
-          />
+      <el-dialog width="80%" title="数据库实体检查" :visible.sync="innerVisible" append-to-body>
+        <el-table :data="tableData" stripe style="width: 100%">
+          <el-table-column prop="type" label="类别" width="180" />
+          <el-table-column prop="name" label="desc" />
+          <el-table-column prop="handle" label="操作" />
+          <el-table-column prop="lastEditTime" label="检测时间" />
         </el-table>
       </el-dialog>
       <div slot="footer" class="dialog-footer">
@@ -351,12 +198,7 @@
           </el-radio-group>
         </el-form-item>
         <el-form-item label="本地文件">
-          <el-upload
-            class="upload-demo"
-            action="https://jsonplaceholder.typicode.com/posts/"
-            :on-change="handleChange"
-            :file-list="fileList"
-          >
+          <el-upload class="upload-demo" action="https://jsonplaceholder.typicode.com/posts/" :on-change="handleChange" :file-list="fileList">
             <el-button size="small" type="success">点击上传</el-button>
             <el-button icon="el-icon-upload">导入数据</el-button>
             <!--<div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>-->
@@ -383,30 +225,11 @@
         </div>
         <div class="column-right">
           <div class="common-title">同步信息</div>
-          <el-table
-            :data="tableData"
-            style="width: 100%"
-            max-height="250"
-          >
-            <el-table-column
-              fixed
-              prop="id"
-              label="ID"
-              width="80"
-            />
-            <el-table-column
-              prop="model"
-              label="模型"
-            />
-            <el-table-column
-              prop="desc1"
-              label="描述"
-            />
-            <el-table-column
-              fixed="right"
-              label="操作"
-              width="100"
-            >
+          <el-table :data="tableData" style="width: 100%" max-height="250">
+            <el-table-column fixed prop="id" label="ID" width="80" />
+            <el-table-column prop="model" label="模型" />
+            <el-table-column prop="desc1" label="描述" />
+            <el-table-column fixed="right" label="操作" width="100">
               <template>
                 <el-button class="mini-btn" type="primary" icon="el-icon-refresh" circle title="同步" />
               </template>
@@ -425,12 +248,14 @@
 export default {
   data() {
     return {
+      dialogVisible: false,
       dialogSetVisible: false,
       dialogAddVisible: false,
       outerVisible: false,
       innerVisible: false,
       dialogImportVisible: false,
       dialogCreateVisible: false,
+      optionType: 'add',
       activeName: 'first',
       filterText: '',
       input1: '',
@@ -573,6 +398,14 @@ export default {
     },
     onSubmit() {
       console.log('submit!')
+    },
+    toggleVisible(type) {
+      if (type === 'add') {
+        this.optionType = 'add'
+      } else if (type === 'edit') {
+        this.optionType = 'edit'
+      }
+      this.dialogVisible = !this.dialogVisible
     }
   }
 }
