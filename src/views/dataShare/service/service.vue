@@ -20,7 +20,11 @@
         <el-col :span="12">
           <div class="grid-content">
 
-            <el-input v-model="input" placeholder="请输入内容" style="width:80%" />
+            <el-input
+              v-model="input"
+              placeholder="请输入内容"
+              style="width:80%"
+            />
             <el-button>索引</el-button>
           </div>
 
@@ -30,6 +34,7 @@
             <el-select
               v-model="value2"
               placeholder="操作"
+              @change="chooseSelect"
             >
               <el-option
                 v-for="item in options2"
@@ -74,9 +79,21 @@
           width="200"
         >
           <template>
-            <el-button type="text" size="small" @click="dialogFormVisible = true">修改</el-button>
-            <el-button type="text" size="small" @click="dialogService2 = true">启用</el-button>
-            <el-button type="text" size="small" @click="dialogService3 = true">预览</el-button>
+            <el-button
+              type="text"
+              size="small"
+              @click="showStep(0,2)"
+            >修改</el-button>
+            <el-button
+              type="text"
+              size="small"
+              @click="qiyong"
+            >启用</el-button>
+            <el-button
+              type="text"
+              size="small"
+              @click="showStep(0,2)"
+            >预览</el-button>
           </template>
         </el-table-column>
       </el-table>
@@ -88,27 +105,64 @@
         />
       </div>
     </div>
-    <el-dialog title="新增服务1" :visible.sync="dialogFormVisible">
+    <el-dialog
+      title="新增服务1"
+      :visible.sync="stepArr[0]"
+    >
       <el-form :model="form">
-        <el-form-item label="服务名称" :label-width="formLabelWidth">
-          <el-input v-model="form.name" autocomplete="off" />
+        <el-form-item
+          label="服务名称"
+          :label-width="formLabelWidth"
+        >
+          <el-input
+            v-model="form.name"
+            autocomplete="off"
+          />
         </el-form-item>
-        <el-form-item label="数据来源" :label-width="formLabelWidth">
-          <el-select v-model="form.region" placeholder="请选择" class="w-full">
-            <el-option label="真实数据" value="shanghai" />
-            <el-option label="脱敏数据" value="beijing" />
+        <el-form-item
+          label="数据来源"
+          :label-width="formLabelWidth"
+        >
+          <el-select
+            v-model="form.region"
+            placeholder="请选择"
+            class="w-full"
+          >
+            <el-option
+              label="真实数据"
+              value="shanghai"
+            />
+            <el-option
+              label="脱敏数据"
+              value="beijing"
+            />
           </el-select>
         </el-form-item>
-        <el-form-item label="服务描述" :label-width="formLabelWidth">
-          <el-input v-model="form.desc" type="textarea" />
+        <el-form-item
+          label="服务描述"
+          :label-width="formLabelWidth"
+        >
+          <el-input
+            v-model="form.desc"
+            type="textarea"
+          />
         </el-form-item>
       </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+      <div
+        slot="footer"
+        class="dialog-footer"
+      >
+        <el-button @click="showStep(0)">取 消</el-button>
+        <el-button
+          type="primary"
+          @click="showStep(1)"
+        >下一步</el-button>
       </div>
     </el-dialog>
-    <el-dialog title="新增服务2" :visible.sync="dialogService2">
+    <el-dialog
+      title="新增服务2"
+      :visible.sync="stepArr[1]"
+    >
       <div class="double-columns">
         <div class="column-left">
           <div class="border-box">
@@ -141,23 +195,36 @@
         </div>
         <div class="column-right">
           <div class="border-box">
-            <el-form ref="form" :model="form">
+            <el-form
+              ref="form"
+              :model="form"
+            >
               <el-form-item label="">
-                <el-input v-model="form.desc" class="min-h140" type="textarea" />
+                <el-input
+                  v-model="form.desc"
+                  class="min-h140"
+                  type="textarea"
+                />
               </el-form-item>
               <el-form-item label="WHERE子句">
-                <el-input v-model="form.desc" type="textarea" />
+                <el-input
+                  v-model="form.desc"
+                  type="textarea"
+                />
               </el-form-item>
               <el-form-item class="txt-c">
-                <el-button type="primary">确定</el-button>
-                <el-button>取消</el-button>
+                <el-button type="primary" @click="showStep(2)">下一步</el-button>
+                <el-button @click="showStep(1)">取消</el-button>
               </el-form-item>
             </el-form>
           </div>
         </div>
       </div>
     </el-dialog>
-    <el-dialog title="新增服务3" :visible.sync="dialogService3">
+    <el-dialog
+      title="新增服务3"
+      :visible.sync="stepArr[2]"
+    >
       <div class="double-columns">
         <div class="column-left">
           <div class="border-box">
@@ -234,7 +301,7 @@
               </el-table>
             </div>
             <div class="txt-c">
-              <el-button type="primary">完成</el-button>
+              <el-button type="primary" @click="save">完成</el-button>
             </div>
           </div>
         </div>
@@ -247,6 +314,7 @@
 export default {
   data() {
     return {
+      type: 1, // 1新增，2修改
       input: '',
       options: [{
         value: '1',
@@ -265,27 +333,32 @@ export default {
       value: '',
       value2: '',
       tableData: [{
+        id: 0,
         state: '111',
         source: '222',
         name: '222',
         miaoshu: '333'
       }, {
+        id: 1,
         state: '111',
         source: '222',
         name: '222',
         miaoshu: '333'
       }, {
+        id: 2,
         state: '111',
         source: '222',
         name: '222',
         miaoshu: '333'
       }, {
+        id: 3,
         state: '111',
         source: '222',
         name: '222',
         miaoshu: '333'
       }],
       multipleSelection: [],
+      stepArr: [false, false, false],
       dialogFormVisible: false,
       dialogService2: false,
       dialogService3: false,
@@ -339,33 +412,87 @@ export default {
       defaultProps: {
         children: 'children',
         label: 'label'
-      },
-      watch: {
-        filterText(val) {
-          this.$refs.tree.filter(val)
-        }
       }
-      //      methods: {
-      //        filterNode(value, data) {
-      //          if (!value) return true
-      //          return data.label.indexOf(value) !== -1
-      //        }
-      //      }
+
+    }
+  },
+  watch: {
+    filterText(val) {
+      this.$refs.tree.filter(val)
+    }
+  },
+  methods: {
+    chooseSelect() {
+      if (this.value2 == 1) {
+        this.showStep(0, 1)
+      } else if (this.value2 == 2) {
+        this.del()
+      }
+      this.value2 = ''
+    },
+    showStep(index, type) {
+      if (type) {
+        this.type = type
+      }
+      console.log(this.stepArr[index])
+      if (this.stepArr[index]) {
+        this.stepArr = [false, false, false]
+        return
+      }
+      this.stepArr = [false, false, false]
+      this.stepArr[index] = true
+    },
+    qiyong() {
+      this.$confirm('是否启用', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning',
+        center: true
+      }).then(() => {
+        this.$message({
+          type: 'success',
+          message: '启用成功!'
+        })
+      })
+    },
+    save() {
+      if (this.type == 1) {
+        this.tableData.push({
+          id: this.tableData.length,
+          state: '111',
+          source: '222',
+          name: '222',
+          miaoshu: '333'
+        })
+      } else if (this.type == 2) {
+        this.$message({
+          message: '修改成功',
+          type: 'success'
+        })
+      }
+      this.stepArr = [false, false, false]
+    },
+    del() {
+
+    },
+    filterNode(value, data) {
+      if (!value) return true
+      return data.label.indexOf(value) !== -1
     }
   }
 }
 </script>
 
 <style scoped="scoped" lang="scss">
-  .grid-content {
+.grid-content {
     margin-right: 20px;
-  }
+}
 
-  .mb-20 {
+.mb-20 {
     margin-bottom: 20px;
-  }
+}
 
-  .mb-10 {
+.mb-10 {
     margin-bottom: 10px;
-  }
+}
 </style>

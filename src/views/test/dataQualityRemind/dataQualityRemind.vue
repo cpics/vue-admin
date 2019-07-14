@@ -47,7 +47,11 @@
         <div class="border-box">
           <div class="common-title">指定接收人群</div>
           <div class="m-buttons-row">
-            <el-button icon="el-icon-plus" type="primary" @click="dialogFormVisible = true">添加</el-button>
+            <el-button
+              icon="el-icon-plus"
+              type="primary"
+              @click="showDialog(1)"
+            >添加</el-button>
             <el-button
               icon="el-icon-message"
               type="warning"
@@ -58,7 +62,11 @@
               type="success"
               @click="sendWx"
             >微信推送</el-button>
-            <el-button icon="el-icon-delete" type="danger" @click="del">删除</el-button>
+            <el-button
+              icon="el-icon-delete"
+              type="danger"
+              @click="del"
+            >删除</el-button>
           </div>
           <el-table
             ref="multipleTable"
@@ -89,7 +97,14 @@
               width="100"
             >
               <template>
-                <el-button class="mini-btn" type="primary" icon="el-icon-edit" circle title="编辑" @click="dialogFormVisible = true" />
+                <el-button
+                  class="mini-btn"
+                  type="primary"
+                  icon="el-icon-edit"
+                  circle
+                  title="编辑"
+                  @click="showDialog(2)"
+                />
               </template>
             </el-table-column>
           </el-table>
@@ -97,32 +112,75 @@
         <div class="border-box">
           <div class="common-title">应用质量反馈</div>
           <div class="more-button txt-c">
-            <el-button type="warning" @click="sendEmail">发送邮件</el-button>
+            <el-button
+              type="warning"
+              @click="sendEmail"
+            >发送邮件</el-button>
           </div>
         </div>
       </div>
     </div>
-    <el-dialog title="添加接收人群" :visible.sync="dialogFormVisible">
+    <el-dialog
+      title="添加接收人群"
+      :visible.sync="dialogFormVisible"
+    >
       <el-form :model="form">
-        <el-form-item label="用户" :label-width="formLabelWidth">
-          <el-input v-model="form.name" class="w-200" autocomplete="off" />
+        <el-form-item
+          label="用户"
+          :label-width="formLabelWidth"
+        >
+          <el-input
+            v-model="form.name"
+            class="w-200"
+            autocomplete="off"
+          />
         </el-form-item>
-        <el-form-item label="发送类型" :label-width="formLabelWidth">
-          <el-select v-model="form.region" placeholder="请选择">
-            <el-option label="质量报告" value="shanghai" />
-            <el-option label="质量报告" value="beijing" />
+        <el-form-item
+          label="发送类型"
+          :label-width="formLabelWidth"
+        >
+          <el-select
+            v-model="form.region"
+            placeholder="请选择"
+          >
+            <el-option
+              label="质量报告"
+              value="shanghai"
+            />
+            <el-option
+              label="质量报告"
+              value="beijing"
+            />
           </el-select>
         </el-form-item>
-        <el-form-item label="业务类型" :label-width="formLabelWidth">
-          <el-select v-model="form.region" placeholder="请选择">
-            <el-option label="GXJX教学管理数据" value="shanghai" />
-            <el-option label="GXJX教学管理数据" value="beijing" />
+        <el-form-item
+          label="业务类型"
+          :label-width="formLabelWidth"
+        >
+          <el-select
+            v-model="form.region"
+            placeholder="请选择"
+          >
+            <el-option
+              label="GXJX教学管理数据"
+              value="shanghai"
+            />
+            <el-option
+              label="GXJX教学管理数据"
+              value="beijing"
+            />
           </el-select>
         </el-form-item>
       </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button @click="dialogFormVisible = false">取 消</el-button>
-        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+      <div
+        slot="footer"
+        class="dialog-footer"
+      >
+        <el-button @click="showDialog">取 消</el-button>
+        <el-button
+          type="primary"
+          @click="save"
+        >确 定</el-button>
       </div>
     </el-dialog>
   </div>
@@ -132,6 +190,7 @@
 export default {
   data() {
     return {
+      type: 1, // 1添加2修改
       dialogFormVisible: false,
       formLabelWidth: '120px',
       multipleSelection: [],
@@ -181,8 +240,30 @@ export default {
     }
   },
   methods: {
+    showDialog(type) {
+      if (type) {
+        this.type = type
+      }
+      this.dialogFormVisible = !this.dialogFormVisible
+    },
     handleSelectionChange(val) {
       this.multipleSelection = val
+    },
+    save() {
+      if (this.type == 1) {
+        this.tableData.push({
+          id: this.tableData.length,
+          user: 'admin',
+          send: '质量报告',
+          remind: 'GXJX 教学管理数据'
+        })
+      } else if (this.type == 2) {
+        this.$message({
+          message: '修改成功',
+          type: 'success'
+        })
+      }
+      this.showDialog()
     },
     del() {
       if (this.multipleSelection.length == 0) {
