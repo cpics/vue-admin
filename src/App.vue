@@ -13,10 +13,15 @@ export default {
   .g-container{
     padding: 20px;
   }
+  .dialog-big{
+    .el-dialog{
+      min-width: 720px;
+    }
+  }
   .el-dialog {
     .el-form {
       padding-right: 40px;
-      max-height: 500px;
+      max-height: 450px;
       overflow-y: auto;
       .el-input {
         &.w-200 {
@@ -61,6 +66,24 @@ export default {
         padding-right: 0;
       }
 
+    }
+    .dialog-txt{
+      line-height: 1.6;
+      font-size: 14px;
+    }
+    .script-txt{
+      .el-textarea__inner{
+        min-height: 400px !important;
+      }
+    }
+    .log-box{
+      line-height: 1.5;
+      width: 100%;
+      padding-top: 9px;
+      min-height: 80px;
+      img{
+        max-width: 100%;
+      }
     }
   }
   .double-columns {
