@@ -552,18 +552,27 @@ export default {
         children: 'children',
         label: 'label'
       },
-      filterNode(value, data) {
-        if (!value) return true
-        return data.label.indexOf(value) !== -1
-      },
-      methods: {
-        handleClick(tab, event) {
-          console.log(tab, event)
-        },
-        onSubmit() {
-          console.log('submit!')
-        }
-      }
+      fileList: [],
+      multipleSelection: []
+
+    }
+  },
+  methods: {
+    handleSelectionChange(val) {
+      this.multipleSelection = val
+    },
+    handleChange() {
+
+    },
+    filterNode(value, data) {
+      if (!value) return true
+      return data.label.indexOf(value) !== -1
+    },
+    handleClick(tab, event) {
+      console.log(tab, event)
+    },
+    onSubmit() {
+      console.log('submit!')
     }
   }
 }
