@@ -14,9 +14,9 @@
       </el-col>
     </el-row>
     <div class="m-buttons-row">
-      <el-button icon="el-icon-plus" type="primary">添加</el-button>
-      <el-button icon="el-icon-edit" type="success">编辑</el-button>
-      <el-button icon="el-icon-delete" type="danger">删除</el-button>
+      <el-button icon="el-icon-plus" type="primary" @click="showDialog(1)">添加</el-button>
+      <el-button icon="el-icon-edit" type="success" @click="showDialog(2)">编辑</el-button>
+      <el-button icon="el-icon-delete" type="danger" @click="del">删除</el-button>
     </div>
     <el-table
       ref="multipleTable"
@@ -42,6 +42,23 @@
         label="角色描述"
       />
     </el-table>
+    <el-dialog :title="`${type == 1?'添加':'修改'}角色`" :visible.sync="dialogFormVisible">
+      <el-form :model="form">
+        <el-form-item label="角色代码" :label-width="formLabelWidth">
+          <el-input v-model="form.code" autocomplete="off" />
+        </el-form-item>
+        <el-form-item label="角色名称" :label-width="formLabelWidth">
+          <el-input v-model="form.name" autocomplete="off" />
+        </el-form-item>
+        <el-form-item label="角色描述" :label-width="formLabelWidth">
+          <el-input v-model="form.disc" autocomplete="off" />
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="showDialog">取 消</el-button>
+        <el-button type="primary" @click="save">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -49,25 +66,38 @@
 export default {
   data() {
     return {
+      multipleSelection: [],
+      dialogFormVisible: false,
+      type: '1',
       input1: '',
       input2: '',
+      formLabelWidth: '120px',
+      form: {
+        name: '',
+        code: '',
+        disc: ''
+      },
       tableData: [
         {
+          id: 0,
           jsdm: 'system',
           name: '系统管理员',
           miaoshu: '角色描述'
         },
         {
+          id: 2,
           jsdm: 'system',
           name: '系统管理员',
           miaoshu: '角色描述'
         },
         {
+          id: 3,
           jsdm: 'system',
           name: '系统管理员',
           miaoshu: '角色描述'
         },
         {
+          id: 4,
           jsdm: 'system',
           name: '系统管理员',
           miaoshu: '角色描述'
@@ -78,6 +108,45 @@ export default {
   methods: {
     handleSelectionChange(val) {
       this.multipleSelection = val
+    },
+    showDialog(type) {
+      if (type) {
+        this.type = type
+      }
+      this.dialogFormVisible = !this.dialogFormVisible
+    },
+    save() {
+      if (this.type == 1) {
+        this.tableData.push({
+          id: this.tableData.length,
+          jsdm: 'system',
+          name: '系统管理员',
+          miaoshu: '角色描述'
+        })
+      } else if (this.type == 2) {
+        this.$message({
+          message: '修改成功',
+          type: 'success'
+        })
+      }
+      this.showDialog()
+    },
+    del() {
+      if (this.multipleSelection.length == 0) {
+        this.$message({
+          message: '请勾选你需要删除的数据',
+          type: 'warning'
+        })
+      } else {
+        console.log(1)
+        this.multipleSelection.forEach(item => {
+          this.tableData.forEach((d, i) => {
+            if (item.id == d.id) {
+              this.tableData.splice(i, 1)
+            }
+          })
+        })
+      }
     }
   }
 }
