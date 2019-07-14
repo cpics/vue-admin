@@ -14,7 +14,7 @@
       </el-col>
     </el-row>
     <div class="m-buttons-row">
-      <el-button icon="el-icon-circle-plus-outline" type="primary">注册</el-button>
+      <el-button icon="el-icon-circle-plus-outline" type="primary" @click="dialogFormVisible = true">注册</el-button>
       <el-button icon="el-icon-delete" type="danger">删除</el-button>
     </div>
     <div>
@@ -31,6 +31,7 @@
         <el-table-column
           prop="index"
           label="索引"
+          width="60"
         />
         <el-table-column
           prop="xtName"
@@ -72,11 +73,54 @@
         >
           <template>
             <el-button class="mini-btn" type="success" icon="el-icon-time" circle title="测试" />
-            <el-button class="mini-btn" type="primary" icon="el-icon-edit" circle title="编辑" />
+            <el-button class="mini-btn" type="primary" icon="el-icon-edit" circle title="编辑" @click="dialogFormVisible = true" />
           </template>
         </el-table-column>
       </el-table>
     </div>
+    <el-dialog title="修改数据源" :visible.sync="dialogFormVisible">
+      <el-form :model="form">
+        <el-form-item label="注册系统名" :label-width="formLabelWidth">
+          <el-input v-model="form.sysName" autocomplete="off" />
+        </el-form-item>
+        <el-form-item label="注册系统英文名" :label-width="formLabelWidth">
+          <el-input v-model="form.sysEnglish" autocomplete="off" />
+        </el-form-item>
+        <el-form-item label="ODI数据源名称" :label-width="formLabelWidth">
+          <el-input v-model="form.name" autocomplete="off" />
+        </el-form-item>
+        <el-form-item label="数据库类型" :label-width="formLabelWidth">
+          <el-select v-model="form.region" placeholder="请选择" class="w-full">
+            <el-option label="Oracle" value="1" />
+            <el-option label="Mysql" value="2" />
+            <el-option label="postgreSql" value="3" />
+            <el-option label="SQL Server" value="4" />
+          </el-select>
+        </el-form-item>
+        <el-form-item label="数据库驱动" :label-width="formLabelWidth">
+          <el-input v-model="form.database" autocomplete="off" />
+        </el-form-item>
+        <el-form-item label="数据库连接字符串" :label-width="formLabelWidth">
+          <el-input v-model="form.connect" autocomplete="off" />
+        </el-form-item>
+        <el-form-item label="数据库连接用户名" :label-width="formLabelWidth">
+          <el-input v-model="form.connectName" autocomplete="off" />
+        </el-form-item>
+        <el-form-item label="数据库连接用户密码" :label-width="formLabelWidth">
+          <el-input v-model="form.pwd" autocomplete="off" />
+        </el-form-item>
+        <el-form-item label="数据库对象所有者" :label-width="formLabelWidth">
+          <el-input v-model="form.own" autocomplete="off" />
+        </el-form-item>
+        <el-form-item label="最后修改时间" :label-width="formLabelWidth">
+          <el-input v-model="form.time" autocomplete="off" />
+        </el-form-item>
+      </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">取 消</el-button>
+        <el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -87,6 +131,21 @@ export default {
       input1: '',
       input2: '',
       isUse: true,
+      dialogFormVisible: false,
+      form: {
+        sysName: '',
+        sysEnglish: '',
+        name: '',
+        database: '',
+        delivery: false,
+        type: [],
+        connect: '',
+        connectName: '',
+        pwd: '',
+        own: '',
+        time: ''
+      },
+      formLabelWidth: '140px',
       tableData: [
         {
           index: 1,

@@ -41,17 +41,16 @@ export default {
       }
     }
     .double-columns {
-      min-width: 800px;
-      .column-left {
-        width: 240px;
-      }
+      min-width: 300px;
       .column-right{
-        margin-left: 260px;
         .el-textarea{
           &.min-h140{
             .el-textarea__inner{
               min-height: 140px !important;
             }
+          }
+          &.w-200{
+            width: 200px;
           }
         }
       }
@@ -61,6 +60,7 @@ export default {
       .el-form{
         padding-right: 0;
       }
+
     }
   }
   .double-columns {
