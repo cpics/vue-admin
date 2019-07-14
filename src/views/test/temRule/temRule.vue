@@ -40,16 +40,10 @@
                 </el-select>
               </el-form-item>
             </el-form>
-            <div class="tem-button">
-              <el-button type="primary">查询</el-button>
-              <el-button
-                type="success"
-                @click="showDia(1)"
-              >添加</el-button>
-              <el-button
-                type="danger"
-                @click="del"
-              >删除</el-button>
+            <div class="m-buttons-row">
+              <el-button icon="el-icon-search" type="primary">查询</el-button>
+              <el-button icon="el-icon-plus" type="success" @click="showDia(1)">添加</el-button>
+              <el-button icon="el-icon-delete" type="danger" @click="del">删除</el-button>
             </div>
           </div>
           <el-table
@@ -81,20 +75,9 @@
               width="200"
             >
               <template>
-                <el-button
-                  type="text"
-                  size="small"
-                  @click="showDia(2)"
-                >修改</el-button>
-                <el-button
-                  type="text"
-                  size="small"
-                  @click="tiaoshi"
-                >调试</el-button>
-                <el-button
-                  type="text"
-                  size="small"
-                >显示设置</el-button>
+                <el-button class="mini-btn" type="primary" icon="el-icon-edit" circle title="编辑" @click="showDia(2)" />
+                <el-button class="mini-btn" type="warning" icon="el-icon-time" circle title="调试" @click="tiaoshi" />
+                <el-button class="mini-btn" type="success" icon="el-icon-view" circle title="显示设置" />
               </template>
             </el-table-column>
           </el-table>

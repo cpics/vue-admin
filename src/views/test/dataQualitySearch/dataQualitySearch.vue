@@ -29,8 +29,8 @@
               </el-form-item>
             </el-form>
             <div class="tem-button">
-              <el-button type="primary">查询</el-button>
-              <el-button type="success">导出</el-button>
+              <el-button icon="el-icon-search" type="primary">查询</el-button>
+              <el-button icon="el-icon-download" type="info">导出</el-button>
             </div>
           </div>
           <el-table

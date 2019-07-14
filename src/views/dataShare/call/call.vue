@@ -45,19 +45,31 @@
           <el-button icon="el-icon-search" type="primary">查询</el-button>
         </el-col>
       </el-row>
-      <div>
+      <div class="call-columns">
         <ul>
           <li>
-            <div>人员基本信息</div>
-            <div>申请次数:30</div>
-            <div>最近调用：2019/07/01 09:06:3</div>
-            <div class="center">21/3/6</div>
+            <div class="call-tit">人员基本信息</div>
+            <div class="call-row">
+              <div class="call-label">申请次数：</div>
+              <div class="call-num">30</div>
+            </div>
+            <div class="call-row">
+              <div class="call-label">最近调用：</div>
+              <div class="call-num">2019/07/01 09:06:3</div>
+            </div>
+            <div class="call-count">21/3/6</div>
           </li>
           <li>
-            <div>人员基本信息</div>
-            <div>申请次数:30</div>
-            <div>最近调用：2019/07/01 09:06:3</div>
-            <div class="center">21/3/6</div>
+            <div class="call-tit">人员基本信息</div>
+            <div class="call-row">
+              <div class="call-label">申请次数：</div>
+              <div class="call-num">30</div>
+            </div>
+            <div class="call-row">
+              <div class="call-label">最近调用：</div>
+              <div class="call-num">2019/07/01 09:06:3</div>
+            </div>
+            <div class="call-count">21/3/6</div>
           </li>
         </ul>
       </div>
@@ -115,4 +127,51 @@ export default {
     height: 400px;
     padding-bottom: 30px;
 }
+  .call-columns{
+    ul{
+      font-size: 0;
+      margin-left: -20px;
+    }
+    li{
+      width: 30%;
+      min-width: 260px;
+      min-height: 124px;
+      font-size: 14px;
+      padding: 10px;
+      box-sizing: border-box;
+      display: inline-block;
+      margin-left: 20px;
+      margin-bottom: 20px;
+      border:1px solid #e4e4e4;
+      border-radius: 5px;
+      div{
+        padding: 3px 0;
+      }
+      .call-row{
+        &:after{
+          content: "";
+          font-size: 0;
+          display: block;
+          height: 0;
+          clear: both;
+          visibility: hidden;
+        }
+      }
+      .call-label{
+        min-width: 80px;
+        float: left;
+        text-align: right;
+      }
+      .call-tit{
+        font-weight: bold;
+        padding-bottom: 5px;
+      }
+      .call-num{
+        margin-left: 80px;
+      }
+      .call-count{
+        padding-left: 80px;
+      }
+    }
+  }
 </style>

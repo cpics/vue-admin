@@ -1,14 +1,8 @@
 <template>
   <div class="g-container">
-    <div class="tem-handle-btn">
-      <el-button
-        type="primary"
-        @click="showDialg(1)"
-      >添加</el-button>
-      <el-button
-        type="danger"
-        @click="del"
-      >删除</el-button>
+    <div class="m-buttons-row">
+      <el-button icon="el-icon-plus" type="primary" @click="showDialg(1)">添加</el-button>
+      <el-button icon="el-icon-delete" type="danger" @click="del">删除</el-button>
     </div>
     <el-table
       ref="multipleTable"
@@ -47,11 +41,7 @@
         width="100"
       >
         <template>
-          <el-button
-            type="text"
-            size="small"
-            @click="showDialg(2)"
-          >编辑</el-button>
+          <el-button class="mini-btn" type="primary" icon="el-icon-edit" circle title="编辑" @click="showDialg(2)" />
         </template>
       </el-table-column>
     </el-table>
