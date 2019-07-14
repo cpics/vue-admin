@@ -12,11 +12,12 @@
       </div>
     </div>
     <div>
-      <el-form>
-        <el-form-item>
+      <el-row class="m-filter-row">
+        <el-col class="filter-label" :span="2">默认排序：</el-col>
+        <el-col class="mr-20" :span="6">
           <el-select
             v-model="value"
-            placeholder="默认排序"
+            placeholder=""
           >
             <el-option
               label="时间升序"
@@ -35,15 +36,15 @@
               value="3"
             />
           </el-select>
-        </el-form-item>
-        <el-form-item>
-          <el-input />
-        </el-form-item>
-        <el-form-item>
-          <el-button>查询</el-button>
-        </el-form-item>
-      </el-form>
-
+        </el-col>
+        <el-col class="filter-label w-140" :span="4">人员基本信息：</el-col>
+        <el-col class="mr-20" :span="6" align justify>
+          <el-input v-model="input2" placeholder="请输入内容" />
+        </el-col>
+        <el-col :span="4">
+          <el-button icon="el-icon-search" type="primary">查询</el-button>
+        </el-col>
+      </el-row>
       <div>
         <ul>
           <li>

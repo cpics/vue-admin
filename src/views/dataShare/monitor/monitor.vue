@@ -19,44 +19,41 @@
       </div>
       <div class="column-right">
         <div class="border-box">
-          <div class="tem-rule-filter">
-            <el-form :model="form">
-              <el-form-item
-                label="规则模板"
-                :label-width="formLabelWidth"
+          <el-row class="m-filter-row">
+            <el-col class="filter-label w-60" :span="2">状态：</el-col>
+            <el-col class="mr-20" :span="6">
+              <el-select
+                v-model="form.template"
+                placeholder="请选择"
               >
-                <el-select
-                  v-model="form.template"
-                  placeholder="请选择"
-                >
-                  <el-option
-                    label="成功"
-                    value="1"
-                  />
-                  <el-option
-                    label="失败"
-                    value="2"
-                  />
-                  <el-option
-                    label="违法"
-                    value="3"
-                  />
-                </el-select>
-              </el-form-item>
-              <el-form-item label="日期:">
-                <el-date-picker
-                  v-model="form.date"
-                  type="daterange"
-                  range-separator="至"
-                  start-placeholder="开始日期"
-                  end-placeholder="结束日期"
+                <el-option
+                  label="成功"
+                  value="1"
                 />
-              </el-form-item>
-            </el-form>
-            <div class="tem-button">
-              <el-button type="primary">查询</el-button>
-              <el-button type="success" @click="showDia">监控</el-button>
-            </div>
+                <el-option
+                  label="失败"
+                  value="2"
+                />
+                <el-option
+                  label="违法"
+                  value="3"
+                />
+              </el-select>
+            </el-col>
+            <el-col class="filter-label w-60" :span="4">日期：</el-col>
+            <el-col :span="12">
+              <el-date-picker
+                v-model="form.date"
+                type="daterange"
+                range-separator="至"
+                start-placeholder="开始日期"
+                end-placeholder="结束日期"
+              />
+            </el-col>
+          </el-row>
+          <div class="m-buttons-row">
+            <el-button type="primary" icon="el-icon-search">查询</el-button>
+            <el-button type="success" icon="el-icon-eye" @click="showDia">监控</el-button>
           </div>
           <el-table
             ref="multipleTable"

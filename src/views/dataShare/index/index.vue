@@ -1,6 +1,5 @@
 <template>
   <div class="g-container">
-    <div class="common-h1-tit">数据共享服务</div>
     <el-col>
       <el-col :span="12">
         <div class="grid-content bg-purple">

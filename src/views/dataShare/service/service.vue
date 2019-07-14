@@ -1,53 +1,46 @@
 <template>
   <div class="g-container">
-    <div class="mb-20">
-      <el-row>
-        <el-col :span="4">
-          <div class="grid-content">
-            <el-select
-              v-model="value"
-              placeholder="请选择"
-            >
-              <el-option
-                v-for="item in options"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </div>
-        </el-col>
-        <el-col :span="12">
-          <div class="grid-content">
-
-            <el-input
-              v-model="input"
-              placeholder="请输入内容"
-              style="width:80%"
+    <el-row class="m-filter-row">
+      <el-col :span="4">
+        <div class="grid-content">
+          <el-select
+            v-model="value"
+            placeholder="请选择"
+          >
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
             />
-            <el-button>索引</el-button>
-          </div>
+          </el-select>
+        </div>
+      </el-col>
+      <el-col :span="6" class="mr-5">
+        <el-input
+          v-model="input"
+          placeholder="请输入内容"
+        />
+      </el-col>
+      <el-col :span="3"><el-button type="primary" icon="el-icon-search">搜索</el-button></el-col>
+      <el-col :span="4">
+        <div class="grid-content">
+          <el-select
+            v-model="value2"
+            placeholder="操作"
+            @change="chooseSelect"
+          >
+            <el-option
+              v-for="item in options2"
+              :key="item.value"
+              :label="item.label"
+              :value="item.value"
+            />
+          </el-select>
+        </div>
 
-        </el-col>
-        <el-col :span="4">
-          <div class="grid-content">
-            <el-select
-              v-model="value2"
-              placeholder="操作"
-              @change="chooseSelect"
-            >
-              <el-option
-                v-for="item in options2"
-                :key="item.value"
-                :label="item.label"
-                :value="item.value"
-              />
-            </el-select>
-          </div>
-
-        </el-col>
-      </el-row>
-    </div>
+      </el-col>
+    </el-row>
     <div class="data-list">
       <el-table
         ref="multipleTable"
@@ -75,25 +68,14 @@
           label="服务描述"
         />
         <el-table-column
+          fixed="right"
           label="操作"
-          width="200"
+          width="130"
         >
           <template>
-            <el-button
-              type="text"
-              size="small"
-              @click="showStep(0,2)"
-            >修改</el-button>
-            <el-button
-              type="text"
-              size="small"
-              @click="qiyong"
-            >启用</el-button>
-            <el-button
-              type="text"
-              size="small"
-              @click="showStep(0,2)"
-            >预览</el-button>
+            <el-button class="mini-btn" type="primary" icon="el-icon-edit" circle title="编辑" @click="showStep(0,2)" />
+            <el-button class="mini-btn" type="success" icon="el-icon-caret-right" circle title="启用" @click="qiyong" />
+            <el-button class="mini-btn" type="warning" icon="el-icon-view" circle title="预览" @click="dialogViewVisible = true" />
           </template>
         </el-table-column>
       </el-table>
@@ -307,6 +289,30 @@
         </div>
       </div>
     </el-dialog>
+    <el-dialog title="服务预览" class="dialog-big" :visible.sync="dialogViewVisible">
+      <div class="double-columns">
+        <div class="column-left">
+          <div class="common-title">参数</div>
+          <el-form ref="form" :model="form" label-width="120px">
+            <el-form-item label="页码">
+              <el-input v-model="form.id" />
+            </el-form-item>
+            <el-form-item label="每页记录条数">
+              <el-input v-model="form.id" />
+            </el-form-item>
+          </el-form>
+        </div>
+        <div class="column-right">
+          <div class="common-title">结果预览</div>
+          <div class="script-txt">
+            <el-input v-model="form.scrip" type="textarea" />
+          </div>
+        </div>
+      </div>
+      <div slot="footer" class="dialog-footer el-dialog__footer">
+        <el-button type="primary" @click="onSubmit">应用</el-button>
+      </div>
+    </el-dialog>
   </div>
 </template>
 
@@ -362,6 +368,7 @@ export default {
       dialogFormVisible: false,
       dialogService2: false,
       dialogService3: false,
+      dialogViewVisible: false,
       form: {
         name: '',
         region: '',
