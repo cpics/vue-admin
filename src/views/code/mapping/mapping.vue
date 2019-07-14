@@ -4,7 +4,7 @@
       <div class="column-left">
         <div class="border-box tem-rule-tree">
           <el-input v-model="filterText" placeholder="请输入关键字" />
-          <el-tree ref="tree" class="filter-tree" :data="data" :props="defaultProps" default-expand-all :filter-node-method="filterNode" />
+          <el-tree ref="tree" class="filter-tree" :data="data" :props="defaultProps" default-expand-all :filter-node-method="filterNode" @node-click="handleNodeClick" />
         </div>
       </div>
       <div class="column-right">
@@ -15,14 +15,28 @@
               <el-button type="danger" @click="deleteItem">删除映射</el-button>
             </div>
           </div>
-          <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%">
+          <el-table v-if="pageType === 1" ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%">
             <el-table-column type="selection" width="55" />
-            <el-table-column prop="businessTable" label="业务表" />
-            <el-table-column prop="businessField" label="业务表字段" />
-            <el-table-column prop="codeTable" label="标准代码表" />
-            <el-table-column prop="codeFieldName" label="代码字段名称" />
-            <el-table-column prop="showFieldName" label="显示字段名称" />
-            <el-table-column prop="dataFlow" label="数据流向" />
+            <el-table-column :key="Math.random()" prop="businessTable" label="业务表" />
+            <el-table-column :key="Math.random()" prop="businessField" label="业务表字段" />
+            <el-table-column :key="Math.random()" prop="codeTable" label="标准代码表" />
+            <el-table-column :key="Math.random()" prop="codeFieldName" label="代码字段名称" />
+            <el-table-column :key="Math.random()" prop="showFieldName" label="显示字段名称" />
+            <el-table-column :key="Math.random()" prop="dataFlow" label="数据流向" />
+            <el-table-column fixed="right" label="操作" width="200">
+              <template>
+                <el-button type="text" size="small" @click="dialogFormVisible = true">编辑</el-button>
+              </template>
+            </el-table-column>
+          </el-table>
+
+          <el-table v-if="pageType === 2" ref="multipleTable2" :data="tableData2" tooltip-effect="dark" style="width: 100%">
+            <el-table-column type="selection" width="55" />
+            <el-table-column :key="Math.random()" prop="businessTable" label="业务表" />
+            <el-table-column :key="Math.random()" prop="businessCodeRange" label="业务代码取值范围" />
+            <el-table-column :key="Math.random()" prop="codeTable" label="标准代码表" />
+            <el-table-column :key="Math.random()" prop="codeValueRange" label="标准代码取值范围" />
+            <el-table-column :key="Math.random()" prop="dataFlow" label="数据流向" />
             <el-table-column fixed="right" label="操作" width="200">
               <template>
                 <el-button type="text" size="small" @click="dialogFormVisible = true">编辑</el-button>
@@ -37,16 +51,22 @@
         <el-form-item label="业务表:" prop="form.businessTable" :label-width="formLabelWidth">
           <el-input v-model="form.businessTable" />
         </el-form-item>
+        <el-form-item v-if="pageType === 2" label="业务代码取值范围:" prop="form.businessCodeRange" :label-width="formLabelWidth">
+          <el-input v-model="form.businessCodeRange" />
+        </el-form-item>
         <el-form-item label="业务表字段:" prop="form.businessField" :label-width="formLabelWidth">
           <el-input v-model="form.businessField" />
         </el-form-item>
         <el-form-item label="标准代码表:" prop="form.codeTable" :label-width="formLabelWidth">
           <el-input v-model="form.codeTable" />
         </el-form-item>
+        <el-form-item v-if="pageType === 2" label="标准代码取值范围:" prop="form.codeValueRange" :label-width="formLabelWidth">
+          <el-input v-model="form.codeValueRange" />
+        </el-form-item>
         <el-form-item label="代码字段名称:" prop="form.codeFieldName" :label-width="formLabelWidth">
           <el-input v-model="form.codeFieldName" />
         </el-form-item>
-        <el-form-item label="显示字段名称:" prop="form.showFieldName" :label-width="formLabelWidth">
+        <el-form-item v-if="pageType === 1" label="显示字段名称:" prop="form.showFieldName" :label-width="formLabelWidth">
           <el-input v-model="form.showFieldName" />
         </el-form-item>
         <el-form-item label="数据流向:" prop="form.source" :label-width="formLabelWidth">
@@ -69,6 +89,7 @@ export default {
 
   data() {
     return {
+      pageType: 1, // 1-无代码表 2-有代码表
       filterText: '',
       form: {
         name: '',
@@ -85,9 +106,11 @@ export default {
         codeTable: '',
         codeFieldName: '',
         showFieldName: '',
-        source: ''
+        source: '',
+        businessCodeRange: '',
+        codeValueRange: ''
       },
-      formLabelWidth: '120px',
+      formLabelWidth: '140px',
       tableData: [{
         businessTable: '学校基本数据子类表',
         businessField: '985GCYXZK',
@@ -120,6 +143,31 @@ export default {
         showFieldName: 'GCYXZK',
         dataFlow: '代码表到业务表'
       }],
+      tableData2: [{
+        businessTable: '学校基本数据子类表',
+        businessCodeRange: '985GCYXZK',
+        codeTable: 'SFBZ',
+        codeValueRange: 'DM(代码)',
+        dataFlow: '代码表到业务表'
+      }, {
+        businessTable: '学校基本数据子类表',
+        businessCodeRange: '985GCYXZK',
+        codeTable: 'SFBZ',
+        codeValueRange: 'DM(代码)',
+        dataFlow: '代码表到业务表'
+      }, {
+        businessTable: '学校基本数据子类表',
+        businessCodeRange: '985GCYXZK',
+        codeTable: 'SFBZ',
+        codeValueRange: 'DM(代码)',
+        dataFlow: '代码表到业务表'
+      }, {
+        businessTable: '学校基本数据子类表',
+        businessCodeRange: '985GCYXZK',
+        codeTable: 'SFBZ',
+        codeValueRange: 'DM(代码)',
+        dataFlow: '代码表到业务表'
+      }],
       dialogFormVisible: false,
       data: [{
         id: 1,
@@ -129,10 +177,10 @@ export default {
           label: '二级 1-1',
           children: [{
             id: 9,
-            label: '三级 1-1-1'
+            label: '无代码表'
           }, {
             id: 10,
-            label: '三级 1-1-2'
+            label: '有代码表'
           }]
         }]
       }, {
@@ -172,6 +220,15 @@ export default {
     filterNode(value, data) {
       if (!value) return true
       return data.label.indexOf(value) !== -1
+    },
+    handleNodeClick(node, data, value) {
+      if (node.id === 9) {
+        this.pageType = 1
+      } else if (node.id === 10) {
+        this.pageType = 2
+      } else {
+        this.pageType = 1
+      }
     },
     deleteItem() {
       this.$message({

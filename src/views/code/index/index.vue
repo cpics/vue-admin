@@ -118,6 +118,18 @@
               <el-table-column prop="businessSys" label="业务系统" />
               <el-table-column prop="release" label="发布情况" />
             </el-table>
+            <h3>字段映射关系（根据表映射联动获得）</h3>
+            <el-table ref="form4" :data="tableData4" tooltip-effect="dark" style="width: 100%">
+              <el-table-column prop="codeField" label="标准代码字段" />
+              <el-table-column prop="codeFieldSimple" label="标准代码字段中文简称" />
+              <el-table-column prop="businessCodeField" label="业务代码字段" />
+              <el-table-column prop="businessCodeFieldSimple" label="业务代码字段中文简称" />
+            </el-table>
+            <h3>值映射关系（根据字段映射联动获得）</h3>
+            <el-table ref="form5" :data="tableData5" tooltip-effect="dark" style="width: 100%">
+              <el-table-column prop="codeValue" label="标准字段值" />
+              <el-table-column prop="fieldValue" label="业务字段值" />
+            </el-table>
           </el-tab-pane>
         </el-tabs>
       </div>
@@ -225,13 +237,13 @@ export default {
           label: '二级 1-1',
           children: [{
             id: 9,
-            label: '一张页面'
+            label: '页面1'
           }, {
             id: 10,
-            label: '代码标准映射管理(无代码表)'
+            label: '页面2'
           }, {
             id: 11,
-            label: '代码标准映射管理(有代码表)'
+            label: '页面3'
           }]
         }]
       }, {
@@ -301,11 +313,41 @@ export default {
           release: '已发布'
         }
       ],
+      tableData4: [
+        {
+          codeField: '0',
+          codeFieldSimple: '未知的性别',
+          businessCodeField: 'A',
+          businessCodeFieldSimple: '未知的性别'
+        }, {
+          codeField: '1',
+          codeFieldSimple: '男性',
+          businessCodeField: 'B',
+          businessCodeFieldSimple: '男性'
+        }, {
+          codeField: '2',
+          codeFieldSimple: '女性',
+          businessCodeField: 'C',
+          businessCodeFieldSimple: '女性'
+        }
+      ],
+      tableData5: [
+        {
+          codeValue: '0',
+          fieldValue: 'A'
+        }, {
+          codeValue: '1',
+          fieldValue: 'B'
+        }, {
+          codeValue: '2',
+          fieldValue: 'C'
+        }
+      ],
       defaultProps: {
         children: 'children',
         label: 'label'
       },
-      pageType: 0 // 1-一张页面 2-代码标准映射(无代码表) 3-有代码表
+      pageType: 0
     }
   },
   mounted() {
@@ -326,13 +368,7 @@ export default {
       this.dmChart4.setOption(this.dmOptions)
     },
     handleNodeClick(node, data, value) {
-      if (node.id === 9) {
-        this.pageType = 1
-      } else if (node.id === 10) {
-        this.pageType = 2
-      } else if (node.id === 11) {
-        this.pageType = 3
-      }
+      this.pageType = 1
     },
     filterNode(value, data) {
       if (!value) return true

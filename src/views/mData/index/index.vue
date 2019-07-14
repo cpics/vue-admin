@@ -1,7 +1,7 @@
 <template>
   <div class="g-container">
     <el-row class="m-filter-row">
-      <el-col class="filter-label" :span="2" align justify>角色代码：</el-col>
+      <el-col class="filter-label" :span="2" align justify>注册系统名：</el-col>
       <el-col class="mr-20" :span="6" align justify>
         <el-input v-model="input1" placeholder="请输入内容" />
       </el-col>
@@ -18,60 +18,22 @@
       <el-button icon="el-icon-delete" type="danger" @click="del">删除</el-button>
     </div>
     <div>
-      <el-table
-        ref="multipleTable"
-        :data="tableData"
-        tooltip-effect="dark"
-        style="width: 100%"
-        @selection-change="handleSelectionChange"
-      >
-        <el-table-column
-          type="selection"
-          width="55"
-        />
-        <el-table-column
-          prop="index"
-          label="索引"
-          width="60"
-        />
-        <el-table-column
-          prop="xtName"
-          label="注册系统名"
-        />
-        <el-table-column
-          prop="type"
-          label="数据库类型"
-        />
-        <el-table-column
-          prop="xtString"
-          label="数据库连接字符串"
-        />
-        <el-table-column
-          prop="sqlName"
-          label="数据库连接用户名"
-        />
-        <el-table-column
-          prop="lastEditTime"
-          label="最后修改时间"
-        />
-        <el-table-column
-          label="是否启用"
-        >
+      <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%" @selection-change="handleSelectionChange">
+        <el-table-column type="selection" width="55" />
+        <el-table-column prop="index" label="索引" width="60" />
+        <el-table-column prop="xtName" label="注册系统名" />
+        <el-table-column prop="type" label="数据库类型" />
+        <el-table-column prop="xtString" label="数据库连接字符串" />
+        <el-table-column prop="sqlName" label="数据库连接用户名" />
+        <el-table-column prop="lastEditTime" label="最后修改时间" />
+        <el-table-column label="是否启用">
           <template slot-scope="scope">
-            <el-switch
-              v-model="scope.row.isUse"
-              active-color="#13ce66"
-              inactive-color="#ff4949"
-            >
+            <el-switch v-model="scope.row.isUse" active-color="#13ce66" inactive-color="#ff4949">
               />
             </el-switch>
           </template>
         </el-table-column>
-        <el-table-column
-          fixed="right"
-          label="操作"
-          width="120"
-        >
+        <el-table-column fixed="right" label="操作" width="120">
           <template>
             <el-button class="mini-btn" type="success" icon="el-icon-time" circle title="测试" />
             <el-button class="mini-btn" type="primary" icon="el-icon-edit" circle title="编辑" @click="showDialog(2)" />

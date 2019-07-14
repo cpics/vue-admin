@@ -181,15 +181,6 @@ export const constantRoutes = [
         }
       },
       {
-        path: 'dataQualityFeedBack',
-        component: () => import('@/views/test/dataQualityFeedBack/dataQualityFeedBack.vue'),
-        name: 'testDataQualityFeedBack',
-        meta: {
-          title: '数据质量反馈'
-          // if do not set roles, means: this page does not require permission
-        }
-      },
-      {
         path: 'dataQualityTask',
         component: () => import('@/views/test/dataQualityTask/dataQualityTask.vue'),
         name: 'dataQualityTask',
@@ -331,6 +322,14 @@ export const constantRoutes = [
         meta: {
           title: '代码标准映射管理'
           // if do not set roles, means: this page does not require permission
+        }
+      },
+      {
+        path: 'check',
+        component: () => import('@/views/code/check/check.vue'),
+        name: 'codeCheck',
+        meta: {
+          title: '代码标准一致性检查'
         }
       }
     ]
