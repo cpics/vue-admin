@@ -1,7 +1,7 @@
 <template>
   <div class="g-container">
     <div class="dashboard-box">
-      <h1 class="dashboard-tit">数据概览</h1>
+      <h1 class="dashboard-tit c-overview">数据概览</h1>
       <div class="dashboard-data">
         <div class="dashboard-col">
           <section>
@@ -42,7 +42,7 @@
       </div>
     </div>
     <div class="dashboard-box">
-      <h1 class="dashboard-tit">数据统计</h1>
+      <h1 class="dashboard-tit c-counter">数据统计</h1>
       <div class="data-statistics">
         <div class="statistics-col">
           <div class="statistics-tit">代码标准表统计</div>
@@ -155,11 +155,33 @@ export default {
 </script>
 <style scoped="scoped" lang="scss">
 .dashboard-tit {
+  position: relative;
     color: #333;
     font-size: 24px;
     font-weight: normal;
     margin: 0;
-    padding: 10px 0;
+    padding: 10px 0 10px 15px;
+  &:before{
+    position: absolute;
+    left: 0;
+    top:50%;
+    width: 4px;
+    height: 20px;
+    content: "";
+    margin-top: -10px;
+  }
+  &.c-counter{
+    color: #3775ff;
+    &:before{
+      background: #3775ff;
+    }
+  }
+  &.c-overview{
+    color:#F56C6C;
+    &:before{
+      background: #F56C6C;
+    }
+  }
 }
 .dashboard-data {
     padding: 20px 0;
