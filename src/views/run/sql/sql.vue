@@ -8,7 +8,9 @@
             <span>当前数据库连接数：175个</span>
             <span>最大连接数：10000个</span>
           </div>
-          <div class="monitor-chart" />
+          <div class="monitor-chart">
+            <div ref="mChart1" style="width:90%;height:90%;" />
+          </div>
         </div>
       </div>
       <div class="monitor-chart-col">
@@ -18,7 +20,9 @@
             <span>已使用容量：1686M</span>
             <span>表空间总容量：2048M</span>
           </div>
-          <div class="monitor-chart" />
+          <div class="monitor-chart">
+            <div ref="mChart2" style="width:90%;height:90%;" />
+          </div>
         </div>
       </div>
       <div class="monitor-chart-col">
@@ -28,7 +32,9 @@
             <span>已使用容量：16286M</span>
             <span>表空间总容量：22048M</span>
           </div>
-          <div class="monitor-chart" />
+          <div class="monitor-chart">
+            <div ref="mChart3" style="width:90%;height:90%;" />
+          </div>
         </div>
       </div>
     </div>
@@ -139,9 +145,74 @@
 </template>
 
 <script>
+import echarts from 'echarts'
+require('echarts/theme/macarons') // echarts theme
 export default {
   data() {
     return {
+      mChart1: null,
+      mChart2: null,
+      mChart3: null,
+      mOptions1: {
+        tooltip: {
+          formatter: '{a} <br/>{b} : {c}%'
+        },
+        toolbox: {
+          feature: {
+            restore: {},
+            saveAsImage: {}
+          }
+        },
+        series: [
+          {
+            name: '业务指标',
+            type: 'gauge',
+            radius: '100%',
+            detail: { formatter: '{value}%' },
+            data: [{ value: 50 }]
+          }
+        ]
+      },
+      mOptions2: {
+        tooltip: {
+          formatter: '{a} <br/>{b} : {c}%'
+        },
+        toolbox: {
+          feature: {
+            restore: {},
+            saveAsImage: {}
+          }
+        },
+        series: [
+          {
+            name: '业务指标',
+            type: 'gauge',
+            radius: '100%',
+            detail: { formatter: '{value}%' },
+            data: [{ value: 60 }]
+          }
+        ]
+      },
+      mOptions3: {
+        tooltip: {
+          formatter: '{a} <br/>{b} : {c}%'
+        },
+        toolbox: {
+          feature: {
+            restore: {},
+            saveAsImage: {}
+          }
+        },
+        series: [
+          {
+            name: '业务指标',
+            type: 'gauge',
+            radius: '100%',
+            detail: { formatter: '{value}%' },
+            data: [{ value: 70 }]
+          }
+        ]
+      },
       tableData: [{
         user: 'user',
         desc: '描述描述描述',
@@ -190,6 +261,22 @@ export default {
         count: '20',
         size: '1000'
       }]
+    }
+  },
+  mounted() {
+    this.initDmChart()
+  },
+  methods: {
+    initDmChart() {
+      console.log(this.$refs.mChart1)
+      this.mChart1 = echarts.init(this.$refs.mChart1)
+      this.mChart1.setOption(this.mOptions1)
+
+      this.mChart2 = echarts.init(this.$refs.mChart2)
+      this.mChart2.setOption(this.mOptions2)
+
+      this.mChart3 = echarts.init(this.$refs.mChart3)
+      this.mChart3.setOption(this.mOptions3)
     }
   }
 }
@@ -252,7 +339,7 @@ export default {
     }
     .monitor-chart {
       width: 100%;
-      height: 160px;
+      height: 200px;
     }
   }
 
