@@ -28,18 +28,18 @@
           </el-row>
           <div class="m-buttons-row">
             <el-button icon="el-icon-plus" type="primary" @click="toggleVisible('add')">新增数据对象</el-button>
-            <el-button icon="el-icon-delete" type="danger">删除</el-button>
+            <el-button icon="el-icon-delete" type="danger" @click="handleDelete">删除</el-button>
             <el-button icon="el-icon-refresh" type="warning" @click="dialogSetVisible = true">变更数据分类</el-button>
             <el-button icon="el-icon-upload" type="success" @click="dialogImportVisible = true">导入</el-button>
             <el-button icon="el-icon-download" type="info">导出</el-button>
             <el-button icon="el-icon-check" @click="outerVisible = true">数据表实体检查</el-button>
           </div>
-          <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%">
+          <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%" @selection-change="handleSelectionChange">
             <el-table-column type="selection" width="55" />
-            <el-table-column prop="user" label="数据对象名" width="130" />
-            <el-table-column prop="name" label="数据对象中文名" />
-            <el-table-column prop="category" label="数据对象分类" />
-            <el-table-column prop="lastEditTime" label="最后修改时间" />
+            <el-table-column :key="Math.random()" prop="user" label="数据对象名" width="130" />
+            <el-table-column :key="Math.random()" prop="name" label="数据对象中文名" />
+            <el-table-column :key="Math.random()" prop="category" label="数据对象分类" />
+            <el-table-column :key="Math.random()" prop="lastEditTime" label="最后修改时间" />
             <el-table-column label="是否启用" width="150">
               <template>
                 <el-switch v-model="isUse" style="display: block" active-color="#13ce66" inactive-color="#ff4949" active-text="YES" inactive-text="NO" />
@@ -48,7 +48,7 @@
             <el-table-column fixed="right" label="操作" width="130">
               <template>
                 <el-button class="mini-btn" type="primary" icon="el-icon-edit" circle title="编辑" @click="toggleVisible('edit')" />
-                <el-button class="mini-btn" type="success" icon="el-icon-view" circle title="预览" />
+                <el-button class="mini-btn" type="success" icon="el-icon-view" circle title="预览" @click="toggleVisible('preview')" />
                 <el-button class="mini-btn" type="warning" icon="el-icon-success" circle title="生成" @click="dialogCreateVisible = true" />
               </template>
             </el-table-column>
@@ -58,6 +58,11 @@
     </div>
     <el-dialog title="变更数据分类" :visible.sync="dialogSetVisible">
       <el-tree :data="data" show-checkbox node-key="id" :default-expanded-keys="[2, 3]" :default-checked-keys="[5]" :props="defaultProps" />
+
+      <div slot="footer" class="dialog-footer el-dialog__footer">
+        <el-button type="primary" @click="dialogSetVisible = false">确定</el-button>
+        <el-button @click="dialogSetVisible = false">取消</el-button>
+      </div>
     </el-dialog>
     <el-dialog :visible.sync="dialogVisible" :title="optionType === 'add' ? '新增数据对象' : '修改数据对象'">
       <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
@@ -93,8 +98,8 @@
               </el-form-item>
             </el-form>
             <div slot="footer" class="dialog-footer el-dialog__footer">
-              <el-button type="primary" @click="onSubmit">确定</el-button>
-              <el-button type="warning">应用</el-button>
+              <el-button v-if="optionType !== 'preview'" type="primary" @click="onSubmit(optionType)">确定</el-button>
+              <el-button v-if="optionType !== 'preview'" type="warning" @click="onApply">应用</el-button>
               <el-button @click="toggleVisible">取消</el-button>
             </div>
           </div>
@@ -102,25 +107,25 @@
         <el-tab-pane label="字段属性" name="second">
           <div>
             <div class="m-buttons-row">
-              <el-button icon="el-icon-plus" type="primary">新建</el-button>
-              <el-button icon="el-icon-delete" type="danger">删除</el-button>
+              <el-button v-if="optionType !== 'preview'" icon="el-icon-plus" type="primary">新建</el-button>
+              <el-button v-if="optionType !== 'preview'" icon="el-icon-delete" type="danger">删除</el-button>
             </div>
             <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%" @selection-change="handleSelectionChange">
               <el-table-column type="selection" width="55" />
-              <el-table-column prop="num" label="索引" width="80" />
-              <el-table-column prop="name" label="字段名" />
-              <el-table-column prop="english" label="中文简称" />
-              <el-table-column prop="type" label="字段类型" />
-              <el-table-column prop="idefault" label="默认值" />
-              <el-table-column prop="name" label="是否主键" />
-              <el-table-column prop="isNull" label="是否允许空" />
-              <el-table-column prop="isSole" label="是否唯一" />
+              <el-table-column :key="Math.random()" prop="num" label="索引" width="80" />
+              <el-table-column :key="Math.random()" prop="name" label="字段名" />
+              <el-table-column :key="Math.random()" prop="english" label="中文简称" />
+              <el-table-column :key="Math.random()" prop="type" label="字段类型" />
+              <el-table-column :key="Math.random()" prop="idefault" label="默认值" />
+              <el-table-column :key="Math.random()" prop="name" label="是否主键" />
+              <el-table-column :key="Math.random()" prop="isNull" label="是否允许空" />
+              <el-table-column :key="Math.random()" prop="isSole" label="是否唯一" />
               <el-table-column label="是否启用" width="150">
                 <template>
                   <el-switch v-model="isUse" style="display: block" active-color="#13ce66" inactive-color="#ff4949" active-text="YES" inactive-text="NO" />
                 </template>
               </el-table-column>
-              <el-table-column fixed="right" label="操作" width="140">
+              <el-table-column v-if="optionType !== 'preview'" fixed="right" label="操作" width="140">
                 <template>
                   <el-button class="mini-btn" circle title="编辑" icon="el-icon-edit" type="primary" />
                   <el-button class="mini-btn" circle title="添加" icon="el-icon-plus" type="success" />
@@ -130,35 +135,35 @@
               </el-table-column>
             </el-table>
             <div slot="footer" class="dialog-footer el-dialog__footer">
-              <el-button type="primary" @click="onSubmit">确定</el-button>
-              <el-button type="warning">应用</el-button>
-              <el-button>取消</el-button>
+              <el-button v-if="optionType !== 'preview'" type="primary" @click="onSubmit">确定</el-button>
+              <el-button v-if="optionType !== 'preview'" type="warning">应用</el-button>
+              <el-button @click="toggleVisible">取消</el-button>
             </div>
           </div>
         </el-tab-pane>
         <el-tab-pane label="引用关系" name="third">
           <div>
             <div class="m-buttons-row">
-              <el-button icon="el-icon-delete" type="danger">删除</el-button>
+              <el-button v-if="optionType !== 'preview'" icon="el-icon-delete" type="danger">删除</el-button>
             </div>
             <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%" @selection-change="handleSelectionChange">
               <el-table-column type="selection" width="55" />
-              <el-table-column prop="name" label="字段名" />
-              <el-table-column prop="chinese" label="字段中文简称" />
-              <el-table-column prop="obj" label="引用对象" />
-              <el-table-column prop="name" label="引用对象中文名" />
-              <el-table-column prop="name" label="引用代码表字段" />
-              <el-table-column prop="name" label="引用代码表显示字段" />
-              <el-table-column fixed="right" label="操作" width="100">
+              <el-table-column :key="Math.random()" prop="name" label="字段名" />
+              <el-table-column :key="Math.random()" prop="chinese" label="字段中文简称" />
+              <el-table-column :key="Math.random()" prop="obj" label="引用对象" />
+              <el-table-column :key="Math.random()" prop="name" label="引用对象中文名" />
+              <el-table-column :key="Math.random()" prop="name" label="引用代码表字段" />
+              <el-table-column :key="Math.random()" prop="name" label="引用代码表显示字段" />
+              <el-table-column v-if="optionType !== 'preview'" fixed="right" label="操作" width="100">
                 <template>
                   <el-button class="mini-btn" circle title="导出" icon="el-icon-download" type="info" />
                 </template>
               </el-table-column>
             </el-table>
             <div slot="footer" class="dialog-footer el-dialog__footer">
-              <el-button type="primary" @click="onSubmit">确定</el-button>
-              <el-button type="warning">应用</el-button>
-              <el-button>取消</el-button>
+              <el-button v-if="optionType !== 'preview'" type="primary" @click="onSubmit">确定</el-button>
+              <el-button v-if="optionType !== 'preview'" type="warning">应用</el-button>
+              <el-button @click="toggleVisible">取消</el-button>
             </div>
           </div>
         </el-tab-pane>
@@ -211,8 +216,8 @@
         </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer el-dialog__footer">
-        <el-button type="primary" @click="onSubmit">确定</el-button>
-        <el-button>关闭</el-button>
+        <el-button type="primary" @click="dialogImportVisible = false">确定</el-button>
+        <el-button @click="dialogImportVisible = false">关闭</el-button>
       </div>
     </el-dialog>
     <el-dialog title="同步数据对象T_JZG" class="dialog-big" :visible.sync="dialogCreateVisible">
@@ -220,15 +225,15 @@
         <div class="column-left">
           <div class="common-title">建表脚本</div>
           <div class="script-txt">
-            <el-input v-model="form.scrip" type="textarea" />
+            <el-input v-model="form.script" type="textarea" />
           </div>
         </div>
         <div class="column-right">
           <div class="common-title">同步信息</div>
           <el-table :data="tableData" style="width: 100%" max-height="250">
-            <el-table-column fixed prop="id" label="ID" width="80" />
-            <el-table-column prop="model" label="模型" />
-            <el-table-column prop="desc1" label="描述" />
+            <el-table-column :key="Math.random()" fixed prop="id" label="ID" width="80" />
+            <el-table-column :key="Math.random()" prop="model" label="模型" />
+            <el-table-column :key="Math.random()" prop="desc1" label="描述" />
             <el-table-column fixed="right" label="操作" width="100">
               <template>
                 <el-button class="mini-btn" type="primary" icon="el-icon-refresh" circle title="同步" />
@@ -238,7 +243,7 @@
         </div>
       </div>
       <div slot="footer" class="dialog-footer el-dialog__footer">
-        <el-button type="primary" @click="onSubmit">应用</el-button>
+        <el-button type="primary" @click="onSubmit2">应用</el-button>
       </div>
     </el-dialog>
   </div>
@@ -248,9 +253,9 @@
 export default {
   data() {
     return {
+      multipleSelection: [],
       dialogVisible: false,
       dialogSetVisible: false,
-      dialogAddVisible: false,
       outerVisible: false,
       innerVisible: false,
       dialogImportVisible: false,
@@ -338,7 +343,7 @@ export default {
           obj: 'SDDDD',
           handle: '建议更新元数据建议更新数据库表',
           desc: 'T_JZG(教职工基本信息)表 PRZTDM(聘任状态代码)字段元数据表字段存在，但在数据库中不存在',
-          id: '1',
+          id: '2',
           model: 'MZ VARCHAR2(50)',
           desc1: '数据库表字段不存在'
         },
@@ -358,7 +363,7 @@ export default {
           obj: 'SDDDD',
           handle: '建议更新元数据建议更新数据库表',
           desc: 'T_JZG(教职工基本信息)表 PRZTDM(聘任状态代码)字段元数据表字段存在，但在数据库中不存在',
-          id: '1',
+          id: '3',
           model: 'MZ VARCHAR2(50)',
           desc1: '数据库表字段不存在'
         }
@@ -371,15 +376,14 @@ export default {
         delivery: false,
         type: [],
         resource: '',
-        desc: ''
+        desc: '',
+        script: 'CREATE TABLE T_JZG()'
       },
       defaultProps: {
         children: 'children',
         label: 'label'
       },
-      fileList: [],
-      multipleSelection: []
-
+      fileList: []
     }
   },
   methods: {
@@ -396,16 +400,66 @@ export default {
     handleClick(tab, event) {
       console.log(tab, event)
     },
-    onSubmit() {
-      console.log('submit!')
+    onSubmit(optionType = 'add') {
+      if (optionType === 'add') {
+        this.tableData.push({
+          user: 'T_JZG',
+          name: '教职工基本信息',
+          category: '人员基础信息/教职工基础信息',
+          lastEditTime: '2012-11-13',
+          isUse: true
+        })
+        this.$message({
+          message: '新增成功',
+          type: 'success'
+        })
+      } else if (optionType === 'edit') {
+        this.$message({
+          message: '修改成功',
+          type: 'success'
+        })
+      }
+      this.dialogVisible = false
+    },
+    onSubmit2() {
+      this.$message({
+        message: '应用成功',
+        type: 'success'
+      })
+      this.dialogCreateVisible = false
+    },
+    onApply() {
+      this.dialogVisible = false
+      this.$message({
+        message: '应用成功',
+        type: 'success'
+      })
     },
     toggleVisible(type) {
       if (type === 'add') {
         this.optionType = 'add'
       } else if (type === 'edit') {
         this.optionType = 'edit'
+      } else if (type === 'preview') {
+        this.optionType = 'preview'
       }
       this.dialogVisible = !this.dialogVisible
+    },
+    handleDelete() {
+      if (this.multipleSelection.length == 0) {
+        this.$message({
+          message: '请勾选你需要删除的数据',
+          type: 'warning'
+        })
+      } else {
+        this.multipleSelection.forEach(item => {
+          this.tableData.forEach((d, i) => {
+            if (item.id == d.id) {
+              this.tableData.splice(i, 1)
+            }
+          })
+        })
+      }
     }
   }
 }

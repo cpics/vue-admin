@@ -3,40 +3,18 @@
     <div class="double-columns tem-rule-main">
       <div class="column-left">
         <div class="border-box tem-rule-tree">
-          <el-input
-            v-model="filterText"
-            placeholder="数据目录"
-          />
-          <el-tree
-            ref="tree"
-            class="filter-tree"
-            :data="data"
-            :props="defaultProps"
-            default-expand-all
-            :filter-node-method="filterNode"
-          />
+          <el-input v-model="filterText" placeholder="数据目录" />
+          <el-tree ref="tree" class="filter-tree" :data="data" :props="defaultProps" default-expand-all :filter-node-method="filterNode" />
         </div>
       </div>
       <div class="column-right">
         <div class="border-box">
           <div class="tem-rule-filter">
             <el-form :model="form">
-              <el-form-item
-                label="规则模板"
-                :label-width="formLabelWidth"
-              >
-                <el-select
-                  v-model="form.template"
-                  placeholder="请选择"
-                >
-                  <el-option
-                    label="不符合身份证号规则"
-                    value="shanghai"
-                  />
-                  <el-option
-                    label="不唯一"
-                    value="beijing"
-                  />
+              <el-form-item label="规则模板" :label-width="formLabelWidth">
+                <el-select v-model="form.template" placeholder="请选择">
+                  <el-option label="不符合身份证号规则" value="shanghai" />
+                  <el-option label="不唯一" value="beijing" />
                 </el-select>
               </el-form-item>
             </el-form>
@@ -46,34 +24,12 @@
               <el-button icon="el-icon-delete" type="danger" @click="del">删除</el-button>
             </div>
           </div>
-          <el-table
-            ref="multipleTable"
-            :data="tableData"
-            tooltip-effect="dark"
-            style="width: 100%"
-            @selection-change="wFilterTableData"
-          >
-            <el-table-column
-              type="selection"
-              width="55"
-            />
-            <el-table-column
-              prop="object"
-              label="检测对象"
-            />
-            <el-table-column
-              prop="field"
-              label="检测字段"
-            />
-            <el-table-column
-              prop="rule"
-              label="检测规则"
-            />
-            <el-table-column
-              fixed="right"
-              label="操作"
-              width="200"
-            >
+          <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%" @selection-change="wFilterTableData">
+            <el-table-column type="selection" width="55" />
+            <el-table-column prop="object" label="检测对象" />
+            <el-table-column prop="field" label="检测字段" />
+            <el-table-column prop="rule" label="检测规则" />
+            <el-table-column fixed="right" label="操作" width="200">
               <template>
                 <el-button class="mini-btn" type="primary" icon="el-icon-edit" circle title="编辑" @click="showDia(2)" />
                 <el-button class="mini-btn" type="warning" icon="el-icon-time" circle title="调试" @click="tiaoshi" />
@@ -84,68 +40,26 @@
         </div>
       </div>
     </div>
-    <el-dialog
-      title="编辑T_JZG检测规则"
-      :visible.sync="dialogFormVisible"
-    >
+    <el-dialog title="编辑T_JZG检测规则" :visible.sync="dialogFormVisible">
       <el-form :model="form">
-        <el-form-item
-          label="规则模板"
-          :label-width="formLabelWidth"
-        >
-          <el-select
-            v-model="form.region"
-            placeholder="请选择"
-          >
-            <el-option
-              label="不符合身份证号规则"
-              value="shanghai"
-            />
-            <el-option
-              label="不唯一"
-              value="beijing"
-            />
+        <el-form-item label="规则模板" :label-width="formLabelWidth">
+          <el-select v-model="form.region" placeholder="请选择">
+            <el-option label="不符合身份证号规则" value="shanghai" />
+            <el-option label="不唯一" value="beijing" />
           </el-select>
         </el-form-item>
-        <el-form-item
-          label="检测数据范围"
-          :label-width="formLabelWidth"
-        >
-          <el-input
-            v-model="form.content"
-            type="textarea"
-          />
+        <el-form-item label="检测数据范围" :label-width="formLabelWidth">
+          <el-input v-model="form.content" type="textarea" />
         </el-form-item>
       </el-form>
       <div class="dialog-footer form-button">
-        <el-button
-          type="primary"
-          @click="save"
-        >保 存</el-button>
+        <el-button type="primary" @click="save">保 存</el-button>
       </div>
-      <el-table
-        ref="multipleTable"
-        :data="tableData"
-        height="300"
-        style="width: 100%"
-        @selection-change="handleSelectionChange"
-      >
-        <el-table-column
-          type="selection"
-          width="55"
-        />
-        <el-table-column
-          prop="object"
-          label="检测字段名"
-        />
-        <el-table-column
-          prop="field"
-          label="检测字段中文名"
-        />
-        <el-table-column
-          prop="rule"
-          label="说明"
-        />
+      <el-table ref="multipleTable" :data="tableData" height="300" style="width: 100%" @selection-change="handleSelectionChange">
+        <el-table-column type="selection" width="55" />
+        <el-table-column prop="object" label="检测字段名" />
+        <el-table-column prop="field" label="检测字段中文名" />
+        <el-table-column prop="rule" label="说明" />
       </el-table>
     </el-dialog>
   </div>
@@ -285,7 +199,7 @@ export default {
           rule: '不符合身份证号规则'
         })
       } else if (this.type == 2) {
-
+        console.log(this.type)
       }
       this.showDia()
     },
@@ -317,10 +231,10 @@ export default {
 
 <style scoped="scoped" lang="scss">
 .tem-rule-main {
-    .tem-rule-tree {
-        .el-input {
-            margin-bottom: 10px;
-        }
+  .tem-rule-tree {
+    .el-input {
+      margin-bottom: 10px;
     }
+  }
 }
 </style>
