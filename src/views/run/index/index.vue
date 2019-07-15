@@ -21,18 +21,25 @@
           <div class="column-left">
             <div class="border-box tem-rule-tree">
               <el-input v-model="filterText" placeholder="请输入关键字" />
-              <el-tree ref="tree" class="filter-tree" :data="treeData" :props="defaultProps" default-expand-all :filter-node-method="filterNode" />
+              <el-tree
+                ref="tree"
+                class="filter-tree"
+                :data="treeData"
+                :props="defaultProps"
+                default-expand-all
+                :filter-node-method="filterNode"
+              />
             </div>
           </div>
           <div class="column-right">
             <div class="border-box">
-              <div class="tem-rule-filter">
+              <div class="m-filter-row">
                 <el-form ref="formInline2" v-model="formInline2" :inline="true">
                   <el-form-item label="对象名称:" prop="formInline2.name">
-                    <input v-model="formInline2.name" placeholder="请输入对象名称">
+                    <el-input v-model="formInline2.name" placeholder="请输入对象名称" />
                   </el-form-item>
                   <el-form-item label="接口名称:" prop="formInline2.interfaceName">
-                    <input v-model="formInline2.interfaceName" placeholder="请输入接口名称">
+                    <el-input v-model="formInline2.interfaceName" placeholder="请输入接口名称" />
                   </el-form-item>
                   <el-form-item label="接口流向:" prop="formInline2.flow">
                     <el-select v-model="formInline2.flow" placeholder="请选择" clearable>
@@ -42,7 +49,7 @@
                   </el-form-item>
                   <el-form-item>
                     <el-button type="primary" icon="el-icon-search">查询</el-button>
-                    <el-button type="primary">重置</el-button>
+                    <el-button type="success" icon="el-icon-refresh">重置</el-button>
                   </el-form-item>
                 </el-form>
               </div>
@@ -65,25 +72,27 @@
         </div>
       </el-tab-pane>
       <el-tab-pane label="任务计划" name="third">
-        <el-form ref="formInline3" v-model="formInline3" :inline="true">
-          <el-row>
-            <el-form-item label="项目名称：" prop="formInline3.name">
-              <el-input v-model="formInline3.name" placeholder="" />
-            </el-form-item>
-            <el-form-item label="相关数据对象名称：" prop="formInline3.objName">
-              <el-input v-model="formInline3.objName" placeholder="" />
-            </el-form-item>
-            <el-form-item label="接口名称：" prop="formInline3.interfaceName">
-              <el-input v-model="formInline3.interfaceName" placeholder="" />
-            </el-form-item>
-          </el-row>
-          <el-row>
-            <el-form-item>
-              <el-button type="primary" icon="el-icon-search">查询</el-button>
-              <el-button type="primary">重置</el-button>
-            </el-form-item>
-          </el-row>
-        </el-form>
+        <div class="m-filter-row">
+          <el-form ref="formInline3" v-model="formInline3" :inline="true">
+            <el-row>
+              <el-form-item label="项目名称：" prop="formInline3.name">
+                <el-input v-model="formInline3.name" placeholder="" />
+              </el-form-item>
+              <el-form-item label="相关数据对象名称：" prop="formInline3.objName">
+                <el-input v-model="formInline3.objName" placeholder="" />
+              </el-form-item>
+              <el-form-item label="接口名称：" prop="formInline3.interfaceName">
+                <el-input v-model="formInline3.interfaceName" placeholder="" />
+              </el-form-item>
+            </el-row>
+            <el-row>
+              <el-form-item>
+                <el-button type="primary" icon="el-icon-search">查询</el-button>
+                <el-button type="success" icon="el-icon-refresh">重置</el-button>
+              </el-form-item>
+            </el-row>
+          </el-form>
+        </div>
         <el-table :data="tableData3" fit highlight-current-row style="width: 100%">
           <el-table-column prop="projectName" label="项目名称" />
           <el-table-column prop="taskName" label="任务名称" />
@@ -96,28 +105,36 @@
         <el-pagination background layout="prev, pager, next" :total="1000" />
       </el-tab-pane>
       <el-tab-pane label="接口运行日志" name="four">
-        <el-form ref="formInline4" v-model="formInline4" :inline="true">
-          <el-row>
-            <el-form-item label="日期区间:" prop="formInline4.date">
-              <el-date-picker v-model="formInline4.date" type="daterange" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期" />
-            </el-form-item>
-            <el-form-item label="状态:" prop="formInline4.status">
-              <el-select v-model="formInline4.status" clearable placeholder="请选择" style="width:160px;">
-                <el-option label="暂停" value="0" />
-                <el-option label="开始" value="1" />
-              </el-select>
-            </el-form-item>
-            <el-form-item label="接口名称：" prop="formInline4.interfaceName">
-              <el-input v-model="formInline4.interfaceName" placeholder="" />
-            </el-form-item>
-          </el-row>
-          <el-row>
-            <el-form-item>
-              <el-button type="primary" icon="el-icon-search">查询</el-button>
-              <el-button type="primary">重置</el-button>
-            </el-form-item>
-          </el-row>
-        </el-form>
+        <div class="m-filter-row">
+          <el-form ref="formInline4" v-model="formInline4" :inline="true">
+            <el-row>
+              <el-form-item label="日期区间:" prop="formInline4.date">
+                <el-date-picker
+                  v-model="formInline4.date"
+                  type="daterange"
+                  range-separator="至"
+                  start-placeholder="开始日期"
+                  end-placeholder="结束日期"
+                />
+              </el-form-item>
+              <el-form-item label="状态:" prop="formInline4.status">
+                <el-select v-model="formInline4.status" clearable placeholder="请选择" style="width:160px;">
+                  <el-option label="暂停" value="0" />
+                  <el-option label="开始" value="1" />
+                </el-select>
+              </el-form-item>
+              <el-form-item label="接口名称：" prop="formInline4.interfaceName">
+                <el-input v-model="formInline4.interfaceName" placeholder="" />
+              </el-form-item>
+            </el-row>
+            <el-row>
+              <el-form-item>
+                <el-button type="primary" icon="el-icon-search">查询</el-button>
+                <el-button type="success" icon="el-icon-refresh">重置</el-button>
+              </el-form-item>
+            </el-row>
+          </el-form>
+        </div>
         <el-table :data="tableData4" fit highlight-current-row style="width: 100%">
           <el-table-column prop="name" label="接口名称" />
           <el-table-column prop="location" label="接口位置" />
@@ -379,20 +396,20 @@ export default {
 </script>
 
 <style scoped="scoped" lang="scss">
-.statistics-col {
-  width: 46%;
-  min-width: 450px;
-  color: #333;
-  font-size: 16px;
-  display: inline-block;
-  margin-left: 20px;
-  .statistics-tit {
-    padding: 0 0 10px;
+  .statistics-col {
+    width: 46%;
+    min-width: 450px;
+    color: #333;
+    font-size: 16px;
+    display: inline-block;
+    margin-left: 20px;
+    .statistics-tit {
+      padding: 0 0 10px;
+    }
+    .statistics-chart {
+      width: 100%;
+      height: 280px;
+      margin-bottom: 15px;
+    }
   }
-  .statistics-chart {
-    width: 100%;
-    height: 280px;
-    margin-bottom: 15px;
-  }
-}
 </style>
