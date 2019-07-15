@@ -365,6 +365,35 @@ export const constantRoutes = [
     ]
   },
   {
+    path: '/run',
+    component: Layout,
+    redirect: '/run/index',
+    alwaysShow: true, // will always show the root menu
+    name: 'run',
+    meta: {
+      title: '运行监控管理',
+      icon: 'lock'
+    },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/run/index'),
+        name: 'runIndex',
+        meta: {
+          title: '数据集成管理'
+        }
+      },
+      {
+        path: 'sql',
+        component: () => import('@/views/run/sql/sql.vue'),
+        name: 'sqlIndex',
+        meta: {
+          title: '数据控监控'
+        }
+      }
+    ]
+  },
+  {
     path: '/system',
     component: Layout,
     redirect: '/system/index',
