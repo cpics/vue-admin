@@ -20,6 +20,7 @@
         </template>
       </el-table-column>
     </el-table>
+    <el-pagination background layout="prev, pager, next" :total="1000" />
     <el-dialog title="维护规则模板" :visible.sync="dialogFormVisible">
       <el-form :model="form">
         <el-form-item label="规则类型" :label-width="formLabelWidth">

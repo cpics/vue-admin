@@ -19,26 +19,29 @@
       <el-button icon="el-icon-delete" type="danger" @click="del">删除</el-button>
       <el-button icon="el-icon-upload" @click="daochu">导出</el-button>
     </div>
-    <el-table
-      ref="multipleTable"
-      :data="tableData"
-      tooltip-effect="dark"
-      style="width: 100%"
-      @selection-change="handleSelectionChange"
-    >
-      <el-table-column
-        type="selection"
-        width="55"
-      />
-      <el-table-column
-        prop="code"
-        label="类型代码"
-      />
-      <el-table-column
-        prop="name"
-        label="类型名称"
-      />
-    </el-table>
+    <div>
+      <el-table
+        ref="multipleTable"
+        :data="tableData"
+        tooltip-effect="dark"
+        style="width: 100%"
+        @selection-change="handleSelectionChange"
+      >
+        <el-table-column
+          type="selection"
+          width="55"
+        />
+        <el-table-column
+          prop="code"
+          label="类型代码"
+        />
+        <el-table-column
+          prop="name"
+          label="类型名称"
+        />
+      </el-table>
+      <el-pagination background layout="prev, pager, next" :total="1000" />
+    </div>
     <el-dialog :title="`${type == 1?'添加':'修改'}业务字典项`" :visible.sync="dialogFormVisible">
       <el-form :model="form">
         <el-form-item label="类型代码" :label-width="formLabelWidth">

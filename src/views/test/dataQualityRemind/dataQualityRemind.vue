@@ -108,6 +108,7 @@
               </template>
             </el-table-column>
           </el-table>
+          <el-pagination background layout="prev, pager, next" :total="1000" />
         </div>
         <div class="border-box">
           <div class="common-title">应用质量反馈</div>

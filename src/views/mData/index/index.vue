@@ -40,6 +40,7 @@
           </template>
         </el-table-column>
       </el-table>
+      <el-pagination background layout="prev, pager, next" :total="1000" />
     </div>
     <el-dialog title="修改数据源" :visible.sync="dialogFormVisible">
       <el-form :model="form">

@@ -49,6 +49,7 @@
             label="违规数"
           />
         </el-table>
+        <el-pagination background layout="prev, pager, next" :total="1000" />
       </el-collapse-item>
     </el-collapse>
 

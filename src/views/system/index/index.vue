@@ -18,30 +18,33 @@
       <el-button icon="el-icon-edit" type="success" @click="showDialog(2)">编辑</el-button>
       <el-button icon="el-icon-delete" type="danger" @click="del">删除</el-button>
     </div>
-    <el-table
-      ref="multipleTable"
-      :data="tableData"
-      tooltip-effect="dark"
-      style="width: 100%"
-      @selection-change="handleSelectionChange"
-    >
-      <el-table-column
-        type="selection"
-        width="55"
-      />
-      <el-table-column
-        prop="jsdm"
-        label="角色代码"
-      />
-      <el-table-column
-        prop="name"
-        label="角色名称"
-      />
-      <el-table-column
-        prop="miaoshu"
-        label="角色描述"
-      />
-    </el-table>
+    <div>
+      <el-table
+        ref="multipleTable"
+        :data="tableData"
+        tooltip-effect="dark"
+        style="width: 100%"
+        @selection-change="handleSelectionChange"
+      >
+        <el-table-column
+          type="selection"
+          width="55"
+        />
+        <el-table-column
+          prop="jsdm"
+          label="角色代码"
+        />
+        <el-table-column
+          prop="name"
+          label="角色名称"
+        />
+        <el-table-column
+          prop="miaoshu"
+          label="角色描述"
+        />
+      </el-table>
+      <el-pagination background layout="prev, pager, next" :total="1000" />
+    </div>
     <el-dialog :title="`${type == 1?'添加':'修改'}角色`" :visible.sync="dialogFormVisible">
       <el-form :model="form">
         <el-form-item label="角色代码" :label-width="formLabelWidth">

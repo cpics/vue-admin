@@ -22,38 +22,41 @@
             <el-button icon="el-icon-edit" type="success" @click="showDialog(2)">编辑</el-button>
             <el-button icon="el-icon-delete" type="danger" @click="del">删除</el-button>
           </div>
-          <el-table
-            ref="multipleTable"
-            :data="tableData"
-            tooltip-effect="dark"
-            style="width: 100%"
-            @selection-change="handleSelectionChange"
-          >
-            <el-table-column
-              type="selection"
-              width="55"
-            />
-            <el-table-column
-              prop="caidan"
-              label="菜单代码"
-            />
-            <el-table-column
-              prop="name"
-              label="菜单名称"
-            />
-            <el-table-column
-              prop="show"
-              label="菜单显示名称"
-            />
-            <el-table-column
-              prop="is"
-              label="是否叶子菜单"
-            />
-            <el-table-column
-              prop="level"
-              label="菜单层次"
-            />
-          </el-table>
+          <div>
+            <el-table
+              ref="multipleTable"
+              :data="tableData"
+              tooltip-effect="dark"
+              style="width: 100%"
+              @selection-change="handleSelectionChange"
+            >
+              <el-table-column
+                type="selection"
+                width="55"
+              />
+              <el-table-column
+                prop="caidan"
+                label="菜单代码"
+              />
+              <el-table-column
+                prop="name"
+                label="菜单名称"
+              />
+              <el-table-column
+                prop="show"
+                label="菜单显示名称"
+              />
+              <el-table-column
+                prop="is"
+                label="是否叶子菜单"
+              />
+              <el-table-column
+                prop="level"
+                label="菜单层次"
+              />
+            </el-table>
+            <el-pagination background layout="prev, pager, next" :total="1000" />
+          </div>
         </div>
       </div>
     </div>

@@ -84,6 +84,7 @@
           <el-table-column prop="date2" label="执行时间" />
           <el-table-column prop="detail" label="详细信息" />
         </el-table>
+        <el-pagination background layout="prev, pager, next" :total="1000" />
       </el-tab-pane>
     </el-tabs>
   </div>

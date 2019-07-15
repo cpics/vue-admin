@@ -13,28 +13,31 @@
         <el-button icon="el-icon-search" type="primary">查询</el-button>
       </el-col>
     </el-row>
-    <el-table
-      :data="tableData"
-      style="width: 100%"
-    >
-      <el-table-column
-        prop="code"
-        label="角色代码"
-      />
-      <el-table-column
-        prop="name"
-        label="角色名称"
-      />
-      <el-table-column
-        fixed="right"
-        label="授权配置"
-        width="120"
+    <div>
+      <el-table
+        :data="tableData"
+        style="width: 100%"
       >
-        <template>
-          <el-button class="mini-btn" type="primary" icon="el-icon-setting" circle title="配置" @click="dialogSetVisible = true" />
-        </template>
-      </el-table-column>
-    </el-table>
+        <el-table-column
+          prop="code"
+          label="角色代码"
+        />
+        <el-table-column
+          prop="name"
+          label="角色名称"
+        />
+        <el-table-column
+          fixed="right"
+          label="授权配置"
+          width="120"
+        >
+          <template>
+            <el-button class="mini-btn" type="primary" icon="el-icon-setting" circle title="配置" @click="dialogSetVisible = true" />
+          </template>
+        </el-table-column>
+      </el-table>
+      <el-pagination background layout="prev, pager, next" :total="1000" />
+    </div>
     <el-dialog title="配置" :visible.sync="dialogSetVisible">
       <el-row class="m-filter-row">
         <el-col class="mr-20" :span="4" align justify>

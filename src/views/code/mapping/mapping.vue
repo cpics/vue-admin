@@ -15,34 +15,39 @@
               <el-button type="danger" @click="deleteItem">删除映射</el-button>
             </div>
           </div>
-          <el-table v-if="pageType === 1" ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%">
-            <el-table-column type="selection" width="55" />
-            <el-table-column :key="Math.random()" prop="businessTable" label="业务表" />
-            <el-table-column :key="Math.random()" prop="businessField" label="业务表字段" />
-            <el-table-column :key="Math.random()" prop="codeTable" label="标准代码表" />
-            <el-table-column :key="Math.random()" prop="codeFieldName" label="代码字段名称" />
-            <el-table-column :key="Math.random()" prop="showFieldName" label="显示字段名称" />
-            <el-table-column :key="Math.random()" prop="dataFlow" label="数据流向" />
-            <el-table-column fixed="right" label="操作" width="200">
-              <template>
-                <el-button type="text" size="small" @click="dialogFormVisible = true">编辑</el-button>
-              </template>
-            </el-table-column>
-          </el-table>
-
-          <el-table v-if="pageType === 2" ref="multipleTable2" :data="tableData2" tooltip-effect="dark" style="width: 100%">
-            <el-table-column type="selection" width="55" />
-            <el-table-column :key="Math.random()" prop="businessTable" label="业务表" />
-            <el-table-column :key="Math.random()" prop="businessCodeRange" label="业务代码取值范围" />
-            <el-table-column :key="Math.random()" prop="codeTable" label="标准代码表" />
-            <el-table-column :key="Math.random()" prop="codeValueRange" label="标准代码取值范围" />
-            <el-table-column :key="Math.random()" prop="dataFlow" label="数据流向" />
-            <el-table-column fixed="right" label="操作" width="200">
-              <template>
-                <el-button type="text" size="small" @click="dialogFormVisible = true">编辑</el-button>
-              </template>
-            </el-table-column>
-          </el-table>
+          <div v-if="pageType === 1">
+            <el-table ref="multipleTable" :data="tableData" tooltip-effect="dark" style="width: 100%">
+              <el-table-column type="selection" width="55" />
+              <el-table-column :key="Math.random()" prop="businessTable" label="业务表" />
+              <el-table-column :key="Math.random()" prop="businessField" label="业务表字段" />
+              <el-table-column :key="Math.random()" prop="codeTable" label="标准代码表" />
+              <el-table-column :key="Math.random()" prop="codeFieldName" label="代码字段名称" />
+              <el-table-column :key="Math.random()" prop="showFieldName" label="显示字段名称" />
+              <el-table-column :key="Math.random()" prop="dataFlow" label="数据流向" />
+              <el-table-column fixed="right" label="操作" width="100">
+                <template>
+                  <el-button class="mini-btn" type="primary" icon="el-icon-edit" circle title="编辑" @click="dialogFormVisible = true" />
+                </template>
+              </el-table-column>
+            </el-table>
+            <el-pagination background layout="prev, pager, next" :total="1000" />
+          </div>
+          <div v-if="pageType === 2">
+            <el-table ref="multipleTable2" :data="tableData2" tooltip-effect="dark" style="width: 100%">
+              <el-table-column type="selection" width="55" />
+              <el-table-column :key="Math.random()" prop="businessTable" label="业务表" />
+              <el-table-column :key="Math.random()" prop="businessCodeRange" label="业务代码取值范围" />
+              <el-table-column :key="Math.random()" prop="codeTable" label="标准代码表" />
+              <el-table-column :key="Math.random()" prop="codeValueRange" label="标准代码取值范围" />
+              <el-table-column :key="Math.random()" prop="dataFlow" label="数据流向" />
+              <el-table-column fixed="right" label="操作" width="100">
+                <template>
+                  <el-button class="mini-btn" type="primary" icon="el-icon-edit" circle title="编辑" @click="dialogFormVisible = true" />
+                </template>
+              </el-table-column>
+            </el-table>
+            <el-pagination background layout="prev, pager, next" :total="1000" />
+          </div>
         </div>
       </div>
     </div>

@@ -48,6 +48,7 @@
               label="字段数"
             />
           </el-table>
+          <el-pagination background layout="prev, pager, next" :total="1000" />
         </div>
         <!--详情-->
         <div v-show="nodeType==1" class="border-box">
@@ -112,6 +113,7 @@
               label="ZZMMM政治面貌码"
             />
           </el-table>
+          <el-pagination background layout="prev, pager, next" :total="1000" />
         </div>
       </div>
     </div>

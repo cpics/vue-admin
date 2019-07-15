@@ -23,6 +23,7 @@
           <el-table-column prop="ip" label="访问IP" />
           <el-table-column prop="content" label="访问说明" />
         </el-table>
+        <el-pagination background layout="prev, pager, next" :total="1000" />
       </el-tab-pane>
       <el-tab-pane label="平台操作日志" name="third">
         <el-table :data="optionData" fit highlight-current-row style="width: 100%">
@@ -31,6 +32,7 @@
           <el-table-column prop="url" label="操作URL" />
           <el-table-column prop="content" label="操作描述" />
         </el-table>
+        <el-pagination background layout="prev, pager, next" :total="1000" />
       </el-tab-pane>
     </el-tabs>
   </div>

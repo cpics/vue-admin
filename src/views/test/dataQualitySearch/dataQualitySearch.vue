@@ -67,6 +67,7 @@
               </template>
             </el-table-column>
           </el-table>
+          <el-pagination background layout="prev, pager, next" :total="1000" />
         </div>
         <div class="border-box tem-rule-chart">
           <div class="tem-rule-tit">数据中心整体质量情况</div>

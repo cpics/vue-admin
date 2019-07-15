@@ -38,9 +38,9 @@
         <el-row>
           <el-col>
             <el-button icon="el-icon-search" type="primary">查询</el-button>
-            <el-button type="primary">重置</el-button>
-            <el-button type="primary">重新检测</el-button>
-            <el-button type="primary">导出</el-button>
+            <el-button icon="el-icon-refresh" type="success">重置</el-button>
+            <el-button type="warning">重新检测</el-button>
+            <el-button icon="el-icon-download" type="info">导出</el-button>
           </el-col>
         </el-row>
         <el-table ref="table1" :data="tableData1" tooltip-effect="dark" style="width: 100%">
@@ -52,6 +52,7 @@
           <el-table-column prop="checkResult" label="检查结果" />
           <el-table-column prop="checkTime" label="检查时间" />
         </el-table>
+        <el-pagination background layout="prev, pager, next" :total="1000" />
       </el-tab-pane>
       <el-tab-pane label="已处理" name="third">
         <el-row class="m-filter-row">
@@ -76,8 +77,8 @@
         <el-row>
           <el-col>
             <el-button icon="el-icon-search" type="primary">查询</el-button>
-            <el-button type="primary">重置</el-button>
-            <el-button type="primary">导出</el-button>
+            <el-button icon="el-icon-refresh" type="success">重置</el-button>
+            <el-button icon="el-icon-download" type="info">导出</el-button>
           </el-col>
         </el-row>
         <el-table ref="table1" :data="tableData2" tooltip-effect="dark" style="width: 100%">
@@ -90,6 +91,7 @@
           <el-table-column prop="checkTime" label="检查时间" />
           <el-table-column prop="updateTime" label="处理时间" />
         </el-table>
+        <el-pagination background layout="prev, pager, next" :total="1000" />
       </el-tab-pane>
     </el-tabs>
   </div>

@@ -95,6 +95,7 @@
               label="调用日期"
             />
           </el-table>
+          <el-pagination background layout="prev, pager, next" :total="1000" />
         </div>
       </div>
     </div>
