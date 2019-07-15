@@ -388,7 +388,7 @@ export const constantRoutes = [
         component: () => import('@/views/run/sql/sql.vue'),
         name: 'sqlIndex',
         meta: {
-          title: '数据控监控'
+          title: '数据库监控'
         }
       }
     ]
