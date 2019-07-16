@@ -11,7 +11,7 @@
         </div>
         <div class="dashboard-col">
           <section>
-            <h1>310</h1>
+            <h1>320</h1>
             <p>代码标准数量</p>
           </section>
         </div>
