@@ -5,7 +5,7 @@
       <div class="dashboard-data">
         <div class="dashboard-col">
           <section>
-            <h1>501</h1>
+            <h1>5001</h1>
             <p>业务系统数量</p>
           </section>
         </div>
