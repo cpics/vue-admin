@@ -87,40 +87,186 @@ export const constantRoutes = [
       }
     ]
   },
+
   {
-    path: '/backup',
+    path: '/mData',
     component: Layout,
-    redirect: '/backup/index',
+    redirect: '/mData/index',
     alwaysShow: true, // will always show the root menu
-    name: 'backup',
+    name: 'mData',
     meta: {
-      title: '数据备份处理',
+      title: '元数据管理',
       icon: 'lock'
     },
     children: [
       {
         path: 'index',
-        component: () => import('@/views/backup/index'),
-        name: 'backupIndex',
+        component: () => import('@/views/mData/index'),
+        name: 'mDataIndex',
         meta: {
-          title: '数据备份'
+          title: '数据源管理'
         }
       },
       {
-        path: 'journal',
-        component: () => import('@/views/backup/journal/journal.vue'),
-        name: 'backupJournal',
+        path: 'object',
+        component: () => import('@/views/mData/object/object.vue'),
+        name: 'codeObject',
         meta: {
-          title: '系统日志'
-        }
-      },
-      {
-        path: 'search',
-        component: () => import('@/views/backup/search/search.vue'),
-        name: 'backupSearch',
-        meta: {
-          title: '数据库查询'
+          title: '数据对象管理'
           // if do not set roles, means: this page does not require permission
+        }
+      }
+    ]
+  },
+
+  {
+    path: '/mainData',
+    component: Layout,
+    redirect: '/mainData/index',
+    alwaysShow: true, // will always show the root menu
+    name: 'mainData',
+    meta: {
+      title: '主数据管理',
+      icon: 'lock'
+    },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/mainData/index'),
+        name: 'mainDataIndex',
+        meta: {
+          title: '主数据概要'
+        }
+      },
+      {
+        path: 'manage',
+        component: () => import('@/views/mainData/manage/manage.vue'),
+        name: 'mainDataManage',
+        meta: {
+          title: '主数据管理'
+          // if do not set roles, means: this page does not require permission
+        }
+      }
+    ]
+  },
+  {
+    path: '/code',
+    component: Layout,
+    redirect: '/code/index',
+    alwaysShow: true, // will always show the root menu
+    name: 'code',
+    meta: {
+      title: '代码标准管理',
+      icon: 'lock'
+    },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/code/index'),
+        name: 'codeIndex',
+        meta: {
+          title: '代码标准管理'
+        }
+      },
+      {
+        path: 'mapping',
+        component: () => import('@/views/code/mapping/mapping.vue'),
+        name: 'codeMapping',
+        meta: {
+          title: '代码标准映射管理'
+          // if do not set roles, means: this page does not require permission
+        }
+      },
+      {
+        path: 'check',
+        component: () => import('@/views/code/check/check.vue'),
+        name: 'codeCheck',
+        meta: {
+          title: '代码标准一致性检查'
+        }
+      }
+    ]
+  },
+
+  {
+    path: '/run',
+    component: Layout,
+    redirect: '/run/index',
+    alwaysShow: true, // will always show the root menu
+    name: 'run',
+    meta: {
+      title: '运行监控管理',
+      icon: 'lock'
+    },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/run/index'),
+        name: 'runIndex',
+        meta: {
+          title: '数据集成管理'
+        }
+      },
+      {
+        path: 'sql',
+        component: () => import('@/views/run/sql/sql.vue'),
+        name: 'sqlIndex',
+        meta: {
+          title: '数据库监控'
+        }
+      }
+    ]
+  },
+
+  {
+    path: '/dataShare',
+    component: Layout,
+    redirect: '/dataShare/index',
+    alwaysShow: true, // will always show the root menu
+    name: 'dataShare',
+    meta: {
+      title: '数据共享接口',
+      icon: 'lock'
+    },
+    children: [
+      {
+        path: 'index',
+        component: () => import('@/views/dataShare/index'),
+        name: 'dataShareIndex',
+        meta: {
+          title: '数据共享服务'
+        }
+      },
+      {
+        path: 'service',
+        component: () => import('@/views/dataShare/service/service.vue'),
+        name: 'dataShareService',
+        meta: {
+          title: '数据服务管理'
+        }
+      },
+      {
+        path: 'func',
+        component: () => import('@/views/dataShare/func/func.vue'),
+        name: 'dataSharefunc',
+        meta: {
+          title: '数据服务运行'
+        }
+      },
+      {
+        path: 'monitor',
+        component: () => import('@/views/dataShare/monitor/monitor.vue'),
+        name: 'dataShareMonitor',
+        meta: {
+          title: '服务运行监控'
+        }
+      },
+      {
+        path: 'call',
+        component: () => import('@/views/dataShare/call/call.vue'),
+        name: 'dataShareCall',
+        meta: {
+          title: '服务调用统计'
         }
       }
     ]
@@ -214,181 +360,39 @@ export const constantRoutes = [
     ]
   },
   {
-    path: '/dataShare',
+    path: '/backup',
     component: Layout,
-    redirect: '/dataShare/index',
+    redirect: '/backup/index',
     alwaysShow: true, // will always show the root menu
-    name: 'dataShare',
+    name: 'backup',
     meta: {
-      title: '数据共享接口',
+      title: '数据备份处理',
       icon: 'lock'
     },
     children: [
       {
         path: 'index',
-        component: () => import('@/views/dataShare/index'),
-        name: 'dataShareIndex',
+        component: () => import('@/views/backup/index'),
+        name: 'backupIndex',
         meta: {
-          title: '数据共享服务'
+          title: '数据备份'
         }
       },
       {
-        path: 'service',
-        component: () => import('@/views/dataShare/service/service.vue'),
-        name: 'dataShareService',
+        path: 'journal',
+        component: () => import('@/views/backup/journal/journal.vue'),
+        name: 'backupJournal',
         meta: {
-          title: '数据服务管理'
+          title: '系统日志'
         }
       },
       {
-        path: 'func',
-        component: () => import('@/views/dataShare/func/func.vue'),
-        name: 'dataSharefunc',
+        path: 'search',
+        component: () => import('@/views/backup/search/search.vue'),
+        name: 'backupSearch',
         meta: {
-          title: '数据服务运行'
-        }
-      },
-      {
-        path: 'monitor',
-        component: () => import('@/views/dataShare/monitor/monitor.vue'),
-        name: 'dataShareMonitor',
-        meta: {
-          title: '服务运行监控'
-        }
-      },
-      {
-        path: 'call',
-        component: () => import('@/views/dataShare/call/call.vue'),
-        name: 'dataShareCall',
-        meta: {
-          title: '服务调用统计'
-        }
-      }
-    ]
-  },
-  {
-    path: '/mainData',
-    component: Layout,
-    redirect: '/mainData/index',
-    alwaysShow: true, // will always show the root menu
-    name: 'mainData',
-    meta: {
-      title: '主数据管理',
-      icon: 'lock'
-    },
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/mainData/index'),
-        name: 'mainDataIndex',
-        meta: {
-          title: '主数据概要'
-        }
-      },
-      {
-        path: 'manage',
-        component: () => import('@/views/mainData/manage/manage.vue'),
-        name: 'mainDataManage',
-        meta: {
-          title: '主数据管理'
+          title: '数据库查询'
           // if do not set roles, means: this page does not require permission
-        }
-      }
-    ]
-  },
-  {
-    path: '/code',
-    component: Layout,
-    redirect: '/code/index',
-    alwaysShow: true, // will always show the root menu
-    name: 'code',
-    meta: {
-      title: '代码标准管理',
-      icon: 'lock'
-    },
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/code/index'),
-        name: 'codeIndex',
-        meta: {
-          title: '代码标准管理'
-        }
-      },
-      {
-        path: 'mapping',
-        component: () => import('@/views/code/mapping/mapping.vue'),
-        name: 'codeMapping',
-        meta: {
-          title: '代码标准映射管理'
-          // if do not set roles, means: this page does not require permission
-        }
-      },
-      {
-        path: 'check',
-        component: () => import('@/views/code/check/check.vue'),
-        name: 'codeCheck',
-        meta: {
-          title: '代码标准一致性检查'
-        }
-      }
-    ]
-  },
-  {
-    path: '/mData',
-    component: Layout,
-    redirect: '/mData/index',
-    alwaysShow: true, // will always show the root menu
-    name: 'mData',
-    meta: {
-      title: '元数据管理',
-      icon: 'lock'
-    },
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/mData/index'),
-        name: 'mDataIndex',
-        meta: {
-          title: '数据源管理'
-        }
-      },
-      {
-        path: 'object',
-        component: () => import('@/views/mData/object/object.vue'),
-        name: 'codeObject',
-        meta: {
-          title: '数据对象管理'
-          // if do not set roles, means: this page does not require permission
-        }
-      }
-    ]
-  },
-  {
-    path: '/run',
-    component: Layout,
-    redirect: '/run/index',
-    alwaysShow: true, // will always show the root menu
-    name: 'run',
-    meta: {
-      title: '运行监控管理',
-      icon: 'lock'
-    },
-    children: [
-      {
-        path: 'index',
-        component: () => import('@/views/run/index'),
-        name: 'runIndex',
-        meta: {
-          title: '数据集成管理'
-        }
-      },
-      {
-        path: 'sql',
-        component: () => import('@/views/run/sql/sql.vue'),
-        name: 'sqlIndex',
-        meta: {
-          title: '数据库监控'
         }
       }
     ]
