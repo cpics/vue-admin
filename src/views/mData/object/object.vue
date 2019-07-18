@@ -272,122 +272,317 @@ export default {
         {
           id: 1,
           label: '数据中心',
-          children: [{
-            id: 4,
-            label: '基础类',
-            children: [
-              {
-                id: 9,
-                label: '教职工基础信息表'
-              },
-              {
-                id: 10,
-                label: '本科生基础信息表'
-              },
-              {
-                id: 11,
-                label: '研究生基础信息'
-              },
-              {
-                id: 12,
-                label: '学校基础信息'
+          children: [
+
+            {
+              id: 4,
+              label: '基础类',
+              children: [
+                {
+                  id: 9,
+                  label: '教职工基础信息表'
+                },
+                {
+                  id: 10,
+                  label: '本科生基础信息表'
+                },
+                {
+                  id: 11,
+                  label: '研究生基础信息'
+                },
+                {
+                  id: 12,
+                  label: '学校基础信息'
+                }
+              ]
+            },
+            {
+              id: 2,
+              label: '科研类',
+              children: [{
+                id: 5,
+                label: '科研成果'
+              }, {
+                id: 6,
+                label: '科研项目'
+              }, {
+                id: 6,
+                label: '科研考核'
+              }, {
+                id: 6,
+                label: '科研经费'
+              }, {
+                id: 6,
+                label: '学术团体'
+              }, {
+                id: 6,
+                label: '科研交流'
+              }, {
+                id: 6,
+                label: '科研基地'
               }
-            ]
-          }]
-        },
-        {
-          id: 2,
-          label: '科研类',
-          children: [{
-            id: 5,
-            label: '科研成果'
-          }, {
-            id: 6,
-            label: '科研项目'
-          }, {
-            id: 6,
-            label: '科研考核'
-          }, {
-            id: 6,
-            label: '科研经费'
-          }, {
-            id: 6,
-            label: '学术团体'
-          }, {
-            id: 6,
-            label: '科研交流'
-          }, {
-            id: 6,
-            label: '科研基地'
-          }
 
-          ]
-        },
-        {
-          id: 3,
-          label: '人事类',
-          children: [{
-            id: 7,
-            label: '聘用管理'
-          }, {
-            id: 8,
-            label: '考核管理'
-          }, {
-            id: 8,
-            label: '异动管理'
-          }, {
-            id: 8,
-            label: '师资管理'
-          }, {
-            id: 8,
-            label: '高级人才'
-          }
+              ]
+            },
 
-          ]
-        },
-        {
-          id: 3,
-          label: '教务类',
-          children: [{
-            id: 7,
-            label: '培养计划'
-          }, {
-            id: 8,
-            label: '学生项目'
-          }, {
-            id: 8,
-            label: '学籍管理'
-          }, {
-            id: 8,
-            label: '培养管理'
-          }, {
-            id: 8,
-            label: '学生成果'
-          }, {
-            id: 8,
-            label: '教师管理'
-          }, {
-            id: 8,
-            label: '创新管理'
-          }, {
-            id: 8,
-            label: '排课选课'
-          }, {
-            id: 8,
-            label: '教学成果'
-          }, {
-            id: 8,
-            label: '考试考务'
-          }, {
-            id: 8,
-            label: '论文管理'
-          }, {
-            id: 8,
-            label: '成绩管理'
-          }
+            {
+              id: 3,
+              label: '人事类',
+              children: [{
+                id: 7,
+                label: '聘用管理'
+              }, {
+                id: 8,
+                label: '考核管理'
+              }, {
+                id: 8,
+                label: '异动管理'
+              }, {
+                id: 8,
+                label: '师资管理'
+              }, {
+                id: 8,
+                label: '高级人才'
+              }
+
+              ]
+            },
+
+            {
+              id: 3,
+              label: '教务类',
+              children: [{
+                id: 7,
+                label: '培养计划'
+              }, {
+                id: 8,
+                label: '学生项目'
+              }, {
+                id: 8,
+                label: '学籍管理'
+              }, {
+                id: 8,
+                label: '培养管理'
+              }, {
+                id: 8,
+                label: '学生成果'
+              }, {
+                id: 8,
+                label: '教师管理'
+              }, {
+                id: 8,
+                label: '创新管理'
+              }, {
+                id: 8,
+                label: '排课选课'
+              }, {
+                id: 8,
+                label: '教学成果'
+              }, {
+                id: 8,
+                label: '考试考务'
+              }, {
+                id: 8,
+                label: '论文管理'
+              }, {
+                id: 8,
+                label: '成绩管理'
+              }
+
+              ]
+            },
+            {
+              id: 3,
+              label: '学工类',
+              children: [{
+                id: 7,
+                label: '招生管理'
+              }, {
+                id: 8,
+                label: '招生计划'
+              }, {
+                id: 8,
+                label: '资助管理'
+              }, {
+                id: 8,
+                label: '学工管理'
+              }, {
+                id: 8,
+                label: '录取管理'
+              }, {
+                id: 8,
+                label: '思想教育'
+              }, {
+                id: 8,
+                label: '社会实践'
+              }, {
+                id: 8,
+                label: '迎新管理'
+              }, {
+                id: 8,
+                label: '离校管理'
+              }, {
+                id: 8,
+                label: '综合管理'
+              }, {
+                id: 8,
+                label: '就业管理'
+              }, {
+                id: 8,
+                label: '成绩管理'
+              }
+
+              ]
+            },
+            {
+              id: 3,
+              label: '财务类',
+              children: [{
+                id: 7,
+                label: '一卡通'
+              }, {
+                id: 8,
+                label: '网络计费'
+              }, {
+                id: 8,
+                label: '网络支付'
+              }, {
+                id: 8,
+                label: '住房补贴'
+              }, {
+                id: 8,
+                label: '学生缴费'
+              }, {
+                id: 8,
+                label: '教工薪资'
+              }, {
+                id: 8,
+                label: '科目凭证'
+              }, {
+                id: 8,
+                label: '票据管理'
+              }, {
+                id: 8,
+                label: '项目经费'
+              }
+
+              ]
+            },
+            {
+              id: 3,
+              label: '资产类',
+              children: [{
+                id: 7,
+                label: '房产'
+              }, {
+                id: 8,
+                label: '设备'
+              }, {
+                id: 8,
+                label: '基础'
+              }
+
+              ]
+            },
+
+            {
+              id: 3,
+              label: '研工类',
+              children: [{
+                id: 7,
+                label: '培养计划'
+              }, {
+                id: 8,
+                label: '学科建设'
+              }, {
+                id: 8,
+                label: '学籍管理'
+              }, {
+                id: 8,
+                label: '招生管理'
+              }, {
+                id: 8,
+                label: '招生计划'
+              }, {
+                id: 8,
+                label: '资助管理'
+              }, {
+                id: 8,
+                label: '导师管理'
+              }, {
+                id: 8,
+                label: '录取管理'
+              }, {
+                id: 8,
+                label: '教师管理'
+              }, {
+                id: 8,
+                label: '学位管理'
+              }, {
+                id: 8,
+                label: '排课选课'
+              }, {
+                id: 8,
+                label: '教学教务'
+              }, {
+                id: 8,
+                label: '社会实践'
+              }, {
+                id: 8,
+                label: '学位学科'
+              }, {
+                id: 8,
+                label: '综合管理'
+              }, {
+                id: 8,
+                label: '考试考务'
+              }, {
+                id: 8,
+                label: '成绩管理'
+              },
+              {
+                id: 8,
+                label: '研工管理'
+              }
+
+              ]
+            },
+
+            {
+              id: 3,
+              label: '其他类',
+              children: [{
+                id: 7,
+                label: '校友信息'
+              }, {
+                id: 8,
+                label: '医疗卫生'
+              }, {
+                id: 8,
+                label: '大数据综合实训室'
+              },
+              {
+                id: 8,
+                label: '智慧资助管理'
+              },
+              {
+                id: 8,
+                label: '核心素质管理'
+              }, {
+                id: 8,
+                label: '高校审计数据管理'
+              },
+              {
+                id: 8,
+                label: '高职类专用管理'
+              }
+
+              ]
+            }
 
           ]
         }
+
       ],
       tableData: [
         {
