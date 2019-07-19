@@ -104,7 +104,7 @@ export default {
         xAxis: [
           {
             type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            data: ['人事系统', '财务系统', '学工系统', '教务系统', '科研系统', '后勤系统', '资产系统'],
             axisTick: {
               alignWithLabel: true
             }
