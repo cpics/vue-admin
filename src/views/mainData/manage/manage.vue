@@ -439,18 +439,118 @@ export default {
       ],
       data: [{
         id: 1,
-        label: '一级 1',
+        label: '数据中心',
         children: [{
           id: 4,
-          label: '二级 1-1',
+          label: '基础类',
           children: [{
             id: 9,
-            label: '三级 1-1-1'
+            label: '学校基础信息',
+            children: [{
+              id: 10,
+              label: '学校信息'
+            }, {
+              id: 11,
+              label: '校区信息'
+            }]
           }, {
             id: 10,
-            label: '三级 1-1-2'
-          }]
-        }]
+            label: '本科生基础信息',
+            children: [{ id: 20, label: '本专科生基础信息' }, { id: 21, label: '本专科生工作信息' },
+              { id: 20, label: '本专科生家庭信息' }, { id: 21, label: '本专科生培训信息' },
+              { id: 20, label: '本专科生通讯信息' }, { id: 21, label: '本专科生奖励信息' },
+              { id: 20, label: '本专科生政治面貌' }
+
+            ]
+          }, {
+            id: 10,
+            label: '教职工基础信息',
+            children: [
+              { id: 30, label: '工作简历' },
+              { id: 30, label: '奖励荣誉' },
+              { id: 30, label: '家庭成员' },
+              { id: 30, label: '通讯信息' },
+              { id: 30, label: '学历学位' },
+              { id: 30, label: '政治面貌' }
+
+            ]
+          }, {
+            id: 10,
+            label: '研究生基础信息',
+            children: [
+              { id: '40', label: '基础信息' },
+              { id: '40', label: '工作经历' },
+              { id: '40', label: '奖励信息' },
+              { id: '40', label: '家庭成员' },
+              { id: '40', label: '培训信息' },
+              { id: '40', label: '通讯信息' },
+              { id: '40', label: '学习信息' },
+              { id: '40', label: '政治面貌' }
+            ]
+          }
+
+          ]
+        }, {
+          id: 2,
+          label: '科研类',
+          children: [
+            {
+              id: 20,
+              label: '科研成果',
+              children: [
+                { id: 10, label: '学术论文' },
+                { id: 10, label: '科研著作' },
+                { id: 10, label: '科研专利' },
+                { id: 10, label: '获奖成果' },
+                { id: 10, label: '鉴定成果' },
+                { id: 10, label: '软件著作权' },
+                { id: 10, label: '咨询报告' },
+                { id: 10, label: '信息标准' }
+              ]
+
+            }, {
+              id: 20,
+              label: '科研项目',
+              children: [
+                { id: 10, label: '科研附件' },
+                { id: 10, label: '项目信息' },
+                { id: 10, label: '项目人员' },
+                { id: 10, label: '课题信息' },
+                { id: 10, label: '协作单位' },
+                { id: 10, label: '软件著作权' },
+                { id: 10, label: '咨询报告' },
+                { id: 10, label: '信息标准' }
+              ]
+
+            },
+            {
+              id: 20,
+              label: '科研考核',
+              children: [
+                { id: 10, label: '考核明细' }
+              ]
+
+            },
+            {
+              id: 20,
+              label: '科研项目',
+              children: [
+                { id: 10, label: '科研附件' },
+                { id: 10, label: '项目信息' },
+                { id: 10, label: '项目人员' },
+                { id: 10, label: '课题信息' },
+                { id: 10, label: '协作单位' },
+                { id: 10, label: '软件著作权' },
+                { id: 10, label: '咨询报告' },
+                { id: 10, label: '信息标准' }
+              ]
+
+            }
+          ]
+
+        }
+
+        ]
       }, {
         id: 2,
         label: '一级 2',
