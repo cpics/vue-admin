@@ -76,7 +76,7 @@
         <el-form-item label="数据库对象所有者" :label-width="formLabelWidth">
           <el-input v-model="form.own" autocomplete="off" />
         </el-form-item>
-        <el-form-item label="最后修改时间" :label-width="formLabelWidth">
+        <el-form-item v-if="visible" label="最后修改时间" :label-width="formLabelWidth">
           <el-input v-model="form.time" autocomplete="off" />
         </el-form-item>
       </el-form>

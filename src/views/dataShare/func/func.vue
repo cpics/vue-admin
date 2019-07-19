@@ -115,11 +115,11 @@
         <div class="common-title-small">server1服务API</div>
         <div class="explain-box">
           服务编号(int_num)：364565761af094f7fa15ab91e68fdde59  (applyId、accessToken见授权)<br>
-          服务名称：server1<br>
+          服务名称：server<br>
           服务描述：教职工基础信息共享服务<br>
-          服务URL(SOAP)：http://IP:Port/mdc/ws/data?wsdl<br>
-          服务URL(REST)：http://IP:Port/mdc/rest/getDataInfo<br>
-          文本数据接口地址：http://IP:Port/mdc/file/down
+          服务URL(SOAP)：http://192.168.1.101:80/ars/ws/data?wsdl<br>
+          服务URL(REST)：http://192.168.1.101:80/getDataInfo<br>
+          文本数据接口地址：http://192.168.1.101:80/ars/file/down
         </div>
       </div>
       <div class="explain-row">
@@ -172,36 +172,36 @@ export default {
       }],
       value: '',
       tableData: [{
-        state: '111',
-        source: '222',
-        name: '222',
-        miaoshu: '333',
+        state: '0',
+        source: 'rs',
+        name: 'rs_info',
+        miaoshu: '2',
         id: '1',
-        token: '85222222222225',
+        token: 'qwxrfwwefzdesaxasee',
         ip: '192.165.21.33/32'
       }, {
-        state: '111',
-        source: '222',
-        name: '222',
-        miaoshu: '333',
+        state: '0',
+        source: 'cw',
+        name: 'cw_ys',
+        miaoshu: '5',
         id: '1',
-        token: '85222222222225',
+        token: 'arexareegeaetrddssa',
         ip: '192.165.21.33/32'
       }, {
-        state: '111',
-        source: '222',
-        name: '222',
-        miaoshu: '333',
+        state: '0',
+        source: 'xg',
+        name: 'xg_info',
+        miaoshu: '10',
         id: '1',
-        token: '85222222222225',
+        token: 'asdxxsweaawwddgaerr',
         ip: '192.165.21.33/32'
       }, {
-        state: '111',
-        source: '222',
-        name: '222',
-        miaoshu: '333',
+        state: '0',
+        source: 'jw',
+        name: 'jw_xk',
+        miaoshu: '20',
         id: '1',
-        token: '85222222222225',
+        token: 'pliiaeerraxerwercxge',
         ip: '192.165.21.33/32'
       }]
     }
