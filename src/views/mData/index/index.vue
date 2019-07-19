@@ -59,6 +59,7 @@
             <el-option label="Mysql" value="2" />
             <el-option label="postgreSql" value="3" />
             <el-option label="SQL Server" value="4" />
+            <el-option label="DB2" value="5" />
           </el-select>
         </el-form-item>
         <el-form-item label="数据库驱动" :label-width="formLabelWidth">
