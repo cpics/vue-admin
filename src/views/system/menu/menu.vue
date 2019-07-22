@@ -104,41 +104,131 @@ export default {
       data: [
         {
           id: 1,
-          label: '应用菜单树',
+          label: '主数据管理平台',
           children: [{
             id: 4,
-            label: '个人中心',
+            label: '元数据管理',
             children: [{
               id: 9,
-              label: '三级 1-1-1'
+              label: '数据源管理'
             }, {
               id: 10,
-              label: '三级 1-1-2'
+              label: '数据对象管理'
             }]
-          }]
-        },
-        {
-          id: 2,
-          label: '服务中心',
-          children: [{
-            id: 5,
-            label: '二级 2-1'
           }, {
-            id: 6,
-            label: '二级 2-2'
-          }]
-        },
-        {
-          id: 3,
-          label: '系统菜单',
-          children: [{
-            id: 7,
-            label: '二级 3-1'
+            id: 4,
+            label: '主数据管理',
+            children: [{
+              id: 9,
+              label: '主数据概要'
+            }, {
+              id: 10,
+              label: '主数据管理'
+            }]
           }, {
-            id: 8,
-            label: '二级 3-2'
-          }]
+            id: 4,
+            label: '代码标准管理',
+            children: [{
+              id: 9,
+              label: '标准管理'
+            }, {
+              id: 10,
+              label: '映射管理'
+            }, {
+              id: 10,
+              label: '一致性检查'
+            }
+            ]
+          }, {
+            id: 4,
+            label: '运行监控管理',
+            children: [{
+              id: 9,
+              label: '数据集成管理'
+            }, {
+              id: 10,
+              label: '数据库监控'
+            }
+            ]
+          }, {
+            id: 4,
+            label: '数据共享接口',
+            children: [{
+              id: 9,
+              label: '共享服务'
+            }, {
+              id: 10,
+              label: '服务管理'
+            }, {
+              id: 10,
+              label: '服务运行'
+            }, {
+              id: 10,
+              label: '运行监控'
+            }, {
+              id: 10,
+              label: '调用统计'
+            }
+            ]
+          }, {
+            id: 4,
+            label: '质量检测管理',
+            children: [{
+              id: 9,
+              label: '质量检测'
+            }, {
+              id: 10,
+              label: '检测模板'
+            }, {
+              id: 10,
+              label: '规则配置'
+            }, {
+              id: 10,
+              label: '质量查询'
+            }, {
+              id: 10,
+              label: '质量提醒'
+            }, {
+              id: 10,
+              label: '任务调度'
+            }
+            ]
+          }, {
+            id: 4,
+            label: '数据备份管理',
+            children: [{
+              id: 9,
+              label: '数据备份'
+            }, {
+              id: 10,
+              label: '系统日志'
+            }, {
+              id: 10,
+              label: '数据库查询'
+            }
+            ]
+          }, {
+            id: 4,
+            label: '系统管理',
+            children: [{
+              id: 9,
+              label: '角色管理'
+            }, {
+              id: 10,
+              label: '菜单管理'
+            }, {
+              id: 10,
+              label: '权限管理'
+            }, {
+              id: 10,
+              label: '配置管理'
+            }
+            ]
+          }
+
+          ]
         }
+
       ],
       defaultProps: {
         children: 'children',
