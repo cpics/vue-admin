@@ -212,38 +212,71 @@ export default {
       },
       treeData: [{
         id: 1,
-        label: '一级 1',
+        label: '所有服务',
         children: [{
           id: 4,
-          label: '二级 1-1',
+          label: '人事',
           children: [{
             id: 9,
-            label: '无代码表'
+            label: '教职工信息'
           }, {
             id: 10,
-            label: '有代码表'
+            label: '职称信息'
           }]
-        }]
-      }, {
-        id: 2,
-        label: '一级 2',
-        children: [{
-          id: 5,
-          label: '二级 2-1'
         }, {
-          id: 6,
-          label: '二级 2-2'
-        }]
-      }, {
-        id: 3,
-        label: '一级 3',
-        children: [{
-          id: 7,
-          label: '二级 3-1'
+          id: 4,
+          label: '学工',
+          children: [{
+            id: 9,
+            label: '学生信息'
+          }, {
+            id: 10,
+            label: '贫困生信息'
+          }]
         }, {
-          id: 8,
-          label: '二级 3-2'
-        }]
+          id: 4,
+          label: '教务',
+          children: [{
+            id: 9,
+            label: '调课信息'
+          }, {
+            id: 10,
+            label: '排课信息'
+          }]
+        },
+        {
+          id: 4,
+          label: '财务',
+          children: [{
+            id: 9,
+            label: '项目经费信息'
+          }, {
+            id: 10,
+            label: '部门报销信息'
+          }]
+        }, {
+          id: 4,
+          label: '科研',
+          children: [{
+            id: 9,
+            label: '项目信息'
+          }]
+        }, {
+          id: 4,
+          label: '资产',
+          children: [{
+            id: 9,
+            label: '教师公寓信息'
+          }]
+        }, {
+          id: 4,
+          label: '其他',
+          children: [{
+            id: 9,
+            label: '图书借阅信息'
+          }]
+        }
+        ]
       }],
       tableData1: [
         {

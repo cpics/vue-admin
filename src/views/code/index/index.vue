@@ -231,41 +231,58 @@ export default {
       },
       data: [{
         id: 1,
-        label: '一级 1',
+        label: '代码标准',
         children: [{
           id: 4,
-          label: '二级 1-1',
+          label: '全局字典',
           children: [{
             id: 9,
-            label: '页面1'
+            label: '国家地区[T_CODE_GJDQ]'
           }, {
             id: 10,
-            label: '页面2'
+            label: '性别[T_CODE_XB]'
           }, {
             id: 11,
-            label: '页面3'
+            label: '政治面貌[T_CODE_ZZMM]'
           }]
-        }]
-      }, {
-        id: 2,
-        label: '一级 2',
-        children: [{
-          id: 5,
-          label: '二级 2-1'
-        }, {
-          id: 6,
-          label: '二级 2-2'
-        }]
-      }, {
-        id: 3,
-        label: '一级 3',
-        children: [{
-          id: 7,
-          label: '二级 3-1'
-        }, {
-          id: 8,
-          label: '二级 3-2'
-        }]
+        },
+        { id: 1, label: '人事', children: [
+          { id: 1, label: '其他[T_CODE_OTHER]' }
+        ] },
+        { id: 1, label: '科研', children: [
+          { id: 1, label: '其他[T_CODE_OTHER]' }
+        ] },
+        { id: 1, label: '学工', children: [
+          { id: 1, label: '其他[T_CODE_OTHER]' }
+        ] },
+        { id: 1, label: '教学', children: [
+          { id: 1, label: '其他[T_CODE_OTHER]' }
+        ] },
+        { id: 1, label: '资产', children: [
+          { id: 1, label: '其他[T_CODE_OTHER]' }
+        ] },
+        { id: 1, label: '财务', children: [
+          { id: 1, label: '其他[T_CODE_OTHER]' }
+        ] },
+        { id: 1, label: '外事', children: [
+          { id: 1, label: '其他[T_CODE_OTHER]' }
+        ] },
+        { id: 1, label: '办公', children: [
+          { id: 1, label: '其他[T_CODE_OTHER]' }
+        ] },
+        { id: 1, label: '档案', children: [
+          { id: 1, label: '其他[T_CODE_OTHER]' }
+        ] },
+        { id: 1, label: '体育', children: [
+          { id: 1, label: '其他[T_CODE_OTHER]' }
+        ] },
+        { id: 1, label: '党团组织', children: [
+          { id: 1, label: '其他[T_CODE_OTHER]' }
+        ] },
+        { id: 1, label: '其他管理', children: [
+          { id: 1, label: '其他[T_CODE_OTHER]' }
+        ] }
+        ]
       }],
       tableData: [
         {
