@@ -61,7 +61,7 @@ export default {
         xAxis: [
           {
             type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            data: ['消费信息', '图书信息', '借阅信息', '工作流信息', '报修信息', '充值信息', '论文信息'],
             axisTick: {
               alignWithLabel: true
             }
@@ -77,7 +77,7 @@ export default {
             name: '直接访问',
             type: 'bar',
             barWidth: '60%',
-            data: [10, 52, 200, 334, 390, 330, 220]
+            data: [80100, 78903, 50987, 30982, 20192, 15049, 9999]
           }
         ]
       }
