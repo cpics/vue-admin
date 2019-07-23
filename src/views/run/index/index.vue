@@ -280,29 +280,29 @@ export default {
       }],
       tableData1: [
         {
-          name: 'INTERFACE_1',
+          name: 'Service_TSJY',
           database: '主数据(zsj)',
           table: '图书借阅信息'
         },
         {
-          name: 'INTERFACE_1',
+          name: 'Service_YKT',
           database: '主数据(zsj)',
-          table: '图书借阅信息'
+          table: '一卡通消费'
         },
         {
-          name: 'INTERFACE_1',
+          name: 'Service_QJ',
           database: '主数据(zsj)',
-          table: '图书借阅信息'
+          table: '学生请假'
         },
         {
-          name: 'INTERFACE_1',
+          name: 'Service_CZ',
           database: '主数据(zsj)',
-          table: '图书借阅信息'
+          table: '一卡通充值'
         },
         {
-          name: 'INTERFACE_1',
+          name: 'Service_BX',
           database: '主数据(zsj)',
-          table: '图书借阅信息'
+          table: '报修信息'
         }
       ],
       tableData2: [{
@@ -314,31 +314,47 @@ export default {
         flow: '上行'
       },
       {
-        name: 'INT_HRTOZSJ',
-        headDatabase: '人事系统(ORACLE_HR)',
-        headTable: '考核信息',
+        name: 'INT_XGLXTOZSJ',
+        headDatabase: '学工系统(ORACLE_XG)',
+        headTable: '离校信息',
         database: '主数据(ORACLE_HR)',
-        table: '教职工考核信息',
+        table: '学生假期离校',
         flow: '上行'
       },
       {
-        name: 'INT_HRTOZSJ',
-        headDatabase: '人事系统(ORACLE_HR)',
-        headTable: '考核信息',
+        name: 'INT_CWTOZSJ',
+        headDatabase: '财务系统(MYSQL_CW)',
+        headTable: '财务信息',
         database: '主数据(ORACLE_HR)',
-        table: '教职工考核信息',
+        table: '经费报销信息',
         flow: '上行'
       },
       {
-        name: 'INT_HRTOZSJ',
-        headDatabase: '人事系统(ORACLE_HR)',
-        headTable: '考核信息',
-        database: '主数据(ORACLE_HR)',
-        table: '教职工考核信息',
-        flow: '上行'
+        name: 'INT_ZSJ_KY',
+        headDatabase: '科研系统(MYSQL_KY)',
+        headTable: '科研信息',
+        database: '主数据(ORACLE_KY)',
+        table: '项目科目信息',
+        flow: '下行'
       }],
       tableData3: [{
         projectName: '教务系统',
+        taskName: 'PAK_JW',
+        version: '1.0.0',
+        proxyName: '202.195.244.216',
+        proxyUrl: '202.195.244.216:81',
+        plan: '当前任务每天10：00执行',
+        status: '成功'
+      }, {
+        projectName: '财务系统',
+        taskName: 'PAK_CW',
+        version: '1.0.0',
+        proxyName: '202.195.244.216',
+        proxyUrl: '202.195.244.216:81',
+        plan: '当前任务每天10：00执行',
+        status: '成功'
+      }, {
+        projectName: '人事系统',
         taskName: 'PAK_HR',
         version: '1.0.0',
         proxyName: '202.195.244.216',
@@ -346,24 +362,8 @@ export default {
         plan: '当前任务每天10：00执行',
         status: '成功'
       }, {
-        projectName: '教务系统',
-        taskName: 'PAK_HR',
-        version: '1.0.0',
-        proxyName: '202.195.244.216',
-        proxyUrl: '202.195.244.216:81',
-        plan: '当前任务每天10：00执行',
-        status: '成功'
-      }, {
-        projectName: '教务系统',
-        taskName: 'PAK_HR',
-        version: '1.0.0',
-        proxyName: '202.195.244.216',
-        proxyUrl: '202.195.244.216:81',
-        plan: '当前任务每天10：00执行',
-        status: '成功'
-      }, {
-        projectName: '教务系统',
-        taskName: 'PAK_HR',
+        projectName: '学工系统',
+        taskName: 'PAK_XG',
         version: '1.0.0',
         proxyName: '202.195.244.216',
         proxyUrl: '202.195.244.216:81',
