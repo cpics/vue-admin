@@ -83,27 +83,27 @@ export default {
       tableData: [
         {
           id: 0,
-          jsdm: 'system',
+          jsdm: 'sysadmin',
           name: '系统管理员',
-          miaoshu: '角色描述'
+          miaoshu: '系统管理员'
         },
         {
           id: 2,
-          jsdm: 'system',
-          name: '系统管理员',
-          miaoshu: '角色描述'
+          jsdm: 'teacher',
+          name: '教职工',
+          miaoshu: '教职工'
         },
         {
           id: 3,
-          jsdm: 'system',
-          name: '系统管理员',
-          miaoshu: '角色描述'
+          jsdm: 'develop',
+          name: '开发者',
+          miaoshu: '开发者'
         },
         {
           id: 4,
-          jsdm: 'system',
-          name: '系统管理员',
-          miaoshu: '角色描述'
+          jsdm: 'test',
+          name: '测试',
+          miaoshu: '测试'
         }
       ]
     }

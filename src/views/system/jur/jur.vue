@@ -75,20 +75,14 @@ export default {
         code: 'sysadmin',
         name: '系统管理员'
       }, {
-        code: 'guide_mg',
-        name: '指南管理'
+        code: 'teacher',
+        name: '教职工'
       }, {
-        code: 'sysadmin',
-        name: '系统管理员'
+        code: 'develop',
+        name: '开发者'
       }, {
-        code: 'guide_mg',
-        name: '指南管理'
-      }, {
-        code: 'sysadmin',
-        name: '系统管理员'
-      }, {
-        code: 'guide_mg',
-        name: '指南管理'
+        code: 'test',
+        name: '测试'
       }],
       data: [{
         id: 1,

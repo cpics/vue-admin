@@ -53,12 +53,10 @@
       <el-tab-pane label="任务日志" name="second">
         <el-table :data="tableData" fit highlight-current-row style="width: 100%">
           <el-table-column prop="tableName" label="数据表名" />
-          <el-table-column prop="source" label="数据来源" />
-          <el-table-column prop="date" label="备份日期" />
-          <el-table-column prop="count" label="备份数目" />
-          <el-table-column prop="isSuccess" label="是否成功" />
-          <el-table-column prop="date2" label="执行时间" />
-          <el-table-column prop="detail" label="详细信息" />
+          <el-table-column prop="chineseName" label="表中文名" />
+          <el-table-column prop="num" label="总体数据量" />
+          <el-table-column prop="num2" label="违规数据量" />
+          <el-table-column prop="time" label="最近检测时间" />
         </el-table>
         <el-pagination background layout="prev, pager, next" :total="1000" />
       </el-tab-pane>
@@ -85,45 +83,35 @@ export default {
       },
       activeName: 'first',
       tableData: [{
-        tableName: 'AJ_T_TABLE',
-        source: '数据中心',
-        date: '2019-05-02',
-        count: '1',
-        isSuccess: '执行成功',
-        date2: '2019-05-02 11：10：34',
-        detail: '信息信息信息信息信息'
+        tableName: 'T_KY_ZL',
+        chineseName: '专利基本信息',
+        num: '15981',
+        num2: '5327',
+        time: '2019-06-19 05:00:03'
       }, {
-        tableName: 'AJ_T_TABLE',
-        source: '数据中心',
-        date: '2019-05-02',
-        count: '1',
-        isSuccess: '执行成功',
-        date2: '2019-05-02 11：10：34',
-        detail: '信息信息信息信息信息'
+        tableName: 'T_HXSZ_GRXF',
+        chineseName: '个人消费',
+        num: '0',
+        num2: '0',
+        time: '2019-06-19 05:00:03'
       }, {
-        tableName: 'AJ_T_TABLE',
-        source: '数据中心',
-        date: '2019-05-02',
-        count: '1',
-        isSuccess: '执行成功',
-        date2: '2019-05-02 11：10：34',
-        detail: '信息信息信息信息信息'
+        tableName: 'T_KY_ZZ',
+        chineseName: '科研著作基本信息',
+        num: '1175',
+        num2: '1175',
+        time: '2019-06-19 05:00:01'
       }, {
-        tableName: 'AJ_T_TABLE',
-        source: '数据中心',
-        date: '2019-05-02',
-        count: '1',
-        isSuccess: '执行成功',
-        date2: '2019-05-02 11：10：34',
-        detail: '信息信息信息信息信息'
+        tableName: 'T_KY_CGJD',
+        chineseName: '成果鉴定信息',
+        num: '6367',
+        num2: '6367',
+        time: '2019-06-19 05:00:03'
       }, {
-        tableName: 'AJ_T_TABLE',
-        source: '数据中心',
-        date: '2019-05-02',
-        count: '1',
-        isSuccess: '执行成功',
-        date2: '2019-05-02 11：10：34',
-        detail: '信息信息信息信息信息'
+        tableName: 'T_JZG_TX',
+        chineseName: '教职工通讯信息',
+        num: '0',
+        num2: '0',
+        time: '2019-06-19 05:00:01'
       }]
     }
   },

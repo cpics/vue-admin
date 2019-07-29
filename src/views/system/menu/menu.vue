@@ -237,25 +237,65 @@ export default {
       tableData: [
         {
           id: 0,
-          caidan: 'system_menu',
-          name: '系统菜单',
-          show: '系统菜单',
+          caidan: 'mData_menu',
+          name: '元数据管理',
+          show: '元数据管理',
           is: '否',
           level: '1'
         },
         {
           id: 2,
-          caidan: 'system_menu',
-          name: '系统菜单',
-          show: '系统菜单',
+          caidan: 'main_menu',
+          name: '主数据管理',
+          show: '主数据管理',
           is: '否',
           level: '1'
         },
         {
           id: 3,
+          caidan: 'daima_menu',
+          name: '代码标准管理',
+          show: '代码标准管理',
+          is: '否',
+          level: '1'
+        },
+        {
+          id: 4,
+          caidan: 'monitor_menu',
+          name: '运行监控管理',
+          show: '运行监控管理',
+          is: '否',
+          level: '1'
+        },
+        {
+          id: 5,
+          caidan: 'share_menu',
+          name: '数据共享接口',
+          show: '数据共享接口',
+          is: '否',
+          level: '1'
+        },
+        {
+          id: 6,
+          caidan: 'zhiliang_menu',
+          name: '质量检测管理',
+          show: '质量检测管理',
+          is: '否',
+          level: '1'
+        },
+        {
+          id: 7,
+          caidan: 'backup_menu',
+          name: '数据备份管理',
+          show: '数据备份管理',
+          is: '否',
+          level: '1'
+        },
+        {
+          id: 8,
           caidan: 'system_menu',
-          name: '系统菜单',
-          show: '系统菜单',
+          name: '系统管理',
+          show: '系统管理',
           is: '否',
           level: '1'
         }
