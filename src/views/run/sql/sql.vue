@@ -81,7 +81,7 @@
         <div class="average-box">
           <div class="m-second-tit">归档日志</div>
           <el-table
-            :data="tableData"
+            :data="tableData3"
             style="width: 100%"
             max-height="250"
           >
@@ -104,7 +104,7 @@
         <div class="average-box">
           <div class="m-second-tit">总耗时最大前十条SQL</div>
           <el-table
-            :data="tableData"
+            :data="tableData2"
             style="width: 100%"
             max-height="520"
           >
@@ -118,22 +118,22 @@
               label="SQL语句"
             />
             <el-table-column
-              prop="state"
+              prop="time"
               label="耗时"
               width="100"
             />
             <el-table-column
-              prop="machine"
+              prop="cpu"
               label="CPU时间"
               width="100"
             />
             <el-table-column
-              prop="program"
+              prop="rate"
               label="磁盘读写速率"
               width="100"
             />
             <el-table-column
-              prop="order"
+              prop="sort"
               label="消耗排名"
               width="80"
             />
@@ -213,53 +213,59 @@ export default {
           }
         ]
       },
-      tableData: [{
-        user: 'user',
-        desc: '描述描述描述',
-        state: 'xx',
-        machine: 'xxx',
-        program: 'xxx',
-        order: 'xxxx'
+      tableData: [],
+      tableData2: [{
+        user: 'admin',
+        desc: 'select * from base_resources where isValid=1 order by sort',
+        time: '175ms',
+        cpu: '160ms',
+        rate: '20.1MB/s',
+        sort: '1'
       }, {
-        user: 'user',
-        desc: '描述描述描述',
-        state: 'xx',
-        machine: 'xxx',
-        program: 'xxx',
-        order: 'xxxx',
-        time: '2019-02-04 19:22:11',
-        count: '20',
-        size: '1000'
+        user: 'admin',
+        desc: 'select * from task_schedule',
+        time: '150ms',
+        cpu: '140ms',
+        rate: '19.6MB/s',
+        sort: '2'
       }, {
-        user: 'user',
-        desc: '描述描述描述',
-        state: 'xx',
-        machine: 'xxx',
-        program: 'xxx',
-        order: 'xxxx',
-        time: '2019-02-04 19:22:11',
-        count: '20',
-        size: '1000'
+        user: 'admin',
+        desc: 'select * from base_account_role',
+        time: '145ms',
+        cpu: '140ms',
+        rate: '20.2MB/s',
+        sort: '3'
       }, {
-        user: 'user',
-        desc: '描述描述描述',
-        state: 'xx',
-        machine: 'xxx',
-        program: 'xxx',
-        order: 'xxxx',
-        time: '2019-02-04 19:22:11',
-        count: '20',
-        size: '1000'
+        user: 'admin',
+        desc: 'select * from tb_rpt_dbcfg',
+        time: '100ms',
+        cpu: '98ms',
+        rate: '24.4MB/s',
+        sort: '4'
       }, {
-        user: 'user',
-        desc: '描述描述描述',
-        state: 'xx',
-        machine: 'xxx',
-        program: 'xxx',
-        order: 'xxxx',
-        time: '2019-02-04 19:22:11',
+        user: 'admin',
+        desc: 'select count(*) from standard_log',
+        time: '68ms',
+        cpu: '60ms',
+        rate: '22.8MB/s',
+        sort: '5'
+      }],
+      tableData3: [{
+        time: '2019-06-29',
         count: '20',
-        size: '1000'
+        size: '414'
+      }, {
+        time: '2019-07-06',
+        count: '22',
+        size: '464'
+      }, {
+        time: '2019-07-13',
+        count: '23',
+        size: '511'
+      }, {
+        time: '2019-07-20',
+        count: '26',
+        size: '534'
       }]
     }
   },
