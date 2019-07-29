@@ -4,7 +4,7 @@
       <div class="column-left">
         <div class="border-box">
           <el-input v-model="filterText" placeholder="按表名查询" />
-          <el-tree ref="tree" class="filter-tree" :data="data" :props="defaultProps" default-expand-all :filter-node-method="filterNode" />
+          <el-tree ref="tree" class="filter-tree" :data="data" :props="defaultProps" :filter-node-method="filterNode" />
         </div>
       </div>
       <div class="column-right">

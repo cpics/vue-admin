@@ -4,7 +4,7 @@
       <div class="column-left">
         <div class="border-box tem-rule-tree">
           <el-input v-model="filterText" placeholder="请输入关键字" />
-          <el-tree ref="tree" class="filter-tree" :data="data" :props="defaultProps" default-expand-all :filter-node-method="filterNode" @node-click="handleNodeClick" />
+          <el-tree ref="tree" class="filter-tree" :data="data" :props="defaultProps" :filter-node-method="filterNode" @node-click="handleNodeClick" />
         </div>
       </div>
       <div v-if="pageType === 0" class="column-right">

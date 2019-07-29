@@ -26,7 +26,7 @@
                 class="filter-tree"
                 :data="treeData"
                 :props="defaultProps"
-                default-expand-all
+
                 :filter-node-method="filterNode"
               />
             </div>

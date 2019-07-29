@@ -4,7 +4,7 @@
       <div class="column-left">
         <div class="border-box tem-rule-tree">
           <el-input v-model="filterText" placeholder="数据目录" />
-          <el-tree ref="tree" class="filter-tree" :data="data" :props="defaultProps" default-expand-all :filter-node-method="filterNode" />
+          <el-tree ref="tree" class="filter-tree" :data="data" :props="defaultProps" :filter-node-method="filterNode" />
         </div>
       </div>
       <div class="column-right">
