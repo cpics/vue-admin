@@ -54,18 +54,22 @@
         <el-table-column
           prop="state"
           label="状态"
+          min-width="20%"
         />
         <el-table-column
           prop="source"
           label="数据来源"
+          min-width="20%"
         />
         <el-table-column
           prop="name"
           label="服务名称"
+          min-width="30%"
         />
         <el-table-column
           prop="miaoshu"
           label="服务描述"
+          min-width="30%"
         />
         <el-table-column
           fixed="right"
@@ -82,7 +86,8 @@
       <div>
         <el-pagination
           background
-          layout="prev, pager, next"
+          layout="sizes, prev, pager, next"
+          :page-sizes="[10,15,30,50,100]"
           :total="1000"
         />
       </div>
@@ -340,28 +345,64 @@ export default {
       value2: '',
       tableData: [{
         id: 0,
-        state: '111',
-        source: '222',
-        name: '222',
-        miaoshu: '333'
+        state: '未启用',
+        source: '真实数据',
+        name: 'ryxx',
+        miaoshu: ''
       }, {
         id: 1,
-        state: '111',
-        source: '222',
-        name: '222',
-        miaoshu: '333'
+        state: '未启用',
+        source: '真实数据',
+        name: 'ueho',
+        miaoshu: ''
       }, {
         id: 2,
-        state: '111',
-        source: '222',
-        name: '222',
-        miaoshu: '333'
+        state: '已启用',
+        source: '真实数据',
+        name: '人员基本信息',
+        miaoshu: '人员基本信息'
       }, {
         id: 3,
-        state: '111',
-        source: '222',
-        name: '222',
-        miaoshu: '333'
+        state: '已启用',
+        source: '脱敏数据',
+        name: '助学金发放流水信息',
+        miaoshu: '助学金发放流水信息'
+      }, {
+        id: 4,
+        state: '未启用',
+        source: '真实数据',
+        name: '图书借阅信息',
+        miaoshu: '图书借阅信息'
+      }, {
+        id: 5,
+        state: '已启用',
+        source: '真实数据',
+        name: '学生信息',
+        miaoshu: '学生信息'
+      }, {
+        id: 6,
+        state: '已启用',
+        source: '真实数据',
+        name: '教师信息',
+        miaoshu: '教师信息'
+      }, {
+        id: 7,
+        state: '已启用',
+        source: '脱敏数据',
+        name: '教师通讯信息',
+        miaoshu: '教师通讯信息'
+      }, {
+        id: 8,
+        state: '未启用',
+        source: '真实数据',
+        name: '数据服务',
+        miaoshu: '数据服务'
+      }, {
+        id: 3,
+        state: '已启用',
+        source: '真实数据',
+        name: '贫困信息',
+        miaoshu: '贫困信息'
       }],
       multipleSelection: [],
       stepArr: [false, false, false],

@@ -31,14 +31,17 @@
         <el-table-column
           prop="state"
           label="状态"
+          min-width="20%"
         />
         <el-table-column
           prop="name"
           label="服务名称"
+          min-width="35%"
         />
         <el-table-column
           prop="miaoshu"
           label="服务描述"
+          min-width="45%"
         />
         <el-table-column
           fixed="right"
@@ -56,7 +59,8 @@
     <el-row>
       <el-pagination
         background
-        layout="prev, pager, next"
+        layout="sizes, prev, pager, next"
+        :page-sizes="[10,15,30,50,100]"
         :total="1000"
       />
     </el-row>
@@ -97,9 +101,7 @@
           prop="id"
           label="申请ID"
           width="100"
-        >
-          <template slot-scope="scope">{{ scope.row.date }}</template>
-        </el-table-column>
+        />
         <el-table-column
           prop="token"
           label="申请TOKEN"
@@ -172,35 +174,83 @@ export default {
       }],
       value: '',
       tableData: [{
-        state: '0',
-        source: 'rs',
-        name: 'rs_info',
-        miaoshu: '2',
+        state: '未启用',
+        source: '真实数据',
+        name: 'ryxx',
+        miaoshu: '',
         id: '1',
         token: 'qwxrfwwefzdesaxasee',
         ip: '192.165.21.33/32'
       }, {
-        state: '0',
-        source: 'cw',
-        name: 'cw_ys',
-        miaoshu: '5',
-        id: '1',
+        state: '未启用',
+        source: '真实数据',
+        name: 'ueho',
+        miaoshu: '',
+        id: '2',
         token: 'arexareegeaetrddssa',
         ip: '192.165.21.33/32'
       }, {
-        state: '0',
-        source: 'xg',
-        name: 'xg_info',
-        miaoshu: '10',
-        id: '1',
+        state: '已启用',
+        source: '真实数据',
+        name: '人员基本信息',
+        miaoshu: '人员基本信息',
+        id: '3',
         token: 'asdxxsweaawwddgaerr',
         ip: '192.165.21.33/32'
       }, {
-        state: '0',
-        source: 'jw',
-        name: 'jw_xk',
-        miaoshu: '20',
-        id: '1',
+        state: '已启用',
+        source: '脱敏数据',
+        name: '助学金发放流水信息',
+        miaoshu: '助学金发放流水信息',
+        id: '4',
+        token: 'pliiaeerraxerwercxge',
+        ip: '192.165.21.33/32'
+      }, {
+        state: '未启用',
+        source: '真实数据',
+        name: '图书借阅信息',
+        miaoshu: '图书借阅信息',
+        id: '5',
+        token: 'asdxxsweaawwddgaerr',
+        ip: '192.165.21.33/32'
+      }, {
+        state: '已启用',
+        source: '真实数据',
+        name: '学生信息',
+        miaoshu: '学生信息',
+        id: '6',
+        token: 'pliiaeerraxerwercxge',
+        ip: '192.165.21.33/32'
+      }, {
+        state: '已启用',
+        source: '真实数据',
+        name: '教职工信息',
+        miaoshu: '教职工基本信息',
+        id: '7',
+        token: 'asdxxsweaawwddgaerr',
+        ip: '192.165.21.33/32'
+      }, {
+        state: '已启用',
+        source: '脱敏数据',
+        name: '教师通讯信息',
+        miaoshu: '教师通讯信息',
+        id: '8',
+        token: 'pliiaeerraxerwercxge',
+        ip: '192.165.21.33/32'
+      }, {
+        state: '未启用',
+        source: '真实数据',
+        name: '数据服务',
+        miaoshu: '数据服务',
+        id: '9',
+        token: 'asdxxsweaawwddgaerr',
+        ip: '192.165.21.33/32'
+      }, {
+        state: '已启用',
+        source: '真实数据',
+        name: '贫困生信息',
+        miaoshu: '贫困生信息',
+        id: '10',
         token: 'pliiaeerraxerwercxge',
         ip: '192.165.21.33/32'
       }]

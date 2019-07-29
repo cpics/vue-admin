@@ -39,7 +39,7 @@
             </div>
           </div>
           <div class="aq-list">
-            <div class="common-title">服务使用提醒</div>
+            <div class="common-title">服务安全提醒</div>
             <div class="aq-table">
               <el-table
                 border
@@ -51,12 +51,16 @@
                   label="服务名"
                 />
                 <el-table-column
+                  prop="dept"
+                  label="调用部门"
+                />
+                <el-table-column
                   prop="num"
-                  label="说明"
+                  label="调用次数"
                 />
                 <el-table-column
                   prop="date"
-                  label="说明"
+                  label="调用时间"
                 />
               </el-table>
             </div>
@@ -82,28 +86,25 @@ export default {
           date: '教职工基本信息',
           name: '启用未授权'
         }, {
-          date: '教职工基本信息',
+          date: '研究生信息',
           name: '启用未授权'
         }, {
-          date: '教职工基本信息',
+          date: '导师信息',
           name: '启用未授权'
         }
       ],
       tableData2: [
         {
-          name: '启用未授权',
-          num: 3,
-          date: '2016-05-02'
+          name: '教职工基本信息',
+          dept: '其他',
+          num: 26,
+          date: '2019-07-02'
 
         }, {
-          name: '启用未授权',
-          num: 3,
-          date: '2016-05-02'
-
-        }, {
-          name: '启用未授权',
-          num: 3,
-          date: '2016-07-02'
+          name: '教职工基本信息',
+          dept: '其他',
+          num: 25,
+          date: '2019-07-02'
 
         }
       ],
@@ -124,7 +125,7 @@ export default {
         xAxis: [
           {
             type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            data: ['图书借阅信息', '教师基本信息', '学生基本信息', '贫困生数据', '研究生信息'],
             axisTick: {
               alignWithLabel: true
             }
@@ -140,7 +141,7 @@ export default {
             name: '直接访问',
             type: 'bar',
             barWidth: '60%',
-            data: [10, 52, 200, 334, 390, 330, 220]
+            data: [23, 52, 35, 15, 28]
           }
         ]
       },

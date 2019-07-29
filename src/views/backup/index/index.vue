@@ -63,8 +63,8 @@
           </el-form-item>
           <el-form-item label="数据来源:" prop="formInline.source">
             <el-select v-model="formInline.source" placeholder="请选择" clearable>
-              <el-option label="来源1" value="0" />
-              <el-option label="来源2" value="1" />
+              <el-option label="代码标准" value="0" />
+              <el-option label="数据中心" value="1" />
             </el-select>
           </el-form-item>
           <el-form-item label="数据表名称(拼音)：" prop="formInline.tableName">
@@ -76,15 +76,15 @@
         </el-form>
 
         <el-table :data="tableData" fit highlight-current-row style="width: 100%">
-          <el-table-column prop="tableName" label="数据表名" />
-          <el-table-column prop="source" label="数据来源" />
-          <el-table-column prop="date" label="备份日期" />
-          <el-table-column prop="count" label="备份数目" />
-          <el-table-column prop="isSuccess" label="是否成功" />
-          <el-table-column prop="date2" label="执行时间" />
-          <el-table-column prop="detail" label="详细信息" />
+          <el-table-column prop="tableName" label="数据表名" min-width="25%" />
+          <el-table-column prop="source" label="数据来源" min-width="15%" />
+          <el-table-column prop="date" label="备份日期" min-width="10%" />
+          <el-table-column prop="count" label="备份数目" min-width="10%" />
+          <el-table-column prop="isSuccess" label="是否成功" min-width="10%" />
+          <el-table-column prop="date2" label="执行时间" min-width="15%" />
+          <el-table-column prop="detail" label="详细信息" min-width="15%" />
         </el-table>
-        <el-pagination background layout="prev, pager, next" :total="1000" />
+        <el-pagination background layout="sizes, prev, pager, next" :page-sizes="[10,15, 30, 50, 100]" :total="1000" />
       </el-tab-pane>
     </el-tabs>
   </div>
@@ -109,45 +109,85 @@ export default {
       },
       activeName: 'first',
       tableData: [{
-        tableName: 'AJ_T_TABLE',
-        source: '数据中心',
-        date: '2019-05-02',
-        count: '1',
+        tableName: 'T_CODE_JXYQ[教学仪器设备产品（物资）分类]',
+        source: '代码标准',
+        date: '2019-07-19',
+        count: '0',
         isSuccess: '执行成功',
-        date2: '2019-05-02 11：10：34',
-        detail: '信息信息信息信息信息'
+        date2: '2019-06-30 15:24:34',
+        detail: ''
       }, {
-        tableName: 'AJ_T_TABLE',
+        tableName: 'T_BZKS[本专科生基本信息]',
         source: '数据中心',
-        date: '2019-05-02',
-        count: '1',
+        date: '2019-06-29',
+        count: '0',
         isSuccess: '执行成功',
-        date2: '2019-05-02 11：10：34',
-        detail: '信息信息信息信息信息'
+        date2: '2019-06-30 15:08:00',
+        detail: ''
       }, {
-        tableName: 'AJ_T_TABLE',
+        tableName: 'T_BZKS[本专科生基本信息]',
         source: '数据中心',
-        date: '2019-05-02',
-        count: '1',
+        date: '2019-06-29',
+        count: '0',
         isSuccess: '执行成功',
-        date2: '2019-05-02 11：10：34',
-        detail: '信息信息信息信息信息'
+        date2: '2019-06-30 15:07:58',
+        detail: ''
       }, {
-        tableName: 'AJ_T_TABLE',
+        tableName: 'T_BZKS[本专科生基本信息]',
         source: '数据中心',
-        date: '2019-05-02',
-        count: '1',
+        date: '2019-06-29',
+        count: '0',
         isSuccess: '执行成功',
-        date2: '2019-05-02 11：10：34',
-        detail: '信息信息信息信息信息'
+        date2: '2019-06-30 15:07:55',
+        detail: ''
       }, {
-        tableName: 'AJ_T_TABLE',
+        tableName: 'T_BZKS[本专科生基本信息]',
         source: '数据中心',
-        date: '2019-05-02',
-        count: '1',
+        date: '2019-06-29',
+        count: '0',
         isSuccess: '执行成功',
-        date2: '2019-05-02 11：10：34',
-        detail: '信息信息信息信息信息'
+        date2: '2019-06-20 15:07:50',
+        detail: ''
+      }, {
+        tableName: 'T_BZKS_BJAP[本专科生课程班级安排]',
+        source: '数据中心',
+        date: '2019-06-29',
+        count: '0',
+        isSuccess: '执行成功',
+        date2: '2019-06-30 15:07:48',
+        detail: ''
+      }, {
+        tableName: 'T_BZKS_BJAP[本专科生课程班级安排]',
+        source: '数据中心',
+        date: '2019-06-29',
+        count: '0',
+        isSuccess: '执行成功',
+        date2: '2019-06-30 15:07:45',
+        detail: ''
+      }, {
+        tableName: 'T_BZKS_BZ[本专科生补助信息]',
+        source: '数据中心',
+        date: '2019-06-29',
+        count: '0',
+        isSuccess: '执行成功',
+        date2: '2019-06-30 15:07:40',
+        detail: ''
+      }, {
+        tableName: 'T_BZKS_BZ[本专科生补助信息]',
+        source: '数据中心',
+        date: '2019-06-29',
+        count: '0',
+        isSuccess: '执行成功',
+        date2: '2019-06-30 15:07:38',
+        detail: ''
+      }, {
+        tableName: 'T_BZKS_BZ[本专科生补助信息]',
+        source: '数据中心',
+        date: '2019-06-29',
+        count: '0',
+        isSuccess: '执行成功',
+        date2: '2019-06-30 15:07:28',
+        detail: ''
       }]
     }
   },

@@ -49,7 +49,7 @@
             label="违规数"
           />
         </el-table>
-        <el-pagination background layout="prev, pager, next" :total="1000" />
+        <!--<el-pagination background layout="prev, pager, next" :total="1000" />-->
       </el-collapse-item>
     </el-collapse>
 
@@ -64,17 +64,35 @@ export default {
   data() {
     return {
       tableTop: [{
-        name: '表名表名表名表名表名表名表名表名表名表名表名',
-        number: '88885511'
+        name: 'T_KY_XM[科研项目基本信息]',
+        number: '71499'
       }, {
-        name: '表名表名表名表名表名表名表名表名表名表名表名',
-        number: '88885511'
+        name: 'T_KY_XM[科研项目基本信息]',
+        number: '71499'
       }, {
-        name: '表名表名表名表名表名表名表名表名表名表名表名',
-        number: '88885511'
+        name: 'T_KY_LW[科研论文基本信息]',
+        number: '54254'
       }, {
-        name: '表名表名表名表名表名表名表名表名表名表名表名',
-        number: '88885511'
+        name: 'T_KY_LW[科研论文基本信息]',
+        number: '54254'
+      }, {
+        name: 'T_KY_CGJD[成果鉴定信息]',
+        number: '14328'
+      }, {
+        name: 'T_KY_CGJD[成果鉴定信息]',
+        number: '14328'
+      }, {
+        name: 'T_KY_ZZ[科研著作基本信息]',
+        number: '8727'
+      }, {
+        name: 'T_KY_ZZ[科研著作基本信息]',
+        number: '8727'
+      }, {
+        name: 'T_JZG[教职工基本信息]',
+        number: '1426'
+      }, {
+        name: 'T_JZG[T_JZG]',
+        number: '638'
       }],
       activeNames: ['1', '2', '3'],
       barChart: null,
@@ -94,10 +112,10 @@ export default {
         },
         series: [
           {
-            name: '业务指标',
+            name: '空值',
             type: 'gauge',
             detail: { formatter: '{value}%' },
-            data: [{ value: 40, name: '完成率' }]
+            data: [{ value: 62.24, name: '' }]
           }
         ]
       },
@@ -113,10 +131,10 @@ export default {
         },
         series: [
           {
-            name: '业务指标',
+            name: '编号不是纯数字',
             type: 'gauge',
             detail: { formatter: '{value}%' },
-            data: [{ value: 50, name: '完成率' }]
+            data: [{ value: 0.86, name: '' }]
           }
         ]
       },
@@ -132,10 +150,10 @@ export default {
         },
         series: [
           {
-            name: '业务指标',
+            name: '数字超出正常范围',
             type: 'gauge',
             detail: { formatter: '{value}%' },
-            data: [{ value: 60, name: '完成率' }]
+            data: [{ value: 0, name: '' }]
           }
         ]
       },
@@ -151,10 +169,10 @@ export default {
         },
         series: [
           {
-            name: '业务指标',
+            name: '不唯一',
             type: 'gauge',
             detail: { formatter: '{value}%' },
-            data: [{ value: 70, name: '完成率' }]
+            data: [{ value: 0.25, name: '' }]
           }
         ]
       },
@@ -175,7 +193,7 @@ export default {
         xAxis: [
           {
             type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            data: ['空值', '编号不是纯数字', '数字超出正常范围', '不唯一', '不在代码表', '初始化'],
             axisTick: {
               alignWithLabel: true
             }
@@ -188,10 +206,10 @@ export default {
         ],
         series: [
           {
-            name: '直接访问',
+            name: '',
             type: 'bar',
             barWidth: '60%',
-            data: [10, 52, 200, 334, 390, 330, 220]
+            data: [83339, 1175, 1, 334, 48773, 334]
           }
         ]
       }

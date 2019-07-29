@@ -215,27 +215,17 @@ export default {
         id: 1,
         user: 'admin',
         send: '质量报告',
-        remind: 'GXJX 教学管理数据'
+        remind: 'JCXX 学校管理数据'
       }, {
         id: 2,
         user: 'admin',
         send: '质量报告',
-        remind: 'GXJX 教学管理数据'
+        remind: 'JCXS 学生管理数据'
       }, {
         id: 3,
         user: 'admin',
         send: '质量报告',
-        remind: 'GXJX 教学管理数据'
-      }, {
-        id: 4,
-        user: 'admin',
-        send: '质量报告',
-        remind: 'GXJX 教学管理数据'
-      }, {
-        id: 5,
-        user: 'admin',
-        send: '质量报告',
-        remind: 'GXJX 教学管理数据'
+        remind: 'JCJG 教职工管理数据'
       }]
 
     }

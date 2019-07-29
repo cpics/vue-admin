@@ -130,7 +130,7 @@ export default {
         xAxis: [
           {
             type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            data: ['空值', '编号不是纯数字', '数字超出正常范围', '不唯一', '不在代码表', '初始化'],
             axisTick: {
               alignWithLabel: true
             }
@@ -143,10 +143,10 @@ export default {
         ],
         series: [
           {
-            name: '直接访问',
+            name: '数量',
             type: 'bar',
             barWidth: '60%',
-            data: [10, 52, 200, 334, 390, 330, 220]
+            data: [83339, 1175, 1, 334, 48773, 334]
           }
         ]
       },
@@ -157,14 +157,14 @@ export default {
         field: 'ZGH[职工号]',
         rule: '不唯一',
         count: '999',
-        violation: '123'
+        violation: '14'
       }, {
         id: 1,
         obj: 'T_JZG[教职工基本信息]',
-        field: 'ZGH[职工号]',
-        rule: '不唯一',
+        field: 'SFZH[身份证号]',
+        rule: '不符合身份证号规则',
         count: '999',
-        violation: '123'
+        violation: '35'
       }],
       tableData: [{
         id: 0,

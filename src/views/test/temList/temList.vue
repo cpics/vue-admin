@@ -80,28 +80,58 @@ export default {
         email: true
       }, {
         id: 1,
-        template: '不在代码表',
+        template: '不唯一',
         type: '唯一性',
-        useType: '单字段',
-        email: true
+        useType: '多字段',
+        email: false
       }, {
         id: 2,
-        template: '不在代码表',
-        type: '唯一性',
+        template: '初始化',
+        type: '完整性',
         useType: '单字段',
-        email: true
+        email: false
       }, {
         id: 3,
-        template: '不在代码表',
-        type: '唯一性',
+        template: '不符合IP地址规则',
+        type: '准确性',
         useType: '单字段',
         email: true
       }, {
         id: 4,
-        template: '不在代码表',
-        type: '唯一性',
+        template: '不符合手机号码规则',
+        type: '准确性',
         useType: '单字段',
-        email: true
+        email: false
+      }, {
+        id: 5,
+        template: '不符合电子邮箱规则',
+        type: '准确性',
+        useType: '单字段',
+        email: false
+      }, {
+        id: 6,
+        template: '不符合身份证号规则',
+        type: '准确性',
+        useType: '单字段',
+        email: false
+      }, {
+        id: 7,
+        template: '存在全角字符',
+        type: '准确性',
+        useType: '单字段',
+        email: false
+      }, {
+        id: 8,
+        template: '数字超出正常范围',
+        type: '准确性',
+        useType: '单字段',
+        email: false
+      }, {
+        id: 9,
+        template: '空值',
+        type: '准确性',
+        useType: '单字段',
+        email: false
       }],
       multipleSelection: [],
       dialogFormVisible: false,
