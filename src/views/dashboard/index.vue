@@ -116,7 +116,7 @@ export default {
         xAxis: [
           {
             type: 'category',
-            data: ['人事系统1', '财务系统', '学工系统', '教务系统', '科研系统', '后勤系统', '资产系统'],
+            data: ['通用', '财务', '学工', '教务', '科研', '后勤', '资产'],
             axisTick: {
               alignWithLabel: true
             }
@@ -132,7 +132,7 @@ export default {
             name: '直接访问',
             type: 'bar',
             barWidth: '60%',
-            data: [10, 52, 200, 334, 390, 330, 220]
+            data: [910, 340, 200, 668, 771, 987, 210]
           }
         ]
       },
@@ -153,7 +153,7 @@ export default {
         xAxis: [
           {
             type: 'category',
-            data: ['人事系统2', '财务系统', '学工系统', '教务系统', '科研系统', '后勤系统', '资产系统'],
+            data: ['通用', '财务', '学工', '教务', '科研', '后勤', '资产'],
             axisTick: {
               alignWithLabel: true
             }
@@ -169,7 +169,7 @@ export default {
             name: '直接访问',
             type: 'bar',
             barWidth: '60%',
-            data: [10, 52, 200, 334, 390, 330, 220]
+            data: [820, 552, 230, 634, 990, 630, 920]
           }
         ]
       },
@@ -190,7 +190,7 @@ export default {
         xAxis: [
           {
             type: 'category',
-            data: ['人事系统3', '财务系统', '学工系统', '教务系统', '科研系统', '后勤系统', '资产系统'],
+            data: ['基础类', '教务类', '学工类', '财务类', '人事类', '科研类', '其他类'],
             axisTick: {
               alignWithLabel: true
             }
@@ -206,7 +206,7 @@ export default {
             name: '直接访问',
             type: 'bar',
             barWidth: '60%',
-            data: [10, 52, 200, 334, 390, 330, 220]
+            data: [1110, 552, 200, 534, 590, 630, 320]
           }
         ]
       },
@@ -227,7 +227,7 @@ export default {
         xAxis: [
           {
             type: 'category',
-            data: ['人事系统4', '财务系统', '学工系统', '教务系统', '科研系统', '后勤系统', '资产系统'],
+            data: ['基础类', '教务类', '学工类', '财务类', '人事类', '科研类', '其他类'],
             axisTick: {
               alignWithLabel: true
             }
@@ -243,7 +243,7 @@ export default {
             name: '直接访问',
             type: 'bar',
             barWidth: '60%',
-            data: [10, 52, 200, 334, 390, 330, 220]
+            data: [1120, 652, 600, 534, 690, 730, 220]
           }
         ]
       }
