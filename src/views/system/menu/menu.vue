@@ -9,7 +9,7 @@
             class="filter-tree"
             :data="data"
             :props="defaultProps"
-            default-expand-all
+
             :filter-node-method="filterNode"
           />
         </div>
