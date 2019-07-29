@@ -129,7 +129,7 @@ export default {
         ],
         series: [
           {
-            name: '直接访问',
+            name: '数量',
             type: 'bar',
             barWidth: '60%',
             data: [910, 340, 200, 668, 771, 987, 210]
@@ -166,7 +166,7 @@ export default {
         ],
         series: [
           {
-            name: '直接访问',
+            name: '数量',
             type: 'bar',
             barWidth: '60%',
             data: [820, 552, 230, 634, 990, 630, 920]
@@ -203,7 +203,7 @@ export default {
         ],
         series: [
           {
-            name: '直接访问',
+            name: '数量',
             type: 'bar',
             barWidth: '60%',
             data: [1110, 552, 200, 534, 590, 630, 320]
@@ -240,7 +240,7 @@ export default {
         ],
         series: [
           {
-            name: '直接访问',
+            name: '数量',
             type: 'bar',
             barWidth: '60%',
             data: [1120, 652, 600, 534, 690, 730, 220]

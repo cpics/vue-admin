@@ -200,7 +200,7 @@ export default {
         },
         yAxis: {
           type: 'category',
-          data: ['FACE_1', 'FACE_2', 'FACE_3', 'FACE_4', 'FACE_5', 'FACE_6', 'FACE_7', 'FACE_8', 'FACE_9', 'FACE_10']
+          data: ['消费信息同步', '学生信息同步', '教职工信息同步', '后勤报修信息同步', '科研信息同步', '财务信息同步', '学工信息同步', '教务信息同步', '学工信息同步', '主数据同步']
         },
         series: [
           {

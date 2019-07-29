@@ -118,7 +118,7 @@ export default {
       formLabelWidth: '140px',
       tableData: [{
         businessTable: '学校基本数据子类表',
-        businessField: '985GCYXZK',
+        businessField: 'GCYXZK',
         codeTable: 'SFBZ',
         codeFieldName: 'DM(代码)',
         showFieldName: 'GCYXZK',
@@ -126,26 +126,26 @@ export default {
       },
       {
         businessTable: '学校基本数据子类表',
-        businessField: '985GCYXZK',
+        businessField: 'GCYXZT',
         codeTable: 'SFBZ',
         codeFieldName: 'DM(代码)',
-        showFieldName: 'GCYXZK',
+        showFieldName: 'GCYXZT',
         dataFlow: '代码表到业务表'
       },
       {
         businessTable: '学校基本数据子类表',
-        businessField: '985GCYXZK',
+        businessField: 'GCTXCK',
         codeTable: 'SFBZ',
         codeFieldName: 'DM(代码)',
-        showFieldName: 'GCYXZK',
+        showFieldName: 'GCTXCK',
         dataFlow: '代码表到业务表'
       },
       {
         businessTable: '学校基本数据子类表',
-        businessField: '985GCYXZK',
+        businessField: 'GCMZZK',
         codeTable: 'SFBZ',
         codeFieldName: 'DM(代码)',
-        showFieldName: 'GCYXZK',
+        showFieldName: 'GCMZZK',
         dataFlow: '代码表到业务表'
       }],
       tableData2: [{
