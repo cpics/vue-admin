@@ -96,7 +96,7 @@ export const constantRoutes = [
     name: 'mData',
     meta: {
       title: '元数据管理',
-      icon: 'lock'
+      icon: 'component'
     },
     children: [
       {
@@ -127,7 +127,7 @@ export const constantRoutes = [
     name: 'mainData',
     meta: {
       title: '主数据管理',
-      icon: 'lock'
+      icon: 'guide'
     },
     children: [
       {
@@ -157,7 +157,7 @@ export const constantRoutes = [
     name: 'code',
     meta: {
       title: '代码标准管理',
-      icon: 'lock'
+      icon: 'list'
     },
     children: [
       {
@@ -196,7 +196,7 @@ export const constantRoutes = [
     name: 'run',
     meta: {
       title: '运行监控管理',
-      icon: 'lock'
+      icon: 'eye-open'
     },
     children: [
       {
@@ -226,7 +226,7 @@ export const constantRoutes = [
     name: 'dataShare',
     meta: {
       title: '数据共享接口',
-      icon: 'lock'
+      icon: 'education'
     },
     children: [
       {
@@ -279,7 +279,7 @@ export const constantRoutes = [
     name: 'test',
     meta: {
       title: '质量检测管理',
-      icon: 'lock'
+      icon: 'example'
     },
     children: [
       {
@@ -405,7 +405,7 @@ export const constantRoutes = [
     name: 'system',
     meta: {
       title: '系统管理',
-      icon: 'lock'
+      icon: 'user'
     },
     children: [
       {
