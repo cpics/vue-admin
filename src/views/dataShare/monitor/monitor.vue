@@ -68,30 +68,37 @@
             <el-table-column
               prop="id"
               label="ID"
+              min-width="10%"
             />
             <el-table-column
               prop="fwName"
               label="服务名"
+              min-width="15%"
             />
             <el-table-column
               prop="ywy"
               label="业务域"
+              min-width="15%"
             />
             <el-table-column
               prop="sqID"
               label="申请ID"
+              min-width="15%"
             />
             <el-table-column
               prop="state"
               label="调用状态"
+              min-width="10%"
             />
             <el-table-column
               prop="rzxx"
               label="日志信息"
+              min-width="15%"
             />
             <el-table-column
               prop="date"
               label="调用日期"
+              min-width="20%"
             />
           </el-table>
           <el-pagination background layout="prev, pager, next" :total="1000" />
@@ -174,21 +181,21 @@ export default {
       tableData: [
         {
           id: 0,
-          fwName: '人员基本信息',
+          fwName: '教职工基本信息',
           ywy: '人事',
           sqID: '001',
           state: '200',
           rzxx: 'successful',
-          date: '2019-06-20 17:28:37.0'
+          date: '2019-06-20 17:28:23'
         },
         {
           id: 2,
-          fwName: '人员基本信息',
+          fwName: '研究生信息',
           ywy: '人事',
-          sqID: '001',
+          sqID: '004',
           state: '200',
           rzxx: 'successful',
-          date: '2019-06-20 17:28:37.0'
+          date: '2019-06-20 17:21:37'
         }
       ],
       dialogFormVisible: false,
