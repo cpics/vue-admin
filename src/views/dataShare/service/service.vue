@@ -93,7 +93,7 @@
       </div>
     </div>
     <el-dialog
-      title="新增服务1"
+      title="人员基本信息"
       :visible.sync="stepArr[0]"
     >
       <el-form :model="form">
