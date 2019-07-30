@@ -138,7 +138,7 @@ export default {
         ],
         series: [
           {
-            name: '直接访问',
+            name: '调用数量',
             type: 'bar',
             barWidth: '60%',
             data: [23, 52, 35, 15, 28]
