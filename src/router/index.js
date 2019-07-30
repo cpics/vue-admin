@@ -437,7 +437,7 @@ export const constantRoutes = [
         component: () => import('@/views/system/dic/dic.vue'),
         name: 'codeDic',
         meta: {
-          title: '字典项配置管理'
+          title: '配置管理'
         }
       }
     ]
