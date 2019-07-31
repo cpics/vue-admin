@@ -108,7 +108,7 @@ export default {
       input1: '',
       input2: '',
       input3: '',
-      dmOptions: {
+      dmOptions1: {
         title: {
           text: '总体情况(记录)'
         },
@@ -130,7 +130,39 @@ export default {
         },
         yAxis: {
           type: 'category',
-          data: ['教育管理基础', '教育行政管理', '高等学校管理', '教育统计']
+          data: ['教育管理基础1', '教育行政管理', '高等学校管理', '教育统计']
+        },
+        series: [
+          {
+            name: '代码标准(表数量)',
+            type: 'bar',
+            data: [100, 500, 1500, 2200]
+          }
+        ]
+      },
+      dmOptions2: {
+        title: {
+          text: '总体情况(记录)'
+        },
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            type: 'shadow'
+          }
+        },
+        grid: {
+          left: '3%',
+          right: '4%',
+          bottom: '3%',
+          containLabel: true
+        },
+        xAxis: {
+          type: 'value',
+          boundaryGap: [0, 0.01]
+        },
+        yAxis: {
+          type: 'category',
+          data: ['教育管理基础2', '教育行政管理', '高等学校管理', '教育统计']
         },
         series: [
           {
@@ -204,10 +236,10 @@ export default {
   methods: {
     initDmChart() {
       this.dmChart = echarts.init(this.$refs.dmChart)
-      this.dmChart.setOption(this.dmOptions)
+      this.dmChart.setOption(this.dmOptions1)
 
       this.dmChart2 = echarts.init(this.$refs.dmChart2)
-      this.dmChart2.setOption(this.dmOptions)
+      this.dmChart2.setOption(this.dmOptions2)
     },
     onSubmit() {
       this.$message({
