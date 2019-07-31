@@ -197,7 +197,7 @@ export default {
         input4: '1 位代码，8 种类别。',
         input5: '2019-06-21'
       },
-      dmOptions1: {
+      dmOptions: {
         title: {
           text: '代码标准(表数量)'
         },
@@ -219,103 +219,7 @@ export default {
         },
         yAxis: {
           type: 'category',
-          data: ['学校管理类代码1', '学生管理类代码', '教学管理类代码', '教职工管理类代码', '通用人员管理类代码', '科研管理类代码', '资产、图书、实验室管理类代码', '财务管理类代码']
-        },
-        series: [
-          {
-            name: '代码标准(表数量)',
-            type: 'bar',
-            data: [32, 42, 80, 60, 112, 120, 90, 110]
-          }
-        ]
-      },
-      dmOptions2: {
-        title: {
-          text: '代码标准(表数量)'
-        },
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'shadow'
-          }
-        },
-        grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '3%',
-          containLabel: true
-        },
-        xAxis: {
-          type: 'value',
-          boundaryGap: [0, 0.01]
-        },
-        yAxis: {
-          type: 'category',
-          data: ['学校管理类代码2', '学生管理类代码', '教学管理类代码', '教职工管理类代码', '通用人员管理类代码', '科研管理类代码', '资产、图书、实验室管理类代码', '财务管理类代码']
-        },
-        series: [
-          {
-            name: '代码标准(表数量)',
-            type: 'bar',
-            data: [32, 42, 80, 60, 112, 120, 90, 110]
-          }
-        ]
-      },
-      dmOptions3: {
-        title: {
-          text: '代码标准(表数量)'
-        },
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'shadow'
-          }
-        },
-        grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '3%',
-          containLabel: true
-        },
-        xAxis: {
-          type: 'value',
-          boundaryGap: [0, 0.01]
-        },
-        yAxis: {
-          type: 'category',
-          data: ['学校管理类代码3', '学生管理类代码', '教学管理类代码', '教职工管理类代码', '通用人员管理类代码', '科研管理类代码', '资产、图书、实验室管理类代码', '财务管理类代码']
-        },
-        series: [
-          {
-            name: '代码标准(表数量)',
-            type: 'bar',
-            data: [32, 42, 80, 60, 112, 120, 90, 110]
-          }
-        ]
-      },
-      dmOptions4: {
-        title: {
-          text: '代码标准(表数量)'
-        },
-        tooltip: {
-          trigger: 'axis',
-          axisPointer: {
-            type: 'shadow'
-          }
-        },
-        grid: {
-          left: '3%',
-          right: '4%',
-          bottom: '3%',
-          containLabel: true
-        },
-        xAxis: {
-          type: 'value',
-          boundaryGap: [0, 0.01]
-        },
-        yAxis: {
-          type: 'category',
-          data: ['学校管理类代码4', '学生管理类代码', '教学管理类代码', '教职工管理类代码', '通用人员管理类代码', '科研管理类代码', '资产、图书、实验室管理类代码', '财务管理类代码']
+          data: ['学校管理类代码', '学生管理类代码', '教学管理类代码', '教职工管理类代码', '通用人员管理类代码', '科研管理类代码', '资产、图书、实验室管理类代码', '财务管理类代码']
         },
         series: [
           {
@@ -469,16 +373,16 @@ export default {
   methods: {
     initDmChart() {
       this.dmChart = echarts.init(this.$refs.dmChart)
-      this.dmChart.setOption(this.dmOptions1)
+      this.dmChart.setOption(this.dmOptions)
 
       this.dmChart2 = echarts.init(this.$refs.dmChart2)
-      this.dmChart2.setOption(this.dmOptions2)
+      this.dmChart2.setOption(this.dmOptions)
 
       this.dmChart3 = echarts.init(this.$refs.dmChart3)
-      this.dmChart3.setOption(this.dmOptions3)
+      this.dmChart3.setOption(this.dmOptions)
 
       this.dmChart4 = echarts.init(this.$refs.dmChart4)
-      this.dmChart4.setOption(this.dmOptions4)
+      this.dmChart4.setOption(this.dmOptions)
     },
     handleNodeClick(node, data, value) {
       this.pageType = 1
