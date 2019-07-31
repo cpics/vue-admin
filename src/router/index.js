@@ -69,7 +69,7 @@ export const constantRoutes = [
         path: 'dashboard',
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
-        meta: { title: '首页', icon: 'dashboard', affix: true }
+        meta: { title: '武汉高速铁路职业技能训练段 大数据中控平台 V2.6(演示环境)', icon: 'dashboard', affix: true }
       }
     ]
   },
