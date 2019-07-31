@@ -5,37 +5,37 @@
       <div class="dashboard-data">
         <div class="dashboard-col">
           <section>
-            <h1>5001</h1>
+            <h1>12</h1>
             <p>业务系统数量</p>
           </section>
         </div>
         <div class="dashboard-col">
           <section>
-            <h1>3200</h1>
+            <h1>328</h1>
             <p>代码标准数量</p>
           </section>
         </div>
         <div class="dashboard-col">
           <section>
-            <h1>200</h1>
+            <h1>198</h1>
             <p>数据标准数量</p>
           </section>
         </div>
         <div class="dashboard-col">
           <section>
-            <h1>80</h1>
+            <h1>158</h1>
             <p>数据建设数量</p>
           </section>
         </div>
         <div class="dashboard-col">
           <section>
-            <h1>800</h1>
+            <h1>800+</h1>
             <p>今日访客数量</p>
           </section>
         </div>
         <div class="dashboard-col">
           <section>
-            <h1>100000</h1>
+            <h1>100000+</h1>
             <p>历史访问数量</p>
           </section>
         </div>
