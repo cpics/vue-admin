@@ -331,7 +331,7 @@ export const constantRoutes = [
         component: () => import('@/views/test/dataQualityTask/dataQualityTask.vue'),
         name: 'dataQualityTask',
         meta: {
-          title: '任务调度'
+          title: '任务作业'
         }
         // alwaysShow: true,
         // children: [
