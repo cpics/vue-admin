@@ -74,7 +74,7 @@
         <el-table-column
           fixed="right"
           label="操作"
-          width="130"
+          width="150"
         >
           <template>
             <el-button class="mini-btn" type="primary" icon="el-icon-edit" circle title="编辑" @click="showStep(0,2)" />
