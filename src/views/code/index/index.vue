@@ -12,9 +12,9 @@
           <el-form-item label="查询类型:" prop="formInline.type">
             <el-select v-model="formInline.type" placeholder="请选择" clearable>
               <el-option label="全部" value="0" />
-              <el-option label="表名或数据" value="1" />
-              <el-option label="表名" value="2" />
-              <el-option label="数据" value="3" />
+
+              <el-option label="表名" value="1" />
+              <el-option label="数据" value="2" />
             </el-select>
           </el-form-item>
           <el-form-item label="关键字:" prop="formInline.keyword">
